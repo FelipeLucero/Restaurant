@@ -1,0 +1,223 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Restaurant Siglo XXI</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+    
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+	<script src="/static/js/jquery.flexslider.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/validacion.js"></script>
+
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/restaurant.css' %}"> 
+    {% endblock%}
+    <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+
+
+
+
+</head>
+
+<body class="fondo">
+   
+    <header>
+       <div id="subheader">
+           <div id="divlogo">
+              <img class="logorestaurant" src="/static/img/star.png" alt="logo de armafox">
+            </div>
+            
+            <nav >
+                <ul>
+                  <li> <a href="http://127.0.0.1:8000">Inicio</a> </li>
+                  <li> <a href="http://127.0.0.1:8000/form">Registro</a> </li>
+                  <li> <a href="http://127.0.0.1:8000/solicitud">Reserva</a> </li>
+                  <li> <a href="http://127.0.0.1:8000/accounts/login/">Login</a> </li>
+                </ul> 
+              
+            </nav>
+        </div>
+    </header>
+    
+    <section class="flexslider">
+        <ul class="slides">
+
+            <li>
+                <img src="/static/img/carrusel/restaurant.jpg" alt="img1">
+                <section  class="caption">
+                    <h2> "Restaurant siglo XXI</h2>
+                </section>
+            </li>
+
+            <li>
+                <img src="/static/img/carrusel/res.jpg" alt="img2">
+                <section class="caption">
+                    <h2>"40 años de servicio"</h2> 
+                </section>
+            </li>
+
+            <li>
+                <img src="/static/img/carrusel/restaurant.jpg" alt="img3">
+                <section class="caption">
+                    <h2>"La calidad y la delicadesa"</h2>
+                </section>
+            </li>
+
+            <li>
+                <img src="/static/img/carrusel/res.jpg" alt="img4">
+                <section class="caption">
+                    <h2>"Restaurant siglo XXI"</h2>
+                </section>
+            </li>
+
+
+        </ul>
+                      
+    </section>
+
+    <section id="wrap">
+       
+        <section id="contenido">
+
+            <article  id="artinovacion">
+                <div class="page-header">
+                    <h2 class="titulos">Bienvenidos a Restaurant Siglo XXI</h2>
+                </div>
+               
+                <br>
+                <h4 class="subtitulos">Llevamos 40 años satisfaciendo el paladar de nuestros clientes</h4>
+                <br>
+                <br>
+                <p class="parrafos">
+                    Nuestro restaurant siglo XXI, prepara los platillos con la mejor 
+                    calidad gracias a sus ingredientes selectos y a los profesionales puestos a servició para su preparación
+                </p>
+                <br>
+                <br>
+                <p class="parrafos">
+                    Tenemos  vasta experiencia en nuestro rubro ya que orgullosos llevamos más de 40 años satisfaciendo a nuestros clientes, 
+                    seguiremos mejorando día tras día para seguir cautivando sus paladares y corazones. 
+                     Visítanos en nuestro restaurant para que sientas en carne propia este procesó con toque de delicadeza y  pasión 
+                </p>
+                <br>
+                <br>
+                <div id="divinovacion">
+                    <img id=imginovacion src="/static/img/carrusel/omg.jpg" alt="imagen inovacion">
+            
+                </div>
+                    
+            </article>
+
+        </section>
+        
+        
+        <section id="galeriamain">
+            <div id="titulogaleria">
+                
+                <h2>Nuestros mejores y selectos platillos destacados por los clientes</h2>
+                
+            </div> 
+
+            <div id="galeria">
+            
+                <div class="contgaleria">
+                 <img class="imgpc" src="" alt="img platillo1"><br>
+                 <label>Camarones a la parmesana</label>
+                 <p class="caracteristicas">  Ingredientes = sadlepomsjiospe ske spse <br>Precio = $15.000 </p>
+                 <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_gamer_gama_baja.png">Ver Platillo</a></div>
+                </div>
+   
+                <div class="contgaleria">
+                    <img class="imgpc" src="" alt="img platillo2"><br>
+                    <label>Porotos Chiloe</label>
+                    <p class="caracteristicas"> Ingredientes = sadlepomsjiospe ske spse <br>Precio = $8.000 </p>
+                    <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_gamer_gama_media.png">Ver Platillo</a></div>
+                </div>
+
+                <div class="contgaleria">
+                    <img class="imgpc" src="" alt="img platillo3"><br>
+                    <label>Carne de vacuno ahumada con jugo de huenchivaca</label>
+                    <p class="caracteristicas"> Ingredientes = sadlepomsjiospe ske spse <br>Precio = $15.000 </p>
+                    <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_gamer_gama_alta.png">Ver Platillo</a></div>  
+                </div>
+
+                <div class="contgaleria">
+                    <img class="imgpc" src="" alt="img platillo4"><br>
+                    <label>Arroz carmesi con salsa de ares</label>
+                    <p class="caracteristicas"> Ingredientes = sadlepomsjiospe ske spse <br>Precio = $12.000 </p>
+                    </p>
+                    <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_pc_minimi.png">Ver Platillo</a></div>
+                </div>
+
+                <div class="contgaleria">
+                    <img class="imgpc" src="" alt="img platillo5"><br>
+                    <label>Curanto con chapalele</label>
+                    <p class="caracteristicas"> Ingredientes = sadlepomsjiospe ske spse <br>Precio = $12.000 </p>
+                    <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_trabajo_gama_media.png">Ver Platillo</a></div>
+                </div>
+
+                <div class="contgaleria">
+                    <img class="imgpc" src="" alt="img platillo6"><br>
+                    <label>Cerdo ahumado con kilanesa</label>
+                    <p class="caracteristicas"> Ingredientes = sadlepomsjiospe ske spse <br>Precio = $10.000 </p>
+                    <div class="butimg"><a target="_blank" href="/static/img/parmados/caract_trabajo_gama_alta.png">Ver Platillo</a></div> 
+                </div>
+                
+            </div>
+
+        </section>
+        
+        <section id="informacion">
+            <div class="numero">
+                <p><strong>+ 569 97681778</strong></p>
+            </div>
+        
+            <div class="parmado">
+               <article>
+               <p><strong>Más información en nuestras redes sociales</strong></p> 
+               </article>
+            </div>
+
+            </div>
+        
+                <section class="redes">
+                    <div class="Facebook"><a target="_blank" href="
+                        https://www.facebook.com/ArmaFox-ARMAMOSTUPCENCASA-112910423409893/?modal=admin_todo_tour">Fac</a></div>
+                    <div class="Google"><a target="_blank" href="https://twitter.com/ArmafoxA">Goo</a></div>
+                    <div class="Instagran"><a target="_blank" href="https://www.instagram.com/armafox_armapc_cl/?hl=es-la">Ins</a></div>
+                    <div class="Email"><a target="_blank" href="armafoxadomicilio@gmail.com">Ema</a></div>
+                </section>
+
+            </div>
+
+        </section>
+
+        <div> 
+            <a href="https://www.contadorvisitasgratis.com" title="contador de visitas html"><img src="https://counter7.wheredoyoucomefrom.ovh/private/contadorvisitasgratis.php?c=klbcx3aw1828pu98mgqqqu3bam45ep71" border="0" title="contador de visitas html" alt="contador de visitas html"></a>
+        </div>
+        <h3>Contador de Paginas Restaurant Siglo XXI</h3>
+
+         
+       
+    </section>
+    
+    <footer>
+       
+        <div id= divfooter>
+            <img id="imgfooter" src="" alt="img footer">
+            <img id="imgfooter2" src="" alt="img footer2">
+        </div>
+        
+    </footer>
+    
+   
+</body>
+</html>
