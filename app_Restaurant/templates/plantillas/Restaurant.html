@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Restaurant Siglo XXI</title>
+    
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
     
@@ -18,7 +19,7 @@
 
 
     {% block css %}
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/diseño.css' %}"> 
     {% endblock%}
     <link rel="stylesheet" href="{% static 'css/slider.css' %}">
 
@@ -27,8 +28,9 @@
 
 </head>
 
+
 <body class="fondo">
-   
+    
     <header>
        <div id="subheader">
            <div id="divlogo">
@@ -38,15 +40,15 @@
             <nav >
                 <ul>
                   <li> <a href="http://127.0.0.1:8000">Inicio</a> </li>
-                  <li> <a href="http://127.0.0.1:8000/form">Registro</a> </li>
-                  <li> <a href="http://127.0.0.1:8000/solicitud">Reserva</a> </li>
+                  <li> <a href="http://127.0.0.1:8000/registro">Registro</a> </li>
+                  <li> <a href="http://127.0.0.1:8000/reserva">Reserva</a> </li>
                   <li> <a href="http://127.0.0.1:8000/accounts/login/">Login</a> </li>
                 </ul> 
               
             </nav>
         </div>
     </header>
-    
+    {% block contenido %}
     <section class="flexslider">
         <ul class="slides">
 
@@ -190,10 +192,10 @@
         
                 <section class="redes">
                     <div class="Facebook"><a target="_blank" href="
-                        https://www.facebook.com/ArmaFox-ARMAMOSTUPCENCASA-112910423409893/?modal=admin_todo_tour">Fac</a></div>
-                    <div class="Google"><a target="_blank" href="https://twitter.com/ArmafoxA">Goo</a></div>
-                    <div class="Instagran"><a target="_blank" href="https://www.instagram.com/armafox_armapc_cl/?hl=es-la">Ins</a></div>
-                    <div class="Email"><a target="_blank" href="armafoxadomicilio@gmail.com">Ema</a></div>
+                        https://www.facebook.com/">Fac</a></div>
+                    <div class="Google"><a target="_blank" href="https://twitter.com/">Goo</a></div>
+                    <div class="Instagran"><a target="_blank" href="https://www.instagram.com/">Ins</a></div>
+                    <div class="Email"><a target="_blank" href="https://accounts.google.com/">Ema</a></div>
                 </section>
 
             </div>
@@ -208,7 +210,7 @@
          
        
     </section>
-    
+    {% endblock %}
    
 </body>
 

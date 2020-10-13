@@ -1,4 +1,3 @@
-
 *{
     margin: 0%;
     padding: 0%; 
@@ -6,7 +5,9 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+   
 }
+
 
 a{
    text-decoration: none;
@@ -202,23 +203,17 @@ header #subheader nav ul li a:hover{
     height: 100%;
 }
 
-#divinovacion{
+#divrestaurant{
     width: 100%;
-    height: 400px;
+    height: 800px;
+    background-image :url(/static/img/carrusel/res.jpg)
 }
 
 @media screen and (max-width:700px){
-    #divinovacion{
+    #divrestaurant{
         width: 100%;
         height: 200px;
     }
-}
-
-
-
-#imginovacion{
-    width: 100%;
-    height: 100%;
 }
 
 
@@ -324,6 +319,7 @@ header #subheader nav ul li a:hover{
     background: #EFECDD;  
     border-radius:5px;
     box-sizing: border-box;/*El milagroso*/ 
+    background-image :url(/static/img/carrusel/res.jpg)
 }
 
 .articuloform{
@@ -333,6 +329,7 @@ header #subheader nav ul li a:hover{
     text-align: center;
     padding: 30px;
     box-sizing: border-box;/*El milagroso*/ 
+    background-image :url(/static/img/carrusel/res.jpg)
 }
 
 @media screen and (max-width:700px){
@@ -343,8 +340,7 @@ header #subheader nav ul li a:hover{
 }
 
 .form{
-    
-    width: 50%; 
+    width: 400px; 
     background: #fff;
     padding:40px 40px; 
     margin: auto;
@@ -365,6 +361,13 @@ header #subheader nav ul li a:hover{
         width: 90%;    
     }
 }
+
+
+
+
+
+
+
 
 label{
    font-size:18px;

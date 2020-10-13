@@ -1,0 +1,57 @@
+{% extends "plantillas/Restaurant.html" %}
+
+{% block contenido %}
+<div id="divrestaurant">
+  {% if form.errors %}
+  <hr/>
+    <article class="articuloform">
+      <h4 style="color:#D35400;">"Su Usuario o Contraseña no Corresponden a un Registro Existente"</h2>
+    </article> 
+  <hr/>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <hr/>
+    <article class="articuloform">
+      <h4 style="color:#D35400;">"Usted debe logearse para ver esta pagina" </h2>
+    </article> 
+    <hr/>
+    {% endif %}
+  {% endif %}
+
+  <article class="articuloform">
+    <h2>Inicie Sesión como Usuario de Restaurant siglo XXI</h2>
+  </article> 
+  <form class="form" method="post" action="{% url 'login' %}">
+
+  {% csrf_token %}
+
+  <div>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+  </div>
+  <div>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+  </div>
+
+  <div>
+    <input type="submit" value="login" required/>
+    <input type="hidden" name="next" value="{{ next }}" required/>
+  </div>
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}" style="color:#D35400;"> >Recuperar su Contraseña</a></p>
+
+  </form>
+
+  <br/>
+  <br/>
+  <br/>
+</div>
+
+{% endblock %}
