@@ -60,10 +60,10 @@ header{
 
 /*LOGO ESTRUCTURA*/
 #divlogo{
-    float: left;/*para que se flote a la izquierda el logo*/
+    float: left;
     width: 25%;/*espacio que ocupa en el contenedor subheader*/
     height: 100px;
-    padding: 5px 5px 5px 5px;
+    padding-left: 100px;
     box-sizing: border-box;/*El milagroso*/ 
 }
 
@@ -73,19 +73,17 @@ header{
        width:100%;/*para que el logo ocupe todo el contendor*/ 
        height: 80px;
        background:#EFECDD;
-      
     }
 }
 
-#divlogo .logoarmafox{
-    width: 100%;
-    height:100%;
+.logorest{
+   
     border-radius:10px; 
    
 }
 
 @media screen and (max-width:697px){
-    #divlogo .logoarmafox{
+    .logorest{
        width:50%;/*para que el logo ocupe todo el contendor*/ 
        height: 100%;
        background: #EFECDD;
@@ -543,4 +541,21 @@ footer {
     width: 50%;
     height: 100%;
     float: right;
+}
+
+/*MENU VERTICAL*/
+
+
+.menuvertical{
+
+
+
+
+}
+
+#divlogomenu{
+
+
+
+
 }
