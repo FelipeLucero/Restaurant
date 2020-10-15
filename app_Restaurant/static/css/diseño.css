@@ -119,10 +119,10 @@ header #subheader nav ul li{
 }
 
 header #subheader nav ul li a{
-    color: #fff;
+    color: #EFECDD;
     font-size: 20px;
     padding: 10px;
-    background:  rgb(93, 92, 88);
+    background: black;
     border-radius: 5px;
 }
 
@@ -137,8 +137,8 @@ header #subheader nav ul li a{
 }
 
 header #subheader nav ul li a:hover{
-  color: #fff;
-  background: black;
+  color:#D35400;
+  background:  rgb(93, 92, 88);
   text-decoration: none;/*para quitarle las lineas*/
   border-radius:5px; 
 }   
@@ -363,11 +363,6 @@ header #subheader nav ul li a:hover{
 
 
 
-
-
-
-
-
 label{
    font-size:18px;
    display:block;
@@ -546,23 +541,52 @@ footer {
 
 /*MENU PERFILES*/
 
+
+.menuvertical {
+    width: 100%;
+    height: 150px;
+    padding-top:40px ;
+    padding-left: 30px;
+}
+   
+.ulmenus{
+    width: 50%;
+    margin: center;
+}
+
+.menuvertical ul li{
+    display: inline;
+}
+
+.menuvertical ul li a{
+color:#D35400;
+font-size: 40px;
+padding: 30px;
+border-radius: 50px;
+background: #222528;
+}
+
+.menuvertical ul li a:hover{
+    text-decoration: none;
+    color:#D35400;
+    background:black;
+}
+   
+
 /*perfil bodeguero*/
 
 .titulobodeguero{
    text-align: center;
    background-image :url(/static/img/fondosmenus/menubodega.png);
-   color: #fff;
+   color: black;
 }
 
 .fondobodega{
 
     background-image :url(/static/img/fondosmenus/menubodega.png);
-    height: 1000px;
+    height: 1080px;
 }
 
-.menuvertical{
-
-}
 
 /*perfil financiera*/
 
@@ -578,53 +602,39 @@ footer {
     height: 1000px;
 }
  
-.menuvertical{
- 
-}
 
 /*perfil cocinero*/
 
 .titulococinero{
     text-align: center;
     background-image :url(/static/img/fondosmenus/menucocina.png);
-    color: #EFECDD;
+    color: black;
+    font-size: 40px;
 }
  
 .fondococinero{
- 
     background-image :url(/static/img/fondosmenus/menucocina.png);
-    height: 1000px;
+    height: 800px;
 }
  
-.menuvertical{
- 
-}
 
 /*perfil cliente*/
-
 
 .titulocliente{
     text-align: center;
     background-image :url(/static/img/fondosmenus/menureserva.jpg);
- 
 }
  
 .fondocliente{
- 
     background-image :url(/static/img/fondosmenus/menureserva.jpg);
-    height: 1000px;
+    height: 800px;
 }
  
-.menuvertical{
- 
-}
-
 /*perfil administrador*/
 
 .tituloadministrador{
     text-align: center;
     background-image :url(/static/img/fondosmenus/menureserva.jpg);
- 
 }
  
 .fondoadministrador{
@@ -633,11 +643,6 @@ footer {
     height: 1000px;
 }
  
-.menuvertical{
- 
-}
-
-
 /*LOgout*/
 
 .titulologout{
@@ -646,8 +651,6 @@ footer {
     color: #D35400;
 }
 
-
- 
 .fondologout{
  
     background-image :url(/static/img/carrusel/res.jpg);
