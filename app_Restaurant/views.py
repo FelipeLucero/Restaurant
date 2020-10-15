@@ -45,3 +45,7 @@ def login_exito(request):
     else:
         
         return render(request, 'plantillas/reserva.html')  # plantilla con funciones para cliente.   
+
+    
+def login_salida(request):
+    return render(request, 'registration/logged_out.html')  # funcion para retornar logout.

@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -20,7 +20,7 @@ urlpatterns = [
     path('MenuAdministrador',login_required(login_exito) , name='MenuAdministrador'),
     path('reserva',login_required(login_exito) , name='reserva'),
 
-
+    path('logged_out',login_salida , name='logged_out'),
     url(r'registro', RegistroUsuario.as_view(), name="registro")
 ]
 
