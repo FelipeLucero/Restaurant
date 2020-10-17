@@ -35,6 +35,8 @@ header{
     box-shadow: 3px 3px 5px  #000;
     -moz-box-shadow: 3px 3px 5px 5px  #000;
     -webkit-box-shadow: 3px 3px 5px  #000;
+    
+
 
     position: sticky; /*para dejar fijo el menu*/
     top: 0;           /*complemento de sticky quedara fijo cuando la posicion top sea = 0*/
@@ -320,7 +322,7 @@ header #subheader nav ul li a:hover{
 
 .articuloform{
     width:100%;
-    font-size: 20px;
+    font-size: 23px;
     background: #EFECDD;
     text-align: center;
     padding: 30px;
