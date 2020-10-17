@@ -5,9 +5,8 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-   
+    overflow-x: hidden; /*para desactivar el scroll horizontal*/
 }
-
 
 a{
    text-decoration: none;
@@ -31,15 +30,14 @@ a:hover{
 header{
    /*para darle tamaño y centrarlo con margin auto*/
     max-width: 100%;
-    margin: auto;
     background:  #EFECDD;/*mismo color para el contenido del header*/ 
     overflow: hidden;/*para poder ocupar el float y mober los contenedores*/
-    margin-bottom:10px;
-    margin-top: 10px;
     box-shadow: 3px 3px 5px  #000;
     -moz-box-shadow: 3px 3px 5px 5px  #000;
     -webkit-box-shadow: 3px 3px 5px  #000;
-    border-radius: 5px;
+
+    position: sticky; /*para dejar fijo el menu*/
+    top: 0;           /*complemento de sticky quedara fijo cuando la posicion top sea = 0*/
 }
 
 @media screen and (max-width:700px){
@@ -62,9 +60,8 @@ header{
 /*LOGO ESTRUCTURA*/
 #divlogo{
     float: left;
-    width: 25%;/*espacio que ocupa en el contenedor subheader*/
+    width: 40%;/*espacio que ocupa en el contenedor subheader*/
     height: 100px;
-    padding-left: 100px;
     box-sizing: border-box;/*El milagroso*/ 
 }
 
@@ -404,141 +401,6 @@ select{
     height: 30px;
 }
 
-/*INFORMACION*/
-
-#informacion {
-    width: 100%;
-    height: 200px;
-    background:  #EFECDD;
-    color: black; 
-    padding: 60px 0px 0px 0px; 
-    border-radius: 5px; 
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    box-sizing: border-box;/*El milagroso*/     
-}
-
-#informacion .numero{
-   width: 20%;
-   font-size: 20px;
-   text-align: center;
-   color: black;
-   float:left;  
-}
-
-@media screen and (max-width:700px){
-    #informacion .numero {
-        width: 100%;
-        font-size: 14px;
-        color: #000;
-        text-align: center;  
-    }
-}
-
-.parmado{
-   width: 50%;
-   font-size: 20px;
-   color: black;
-   float: left;
-   text-align: center;
-}
-
-@media screen and (max-width:700px){
-    #informacion .parmado{
-        width: 100%;
-        font-size: 14px;
-        text-align: center; 
-        color: #000;
-        margin: 20px;/*para crear una separacion entre numero y redes*/ 
-    }
-}
-
-#informacion .redes >div {
-    width: 5%;
-    height:50px; 
-    float: left;
-    font-size: 20px;
-    opacity: 0.5; 
-    margin-right: 15px; 
-  
-}
-
-
-@media screen and (max-width:700px){
-    #informacion .redes >div {
-        width: 50px;
-        height:50px; 
-        font-size: 20px;
-        opacity: 0.4; 
-        margin-left:15px; 
-    }
-}
-
-
-
-
-#informacion .redes >div:hover {
-    opacity:1;
-}
-/*para dejar transparente el texto de las redes*/
-#informacion .redes .Facebook{
-   background: url(../img/facebook.png);
-   -webkit-text-fill-color: transparent;
-}
-
-#informacion .redes .Google{
-   background: url(../img/googleplus.png);
-   -webkit-text-fill-color: transparent;
-}
-
-#informacion .redes .Instagran{
-    background: url(../img/instagram.png);
-    -webkit-text-fill-color: transparent; 
-}
-
-#informacion .redes .Email{
-    background: url(../img/gmail.png);
-    -webkit-text-fill-color: transparent; 
-}
-
-
-
-/*FOOTER*/
-
-footer {
-    max-width: 100%;
-    margin: auto;
-    height: 200px;
-    background: #000;
-}
-
-@media screen and (max-width:700px){
-    footer {
-        width: 100%;    
-    }
-}
-
-#divfooter{
-    width: 100%;
-    height: 100%;
-    background:WHITE;
-}
-
-#imgfooter{
-    width: 50%;
-    height: 100%;
-    float: left;
-}
-
-
-
-#imgfooter2{
-
-    width: 50%;
-    height: 100%;
-    float: right;
-}
-
 /*MENU PERFILES*/
 
 
@@ -577,12 +439,12 @@ background: #222528;
 
 .titulobodeguero{
    text-align: center;
-   background-image :url(/static/img/fondosmenus/menubodega.png);
-   color: black;
+   color:  #EFECDD;
+   padding: 10px;
+   font-size: 40px;
 }
 
 .fondobodega{
-
     background-image :url(/static/img/fondosmenus/menubodega.png);
     height: 1080px;
 }
@@ -592,12 +454,12 @@ background: #222528;
 
 .titulofinanciera{
     text-align: center;
-    background-image :url(/static/img/fondosmenus/menufinanciera.png);
- 
+    padding: 10px;
+    font-size: 40px;
+    color:  #EFECDD;
 }
  
 .fondofinanciera{
- 
     background-image :url(/static/img/fondosmenus/menufinanciera.png);
     height: 1000px;
 }
@@ -607,9 +469,9 @@ background: #222528;
 
 .titulococinero{
     text-align: center;
-    background-image :url(/static/img/fondosmenus/menucocina.png);
-    color: black;
+    color:  #EFECDD;
     font-size: 40px;
+    padding: 10px;
 }
  
 .fondococinero{
@@ -622,7 +484,9 @@ background: #222528;
 
 .titulocliente{
     text-align: center;
-    background-image :url(/static/img/fondosmenus/menureserva.jpg);
+    padding: 10px;
+    color:  #EFECDD;
+    font-size: 40px;
 }
  
 .fondocliente{
@@ -634,7 +498,9 @@ background: #222528;
 
 .tituloadministrador{
     text-align: center;
-    background-image :url(/static/img/fondosmenus/menureserva.jpg);
+    padding: 10px;
+    color:  #EFECDD;
+    font-size: 40px;
 }
  
 .fondoadministrador{
@@ -645,14 +511,292 @@ background: #222528;
  
 /*LOgout*/
 
-.titulologout{
-    text-align: center;
-    background-image :url(/static/img/carrusel/res.jpg);
-    color: #D35400;
-}
-
 .fondologout{
- 
     background-image :url(/static/img/carrusel/res.jpg);
     height: 1000px;
 }
+
+.titulologout{
+    text-align: center;
+    color: #D35400;
+    padding-top: 60px;
+    font-size: 40px;
+}
+
+
+/*carrusel*/
+
+.Carousel{
+    width: 100%;
+    margin: 0px 60px;
+}
+.Carousel h2{
+    font-size: 26px;
+    line-height: 38px;
+    padding-bottom: 24px;
+    opacity: .9;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+/* carrusel images */
+
+.sectioncarrusel{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 50vh;
+    width: 100%;
+    align-items: center;
+    background: radial-gradient(circle, #EFECDD 110%);
+}
+
+h4, h2,small,a{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+.Carousel{
+    width: 100%;
+    margin: 0px 60px;
+}
+.Carousel h2{
+    font-size: 26px;
+    line-height: 38px;
+    padding-bottom: 24px;
+    opacity: .9;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+
+
+.slick-list{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 304px;
+    padding: 10px 0px;
+    margin: 0px auto;
+    max-width: 90vw;
+    overflow: hidden;
+}
+.slick-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: .5s ease-in-out;
+}
+.slick{
+    position: relative;
+    width: 275px;
+    padding: 0 18px;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+}
+.slick h4{
+    position: absolute;
+    z-index: 1;
+    font-size: 22px;
+    line-height: 23px;
+    color: #fff;
+    padding: 15px;
+}
+.slick h4 small{
+    font-size: 15px;
+    display: block;
+}
+.slick a img{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
+    transition: .3s ease-in-out;
+}
+.slick a img:hover{
+    opacity: .85;
+}
+
+/* buttons */
+
+.slick-arrow{
+    border-radius: 30px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
+    border: 0;
+    cursor: pointer;
+}
+.slick-arrow:focus{
+    outline: 0;
+}
+.slick-arrow svg{
+    width: 12px;
+    height: 100%;
+    color: rgba(0,0,0,.7);
+}
+.slick-prev{
+    left: 0px;
+}
+.slick-next{
+    right: 0px;
+}
+
+
+
+
+/*Contador*/
+.contador {
+    float: center;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*FOOTER*/
+
+footer{
+    width: 100%;
+    background: #202020;
+    color: white;   
+    
+}
+
+.container-footer-all{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+.container-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+.colum1{
+    max-width: 400px;
+}
+
+.colum1 h1{
+    font-size: 22px;
+}
+
+.colum1 p{
+    font-size: 14px;
+    color: #C7C7C7;
+    margin-top: 20px;
+}
+
+.colum2{
+    max-width: 400px;
+    
+}
+
+.colum2 h1{
+    font-size: 22px;
+}
+
+.row{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row img{
+    width: 36px;
+    height: 36px;
+}
+
+.row label{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #C7C7C7;
+}
+
+.colum3{
+    max-width: 400px;
+}
+
+.colum3 h1{
+    font-size: 22px;
+}
+
+.row2{
+    margin-top: 20px;
+    display: flex;
+}
+
+.row2 img{
+    width: 36px;
+    height: 36px;
+}
+
+.row2 label{
+    margin-top: 10px;
+    margin-left: 20px;
+    max-width: 140px;
+}
+
+.container-footer{
+    width: 100%;  
+    background: #101010;
+}
+
+.footer{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;  
+    padding: 20px;
+}
+
+.copyright{
+    color: #C7C7C7;
+}
+
+.copyright a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.information a{
+    text-decoration: none;
+    color: #C7C7C7;
+}
+
+
+@media screen and (max-width: 1100px){
+    
+    .container-body{
+        flex-wrap: wrap;
+    }
+    
+    .colum1{
+        max-width: 100%;
+    }
+    
+    .colum2,
+    .colum3{
+        margin-top: 40px;
+    }
+}
+
+
+
+
