@@ -15,6 +15,18 @@ def inicio(request):
 def registro(request):
    return render(request, 'plantillas/registro.html')   # plantilla registro de usuario.
 
+
+def testapi(request):
+    return render(request, 'plantillas/testapi.html')  # plantilla testeo conexion api
+
+def IngresoEgresos(request):
+    return render(request, 'plantillas/plantillas/FinancieraIngresoEgresos.html.html')  # plantilla ingreso egresos
+
+
+def ListarEgresos(request):
+    return render(request, 'plantillas/FinancieraListarEgresos.html')  # plantilla listado egresos
+ 
+ 
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
     model = User
