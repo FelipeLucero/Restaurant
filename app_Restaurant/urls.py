@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -19,6 +19,9 @@ urlpatterns = [
     path('MenuFinanciera',login_required(login_exito) , name='MenuFinanciera'),
     path('MenuAdministrador',login_required(login_exito) , name='MenuAdministrador'),
     path('reserva',login_required(login_exito) , name='reserva'),
+    path('testapi',testapi , name='testapi'),
+    path('IngresoEgresos',IngresoEgresos , name='IngresoEgresos'),
+    path('ListarEgresos',ListarEgresos , name='ListarEgresos'),
 
     path('logged_out',login_salida , name='logged_out'),
     url(r'registro', RegistroUsuario.as_view(), name="registro")
