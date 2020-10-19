@@ -119,9 +119,30 @@
 	left: 0px;
 }
 
+@media screen and (max-width: 600px){
+	.flex-direction-nav .flex-prev{
+        left: 0px;
+        width: 10%;
+        height: 10%;
+	}	
+}
+
+
 .flex-direction-nav .flex-next{
 	right: 0px;
 }
+
+@media screen and (max-width: 600px){
+	.flex-direction-nav .flex-next{
+        right: 0px;
+        width: 10%;
+        height: 10%;
+	}	
+}
+
+
+
+
 
 .flexslider:hover .flex-direction-nav .flex-prev{
 	opacity: 1;
@@ -180,7 +201,7 @@
 	}
 
 	.flexslider{
-		width:100%;
+		width:90%;
 		height: 50%;
 		border-radius: 0px;
 		border: none;
