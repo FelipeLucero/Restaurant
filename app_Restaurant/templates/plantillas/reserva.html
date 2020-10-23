@@ -4,7 +4,10 @@
 {% block contenido %}
 
 <div class="fondocliente">
-    <H1 class="titulocliente">MENU Cliente:</H1>
+    {% if user.is_authenticated %}
+    <H1 class="titulocliente">Bienvenido Cliente: {{user.username}}</H1>
+    {% endif %}
+    
     <nav class="menuvertical">
         <ul>
         <li> <a href="http://127.0.0.1:8000/accounts/logout/">Realizar Reserva</a> </li>

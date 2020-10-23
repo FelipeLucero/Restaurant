@@ -4,7 +4,10 @@
 {% block contenido %}
 
 <div class="fondofinanciera">
-    <H1 class="titulofinanciera">MENU Financiera:</H1>
+    {% if user.is_authenticated %}
+    <H1 class="titulofinanciera">Bienvenido Financiera: {{user.username}}</H1>
+    {% endif %}
+
     <nav class="menuvertical">
         <ul class="ulmenus"> 
         <li> <a href="ListarEgresos">Calculos Movimientos</a> </li>

@@ -4,7 +4,11 @@
 {% block contenido %}
 
 <div class="fondoadministrador">
-    <H1 class="tituloadministrador">MENU Administrador:</H1>
+    {% if user.is_authenticated %}
+    <H1 class="tituloadministrador">Bienvenido Administrador: {{user.username}}</H1>
+    {% endif %}
+
+   
     <nav class="menuvertical">
         <ul id="ulmenus">
         <li> <a href="http://127.0.0.1:8000">Inventario</a> </li>

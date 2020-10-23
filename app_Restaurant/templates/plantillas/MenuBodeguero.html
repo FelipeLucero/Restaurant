@@ -4,7 +4,10 @@
 {% block contenido %}
 
 <div class="fondobodega">
-    <H1 class="titulobodeguero">MENU Bodeguero:</H1>
+    {% if user.is_authenticated %}
+    <H1 class="titulobodeguero">Bienvenido Bodeguero: {{user.username}}</H1>
+    {% endif %}
+
     <nav class="menuvertical">
         <ul>
         <li> <a href="http://127.0.0.1:8000">Solicitudes Cocina</a> </li>
