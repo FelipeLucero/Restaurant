@@ -25,7 +25,16 @@ def IngresoEgresos(request):
 
 def ListarEgresos(request):
     return render(request, 'plantillas/FinancieraListarEgresos.html')  # plantilla listado egresos
- 
+
+def AdminDatosClientes(request):
+    return render(request, 'plantillas/AdminDatosClientes.html')
+
+def AdminInventario(request):
+    return render(request, 'plantillas/AdminInventario.html') 
+
+def AdminAlertaBodega(request):
+    return render(request, 'plantillas/AdminAlertaBodega.html')
+
  
  # para registrar usuario.
 class RegistroUsuario(CreateView): 

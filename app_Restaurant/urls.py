@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos,AdminDatosClientes,AdminInventario,AdminAlertaBodega
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -22,6 +22,9 @@ urlpatterns = [
     path('testapi',testapi , name='testapi'),
     path('IngresoEgresos',IngresoEgresos , name='IngresoEgresos'),
     path('ListarEgresos',ListarEgresos , name='ListarEgresos'),
+    path('Inventario',AdminInventario, name='AdminInventario'),
+    path('DatosClientes',AdminDatosClientes, name='AdminDatosClientes'),
+    path('AlertaBodega',AdminAlertaBodega, name='AdminAlertaBodega'),
 
     path('logged_out',login_salida , name='logged_out'),
     url(r'registro', RegistroUsuario.as_view(), name="registro")

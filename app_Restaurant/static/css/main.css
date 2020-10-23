@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+   } 
+   #cabecera {
+    border: white 4px outset;
+    background: #f1eddd;
+    padding: 10px;
+    display:flex;
+    align-items:center;
+   }
+   
+
+
+
+
+
