@@ -7,36 +7,37 @@
     {% if user.is_authenticated %}
     <H1 class="titulofinanciera">Bienvenido Financiera: {{user.username}}</H1>
     {% endif %}
+    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
 
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="ListarEgresos">Calculos Movimientos</a> </li>
+        <li> <a href="ListarEgresos" class="button">  <span class="icon-stats-dots"> </span> Calculos Movimientos</a> </li>
         </ul> 
     
     </nav>
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000">Calculos Ganancias</a> </li>
-        </ul> 
-    
-    </nav>
-
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/">Emision Boleta</a> </li>
-        </ul> 
-    </nav>
-
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li> <a href="IngresoEgresos">Ingresar Egresos</a> </li>
+        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-calculator"> </span> Calculos Ganancias</a> </li>
         </ul> 
     
     </nav>
 
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/">Cerrar Sesión</a> </li>
+        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-spinner"> </span> Emision Boleta</a> </li>
+        </ul> 
+    </nav>
+
+    <nav class="menuvertical">
+        <ul class="ulmenus"> 
+        <li> <a href="IngresoEgresos" class="button">  <span class="icon-stack"> </span> Ingresar Egresos</a> </li>
+        </ul> 
+    
+    </nav>
+
+    <nav class="menuvertical">
+        <ul class="ulmenus"> 
+        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
         </ul> 
     
     </nav>

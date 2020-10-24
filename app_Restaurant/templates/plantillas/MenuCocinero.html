@@ -7,29 +7,30 @@
     {% if user.is_authenticated %}
     <H1 class="titulococinero">Bienvenido Cocinero: {{user.username}}</H1>
     {% endif %}
+    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
 
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000">Pedidos</a> </li>
+        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-spoon-knife"> </span> Pedidos</a> </li>
         </ul> 
     
     </nav>
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000">Ingreso de Recetas</a> </li>
+        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-pushpin"> </span> Ingreso de Recetas</a> </li>
         </ul> 
     
     </nav>
 
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/">Solicitud de Ingredientes</a> </li>
+        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-cart"> </span> Solicitud de Ingredientes</a> </li>
         </ul> 
     </nav>
 
     <nav class="menuvertical">
         <ul class="ulmenus"> 
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/">Cerrar Sesión</a> </li>
+        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
         </ul> 
     
     </nav>
