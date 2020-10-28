@@ -65,8 +65,26 @@ def login_exito(request):
 
     else:
         
-        return render(request, 'plantillas/reserva.html')  # plantilla con funciones para cliente.   
+        return render(request, 'plantillas/MenuCliente.html')  # plantilla con funciones para cliente.   
 
     
 def login_salida(request):
     return render(request, 'registration/logged_out.html')  # funcion para retornar logout.
+
+# para Usuario Cliente.
+
+def platillos(request):
+   return render(request, 'plantillas/platillosCliente.html')   # plantilla de cliente para mostrar platillos.
+
+def reserva(request):
+   return render(request, 'plantillas/reservaCliente.html')   # plantilla de cliente para mostrar platillos.
+
+
+
+# para Usuario Administrador.
+
+# para Usuario Bodeguero.
+
+# para Usuario Financiera.
+
+# para Usuario Cocinero.

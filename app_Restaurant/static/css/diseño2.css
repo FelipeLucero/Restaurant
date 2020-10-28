@@ -371,7 +371,7 @@ header #subheader nav ul li a:hover{
 .form{
     width: 400px; 
     background: #fff;
-    padding:40px 40px; 
+    padding:30px 30px; 
     margin: auto;
     box-sizing: border-box;/*El milagroso*/ 
 }
