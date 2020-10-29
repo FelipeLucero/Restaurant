@@ -460,27 +460,15 @@ select{
     padding-left: 30px;
 }
 
-.menuverticalf {
-    width: 100%;
-    height: 130px;
-    padding-top:5px ;
-    padding-left: 30px;
-}
+
    
 .ulmenus{
     width: 50%;
     margin: center;
 }
 
-.ulmenusf{
-    width: 50%;
-    margin: center;
-}
 
 .menuvertical ul li{
-    display: inline;
-}
-.lif{
     display: inline;
 }
 
@@ -491,15 +479,6 @@ padding: 30px;
 border-radius: 50px;
 background: #222528;
 }
-
-.af{
-    color:#D35400;
-    font-size: 30px;
-    padding: 15px;
-    border-radius: 50px;
-    background: #222528;
-    text-decoration: none;
-    }
 
 .menuvertical ul li a:hover{
     text-decoration: none;
@@ -534,7 +513,7 @@ background: #222528;
  
 .fondofinanciera{
     background-image :url(/static/img/fondosmenus/menufinanciera.png);
-    height: 1000px;
+    height: 1125px;
 }
  
 
@@ -583,7 +562,7 @@ background: #222528;
 }
 
 .admin{
-    background-image: url(/app_Restaurant/static/img/admin_person_user_man_2839.png);
+    
     float: right;
     margin-right: 100px;
     margin-top: 160px;
