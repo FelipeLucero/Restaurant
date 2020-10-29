@@ -459,13 +459,28 @@ select{
     padding-top:40px ;
     padding-left: 30px;
 }
+
+.menuverticalf {
+    width: 100%;
+    height: 130px;
+    padding-top:5px ;
+    padding-left: 30px;
+}
    
 .ulmenus{
     width: 50%;
     margin: center;
 }
 
+.ulmenusf{
+    width: 50%;
+    margin: center;
+}
+
 .menuvertical ul li{
+    display: inline;
+}
+.lif{
     display: inline;
 }
 
@@ -476,6 +491,15 @@ padding: 30px;
 border-radius: 50px;
 background: #222528;
 }
+
+.af{
+    color:#D35400;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 50px;
+    background: #222528;
+    text-decoration: none;
+    }
 
 .menuvertical ul li a:hover{
     text-decoration: none;

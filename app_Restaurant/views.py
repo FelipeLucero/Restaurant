@@ -35,6 +35,12 @@ def AdminInventario(request):
 def AdminAlertaBodega(request):
     return render(request, 'plantillas/AdminAlertaBodega.html')
 
+def CalculoFinanciera(request):
+    return render(request, 'plantillas/CalculoMovimientosFinanciera.html') 
+
+def MostrarProveedores(request):
+    return render(request, 'plantillas/Proveedores.html') 
+
  
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
