@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="static/css/main.css">
+
+    <!--JQUERY-->
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script 
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+      let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Proveedor';
+      let opcion = null;
+      let idProveedor, rut, nombre, dirección, email, telefono, fila;
+      //MOSTRAR
+      let tablaProveedor = $('#tablaProveedor').DataTable({
+        "ajax":{
+          "url":url,
+          "dataSrc":""
+        },
+        "columns":[
+            {"data":"idProveedor"},
+            {"data":"rut"},
+            {"data":"nombre"},
+            {"data":"direccion"},
+            {"data":"email"},
+            {"data":"telefono"}
+        ],
+        //Para cambiar idioma a español del datatable
+        "language":{
+            "lengthMenu": "Mostrar _MENU_ registros",
+            "zeroRecords": "No se encontraron resultados",
+            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sSearch": "Buscar Proveedor:",
+            "oPaginate":{
+              "sFirst": "Primero",
+              "sLast":"Último",
+              "sNext":"Siguiente",
+              "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+        },
+        dom: 'Bfrtip',
+          buttons: [
+              { extend: 'pdfHtml5', footer: true }
+          ]
+      });
+    });
+    </script>
+
+    <title>INVENTARIO</title>
+</head>
+  <body>
+
+<!-- DATA TABLE -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
+    let opcion = null;
+    let idMovimiento,fecha,cantidad,tipoMovimiento,codigoPro, fila;
+    //MOSTRAR
+    let tablaEstado = $('#tablaEstado').DataTable({
+      "ajax":{
+        "url":url,
+        "dataSrc":""
+      },
+      "columns":[
+          {"data":"idMovimiento"},
+          {"data":"fecha"},
+          {"data":"cantidad"},
+          {"data":"tipoMovimiento"},
+          {"data":"codigoPro"},
+      ],
+      //Para cambiar idioma a español del datatable
+      "language":{
+          "lengthMenu": "Mostrar _MENU_ registros",
+          "zeroRecords": "No se encontraron resultados",
+          "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+          "sSearch": "Buscar Solicitud:",
+          "oPaginate":{
+            "sFirst": "Primero",
+            "sLast":"Último",
+            "sNext":"Siguiente",
+            "sPrevious": "Anterior"
+          },
+          "sProcessing":"Procesando...",
+      },
+      dom: 'Bfrtip',
+          buttons: [
+              'pdfHtml5'
+          ]
+    });
+  });
+</script>
+
+</head>
+<body>
+  <div id="agrupar">
+    <header id="cabecera">
+        <img class="logo" src="/static/img/logo2.png">
+        <h1  style="text-align: center; font-size: 50px; font-family: 'Playfair Display', serif;">INVENTARIO</h1>
+    </header>
+</div>
+<p></p>
+<div class="container">
+<div class="mx-auto  main-section" id="myTab" role="tablist">
+  <ul class="nav nav-tabs nav-pills justify-content-lg-center">
+    <li class="nav-item">
+    <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">PROVEEDORES</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" id="estado-tab" data-toggle="tab" href="#estado" role="tab" aria-controls="estado" aria-selected="true">ESTADO BODEGA</a>				   	
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="soli-tab" data-toggle="tab" href="#soli" role="tab" aria-controls="soli" aria-selected="true">SOLICITUD</a>				   	
+          </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+      <div class="card">
+        <div style="background-color:#F7917B;" class="card-header">
+          <h4 style="text-align: center;" ><strong><u> LISTADO DE PROVEEDORES</u></strong> </h4>
+        </div>
+        <div class="col-lg-12">
+          <p></p>
+          <div class="table-responsive">
+            <table id="tablaProveedor" class="table table-striped table-bordered table-condensed" style="width:100%">
+              <thead class="text-center">
+              <tr>
+                <th id="idProveedor" scope="col">ID</th>
+                <th id="rut" scope="col">RUT PROVEEDOR</th>
+                <th id="nombre" scope="col">NOMBRE PROVEEDOR</th>
+                <th id="direccion" scope="col">DIRECCIÓN</th>
+                <th id="email" scope="col">EMAIL</th>
+                <th id="telefono" scope="col">TELÉFONO</th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p></p>
+      <a href="javascript:window.history.back();">« Volver a menú de administrador</a>
+      <p></p>
+    </div>
+
+    <div class="tab-pane fade" id="estado" role="tabpanel" aria-labelledby="estado-tab">
+      <div class="card">
+        <div style="background-color: #8EBACA ;" class="card-header">
+          <h4 style="text-align: center;" ><strong><u> MOVIMIENTOS DE BODEGA</u></strong> </h4>
+        </div>
+        <div class="card-body">
+          <div class="tables-responsive">
+            <table id="tablaEstado" class="table table-striped table-bordered table-condensed" style="width: 100%;">
+              <thead class="text-center">
+                <tr>
+                  <th id="idMovimiento">ID</th>
+                  <th id="fecha">FECHA</th>
+                  <th id="cantidad">CANTIDAD</th>
+                  <th id="tipoMovimiento">TIPO DE MOVIMIENTO</th>
+                  <th id="codigoPro">CÓDIGO PRODUCTO</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <P></P>
+      <a href="javascript:window.history.back();">« Volver a menú de administrador</a>
+      <p></p>
+    </div>
+
+    <div class="tab-pane fade" id="soli" role="tabpanel" aria-labelledby="soli-tab">
+      <div class="card">
+        <div style="background-color: #8EBACA ;" class="card-header">
+          <h4 style="text-align: center;" ><strong><u> SOLICITUD A PROVEEDORES</u></strong> </h4>
+        </div>
+        <div class="card-body">
+          <div class="tables-responsive">
+            <table id="tablaSolicitud" class="table table-striped table-bordered table-condensed" style="width:100%">
+              <thead class="text-center">
+                <tr>
+                  <th id="idSolicitud">ID</th>
+                  <th id="fechaSolicitud">FECHA SOLICITUD</th>
+                  <th id="total">TOTAL</th>
+                  <th id="estadoSol">ESTADO SOLICITUD</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+      <P></P>
+      <a href="javascript:window.history.back();">« Volver a menú de administrador</a>
+      <p></p>
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+
+<!--Datos solicitudes proveedores-->
+<script type="text/javascript">
+  $(document).ready(function(){
+  let url = 'https://cors-anywhere.herokuapp.com/http://52.3.46.105/api/solprov';
+  let opcion = null;
+  let idSolicitud,fechaSolicitud,total,estadoSol, fila;
+  //MOSTRAR
+  let tablaSolicitud = $('#tablaSolicitud').DataTable({
+    "ajax":{
+      "url":url,
+      "dataSrc":""
+    },
+    "columns":[
+        {"data":"idSolicitud"},
+        {"data":"fechaSolicitud"},
+        {"data":"total"},
+        {"data":"estadoSol"},
+    ],
+    //Para cambiar idioma a español del datatable
+    "language":{
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "zeroRecords": "No se encontraron resultados",
+        "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sSearch": "Buscar Solicitud:",
+        "oPaginate":{
+          "sFirst": "Primero",
+          "sLast":"Último",
+          "sNext":"Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "sProcessing":"Procesando...",
+    },
+    dom: 'Bfrtip',
+        buttons: [
+            'pdfHtml5'
+        ]
+  });
+});
+</script>
+
+  </body>
+</html>

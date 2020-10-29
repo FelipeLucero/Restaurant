@@ -26,14 +26,17 @@ def IngresoEgresos(request):
 def ListarEgresos(request):
     return render(request, 'plantillas/FinancieraListarEgresos.html')  # plantilla listado egresos
 
-def AdminDatosClientes(request):
-    return render(request, 'plantillas/AdminDatosClientes.html')
+def DatosClientesAdmin(request):
+    return render(request, 'plantillas/DatosClientesAdmin.html')
 
-def AdminInventario(request):
-    return render(request, 'plantillas/AdminInventario.html') 
+def InventarioAdministrador(request):
+    return render(request, 'plantillas/InventarioAdministrador.html') 
 
-def AdminAlertaBodega(request):
-    return render(request, 'plantillas/AdminAlertaBodega.html')
+def ResumenAdmin(request):
+    return render(request, 'plantillas/ResumenAdmin.html')
+
+def DatosMesasAdmin(request):
+    return render(request, 'plantillas/DatosMesasAdmin.html')
 
 def CalculoFinanciera(request):
     return render(request, 'plantillas/CalculoMovimientosFinanciera.html') 
