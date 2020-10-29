@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos,AdminDatosClientes,AdminInventario,AdminAlertaBodega,platillos,reserva,CalculoFinanciera,MostrarProveedores
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos,AdminDatosClientes,AdminInventario,AdminAlertaBodega,platillos,reserva,CalculoFinanciera,MostrarProveedores,stock
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('platillosCliente',platillos, name='platillosCliente'),
     path('reservaCliente',reserva, name='reservaCliente'),
+
+    path('stockBodeguero',stock, name='stockBodeguero'),
 
     path('logged_out',login_salida , name='logged_out'),
     url(r'registro', RegistroUsuario.as_view(), name="registro")

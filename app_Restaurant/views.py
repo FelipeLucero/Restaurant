@@ -90,6 +90,8 @@ def reserva(request):
 # para Usuario Administrador.
 
 # para Usuario Bodeguero.
+def stock(request):
+   return render(request, 'plantillas/stockBodeguero.html')   # plantilla de cliente para mostrar platillos.
 
 # para Usuario Financiera.
 
