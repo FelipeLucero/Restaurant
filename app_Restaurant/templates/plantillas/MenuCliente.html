@@ -7,28 +7,26 @@
     {% if user.is_authenticated %}
     <H1 class="titulocliente">Bienvenido Cliente: {{user.username}}</H1>
     {% endif %}
-    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
     
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/reservaCliente"  class="button"> <span class="icon-tablet"></span> Realizar Reserva</a> </li>
-        </ul> 
-    
-    </nav>
+    <div class="divcentrado">
+        
+        <nav class="menuvertical">
+            <ul class="ulmenus"> 
+                <li>  <a href="http://127.0.0.1:8000/reservaCliente"  > <span class="icon-tablet"></span> Realizar Reserva</a> </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/platillosCliente"  class="button"> <span class="icon-spoon-knife"></span> Ver platillos</a> </li>
-        </ul> 
-    
-    </nav>
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000/platillosCliente"  > <span class="icon-spoon-knife"></span> Ver platillos</a> </li>
+            </ul> 
+            
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000/accounts/logout/"  > <span class="icon-exit"></span>   Cerrar Sesión</a> </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/"  class="button"> <span class="icon-exit"></span>   Cerrar Sesión</a> </li>
-        </ul> 
-    
-    </nav>
+        </nav>
+
+    </div>
+
 </div>
 
 {% endblock %}

@@ -353,6 +353,7 @@ header #subheader nav ul li a:hover{
 
 .articuloform{
     width:100%;
+    color: #262325;
     font-size: 23px;
     background: #EFECDD;
     text-align: center;
@@ -454,31 +455,69 @@ select{
 } 
 
 .menuvertical {
-    width: 100%;
-    height: 130px;
-    padding-top:40px ;
-    padding-left: 30px;
+    height: 100%;
 }
 
 
    
 .ulmenus{
-    width: 50%;
-    margin: center;
+    width: 100%;
+    height: 150px;
+    
 }
 
+@media screen and (max-width:700px){
+    .ulmenus{
+        height: 120px;
+    }
+}
 
 .menuvertical ul li{
-    display: inline;
+    text-align: center;
+    
 }
 
-.menuvertical ul li a{
-color:#D35400;
-font-size: 40px;
-padding: 30px;
-border-radius: 50px;
-background: #222528;
+.divcentrado{
+  width: 100%;
+  margin-top: 50px;
 }
+
+@media screen and (max-width:700px){
+    .divcentrado{
+        margin-top: 10px;
+    }
+}
+
+
+
+@media screen and (max-width:700px){
+    .divcentrad{
+        margin-top: 10px;
+    }
+}
+
+
+
+
+.menuvertical ul li a{
+    color:#D35400;
+    font-size: 30px;
+    padding: 40px;
+    border-radius: 100px;
+    background: #222528;
+    width: 20%;
+}
+
+@media screen and (max-width:700px){
+    .menuvertical ul li a{
+      font-size: 20px;
+      padding: 30px;
+    }
+}
+
+
+
+
 
 .menuvertical ul li a:hover{
     text-decoration: none;
@@ -492,12 +531,18 @@ background: #222528;
 .titulobodeguero{
    text-align: center;
    color:  #EFECDD;
-   padding: 10px;
+   padding: 30px;
    font-size: 40px;
 }
 
+@media screen and (max-width:700px){
+    .titulobodeguero{
+        font-size: 25px;
+    }
+}
+
 .fondobodega{
-    background-image :url(/static/img/fondosmenus/menubodega.png);
+    background-image :url(/static/img/fondosmenus/menucocina.png);
     height: 1080px;
 }
 
@@ -506,11 +551,17 @@ background: #222528;
 
 .titulofinanciera{
     text-align: center;
-    padding: 10px;
+    padding: 30px;
     font-size: 40px;
-    color:  #EFECDD;
+    color: #262325;
 }
  
+@media screen and (max-width:700px){
+    .titulofinanciera{
+        font-size: 25px;
+    }
+}
+
 .fondofinanciera{
     background-image :url(/static/img/fondosmenus/menufinanciera.png);
     height: 1125px;
@@ -523,24 +574,37 @@ background: #222528;
     text-align: center;
     color:  #EFECDD;
     font-size: 40px;
-    padding: 10px;
+    padding: 40px;
 }
  
+@media screen and (max-width:700px){
+    .titulococinero{
+        font-size: 25px;
+    }
+}
+
 .fondococinero{
     background-image :url(/static/img/fondosmenus/menucocina.png);
-    height: 800px;
+    height: 900px;
+    
 }
- 
+
 
 /*perfil cliente*/
 
 .titulocliente{
     text-align: center;
-    padding: 10px;
-    color:  #EFECDD;
+    padding: 30px;
+    color: #262325;
     font-size: 40px;
 }
  
+@media screen and (max-width:700px){
+    .titulocliente{
+        font-size: 25px;
+    }
+}
+
 .fondocliente{
     background-image :url(/static/img/fondosmenus/menureserva.jpg);
     height: 800px;
@@ -550,11 +614,18 @@ background: #222528;
 
 .tituloadministrador{
     text-align: center;
-    padding: 10px;
-    color:  #EFECDD;
+    padding: 30px;
+    color:  #262325;
     font-size: 40px;
 }
- 
+
+@media screen and (max-width:700px){
+    .tituloadministrador{
+        font-size: 25px;
+    }
+}
+
+
 .fondoadministrador{
  
     background-image :url(/static/img/fondosmenus/menureserva.jpg);

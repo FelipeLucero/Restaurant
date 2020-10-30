@@ -7,45 +7,36 @@
     {% if user.is_authenticated %}
     <H1 class="titulofinanciera">Bienvenido Financiera: {{user.username}}</H1>
     {% endif %}
-    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
 
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li class="li"> <a  href="CalculoFinanciera" class="button">  <span class="icon-stats-dots"> </span> Movimientos Bodega </a> </li>
-        </ul> 
-    
-    </nav>
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li class="li"> <a  href="MostrarProveedores" class="button">  <span class="icon-stats-dots"> </span> Proveedores </a> </li>
-        </ul> 
-    
-    </nav>
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li class="li"> <a href="ListarEgresos" class="button">  <span class="icon-stats-dots"> </span> Calculos Movimientos</a> </li>
-        </ul> 
-    
-    </nav>
-    <nav class="menuvertical">
-        <ul class="ulmenus"> 
-        <li > <a href="http://127.0.0.1:8000" class="button">  <span class="icon-calculator"> </span> Calculos Ganancias</a> </li>
-        </ul> 
-    
-    </nav>
-    <nav class="menuvertical">
-        <ul class="ulmenu"> 
-        <li class="li"> <a href="IngresoEgresos" class="button">  <span class="icon-stack"> </span> Ingresar Egresos</a> </li>
-        </ul> 
-    
-    </nav>
+    <div class="divcentrado">
+        
+        <nav class="menuvertical">
+            <ul class="ulmenus"> 
+                <li class="li"> <a  href="CalculoFinanciera" >  <span class="icon-stats-dots"> </span> Movimientos Bodega </a> </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul class="ulmenu"> 
-        <li class="li"> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
-        </ul> 
-    
-    </nav>
-</div>
+            <ul class="ulmenus"> 
+                <li class="li"> <a  href="MostrarProveedores" >  <span class="icon-stats-dots"> </span> Proveedores </a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li class="li"> <a href="ListarEgresos" >  <span class="icon-stats-dots"> </span> Calculos Movimientos</a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li > <a href="http://127.0.0.1:8000" >  <span class="icon-calculator"> </span> Calculos Ganancias</a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li class="li"> <a href="IngresoEgresos" >  <span class="icon-stack"> </span> Ingresar Egresos</a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li class="li"> <a href="http://127.0.0.1:8000/accounts/logout/" >  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
+            </ul> 
+
+        </nav>
+
+    </div>
 
 {% endblock %}

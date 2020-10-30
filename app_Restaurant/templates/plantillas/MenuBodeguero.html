@@ -7,45 +7,30 @@
     {% if user.is_authenticated %}
     <H1 class="titulobodeguero">Bienvenido Bodeguero: {{user.username}}</H1>
     {% endif %}
-
-    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
-
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-table"> </span> Solicitudes Cocina</a> </li>
-        </ul> 
-    </nav>
     
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-insert-template"> </span> Proveer Ingredientes</a> </li>
-        </ul> 
-    </nav>
 
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/stockBodeguero" class="button" >  <span class="icon-key"></span> Controlar Stock</a> </li>
-        </ul> 
-    </nav>
-    
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000" class="button">  <span class="icon-cart"> </span> Solicitar Insumos</a> </li>
-        </ul> 
-    </nav>
-     
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-delicious"> </span> Reponer Insumos</a> </li>
-        </ul> 
-    </nav>
+    <div class="divcentrado">
+        
+        <nav class="menuvertical">
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000" >  <span class="icon-table"> </span> Solicitudes Cocina</a> </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul>
-        <li> <a href="http://127.0.0.1:8000/accounts/logout/" class="button">  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
-        </ul> 
-    </nav>
-    
-</div>
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000/stockBodeguero"  >  <span class="icon-key"></span> Controlar Stock</a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000" >  <span class="icon-cart"> </span> Solicitar Insumos</a> </li>
+            </ul> 
+
+            <ul class="ulmenus"> 
+                <li> <a href="http://127.0.0.1:8000/accounts/logout/" >  <span class="icon-exit"> </span> Cerrar Sesión</a> </li>
+            </ul> 
+
+        </nav>
+
+    </div>
+
 
 {% endblock %}

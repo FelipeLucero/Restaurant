@@ -8,56 +8,53 @@
     <H1 class="tituloadministrador">Bienvenido Administrador: {{user.username}}</H1>
     {% endif %}
 
-    <img src="static/img/admin_person_user_man_2839.png" class="admin" >
-    <nav class="menuvertical">
-        <ul id="ulmenus">
-            <li>
-                <a href="http://127.0.0.1:8000/Inventario" class="button">
-                    <span class="icon-inventory"> </span> Inventario
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <div class="divcentrado">
+        
+        <nav class="menuvertical">
+            <ul class="ulmenus"> 
+                <li>
+                    <a href="http://127.0.0.1:8000/Inventario" >
+                        <span class="icon-inventory"> </span> Inventario
+                    </a>
+                </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul id="ulmenus">
-            <li>
-                <a href="http://127.0.0.1:8000/DatosClientes" class="button">
-                    <span class="icon-users1"> </span> Datos Clientes
-                </a>
-            </li>
-        </ul>
-    </nav>
+            <ul class="ulmenus"> 
+                <li>
+                    <a href="http://127.0.0.1:8000/DatosClientes" >
+                        <span class="icon-users1"> </span> Datos Clientes
+                    </a>
+                </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul id="ulmenus">
-            <li>
-                <a href="http://127.0.0.1:8000/DatosMesas" class="button">
-                    <span class="icon-list1"> </span> Datos Mesas
-                </a>
-            </li>
-        </ul>
-    </nav>
+            <ul class="ulmenus"> 
+                <li>
+                    <a href="http://127.0.0.1:8000/DatosMesas" >
+                        <span class="icon-list1"> </span> Datos Mesas
+                    </a>
+                </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul id="ulmenus">
-            <li>
-                <a href="http://127.0.0.1:8000/Resumen" class="button">
-                    <span class="icon-document-table1"> </span> Resumen 
-                </a>
-            </li>
-        </ul>
-    </nav>
+            <ul class="ulmenus"> 
+                <li>
+                    <a href="http://127.0.0.1:8000/Resumen" >
+                        <span class="icon-document-table1"> </span> Resumen 
+                    </a>
+                </li>
+            </ul> 
 
-    <nav class="menuvertical">
-        <ul id="ulmenus">
-            <li>
-                <a href="http://127.0.0.1:8000/accounts/logout/" class="button">
-                    <span class="icon-exit"> </span> Cerrar Sesión
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
+            <ul class="ulmenus"> 
+                <li>
+                    <a href="http://127.0.0.1:8000/accounts/logout/" >
+                        <span class="icon-exit"> </span> Cerrar Sesión
+                    </a>
+                </li>
+            </ul> 
+
+
+        </nav>
+
+    </div>
+   
 
 {% endblock %}
