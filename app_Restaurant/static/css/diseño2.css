@@ -844,17 +844,17 @@ footer{
     font-size: 22px;
 }
 
-.row{
+.row2{
     margin-top: 20px;
     display: flex;
 }
 
-.row img{
+.row2 img{
     width: 36px;
     height: 36px;
 }
 
-.row label{
+.row2 label{
     margin-top: 10px;
     margin-left: 20px;
     color: #C7C7C7;

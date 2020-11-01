@@ -1,25 +1,40 @@
+
+{% extends 'plantillas/Restaurant.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 	<title>DataTables estilo Bootstrap 5 - NodeJS y Express</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="static/css/diseño2.css"> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.min.css"> 
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap5.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+
     <style>
      table.dataTable thead {
            background-color:#262325;
            color:aliceblue;
-       }        
+        }     
+        
+        a{
+        text-decoration: none;
+        color: #fff;
+    }
     </style>
+    
+    {% endblock %}
 </head>
 <body>
-  
+    {% block contenido %}
     <div class="container-fluid">
         <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">Volver Menu</button>
         <div class="row shadow-lg p-3 mb-5">
@@ -86,64 +101,66 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
 <script>
-$(document).ready(function() {   
-    let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/mesa';
-    let urlCrear= 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Reserva';
-    let opcion = null;
-    let fechaReserva, idMesa, nombre, apellido, celular, fila;
-    //MOSTRAR
-    let tablaReservas = $('#tablaReservas').DataTable({            
-        "ajax":{
-            "url": url,
-            "dataSrc":""
-        },
-        "columns":[
-            {"data":"idMesa"},
-            {"data":"precioReserva"},
-            {"data":"capacidad"},
-            {"data":"estadoMesa"},
-            {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnGuardar'>Reservar</button>"}
-        ],
-                
+    $(document).ready(function() {   
+        let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/mesa';
+        let urlCrear= 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Reserva';
+        let opcion = null;
+        let fechaReserva, idMesa, nombre, apellido, celular, fila;
+        //MOSTRAR
+        let tablaReservas = $('#tablaReservas').DataTable({            
+            "ajax":{
+                "url": url,
+                "dataSrc":""
+            },
+            "columns":[
+                {"data":"idMesa"},
+                {"data":"precioReserva"},
+                {"data":"capacidad"},
+                {"data":"estadoMesa"},
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnGuardar'>Reservar</button>"}
+            ],
+                    
+        });
+
+        //EDITAR        
+        $(document).on("click", ".btnGuardar", function(){		            
+            opcion='crear';
+            fila = $(this).closest("tr");	        
+            idMesa = parseInt(fila.find('td:eq(0)').text());          
+            $("#idMesa").val(idMesa);     
+            $(".modal-header").css("background-color", "#7303c0");
+            $(".modal-header").css("color", "white" );
+            $(".modal-title").text("Crear Reserva");		
+            $('#modalCRUD').modal('show');		   
+        });
+
+        //submit para el CREAR 
+        $('#formReserva').submit(function(e){    
+            //header.Add('Access-Control-Allow-Origin *');                      
+            e.preventDefault();             
+            fechaReserva = $.trim($('#fechaReserva').val());  
+            nombre = $.trim($('#nombre').val());  
+            apellido = $.trim($('#apellido').val());
+            celular = $.trim($('#celular').val()); 
+            
+            if(opcion=='crear'){
+
+                $.ajax({                    
+                    url: urlCrear,
+                    method: 'post',                                        
+                    contentType: 'application/json',  
+                    data:  JSON.stringify({ fechaReserva:fechaReserva, idMesa:idMesa, nombre:nombre, apellido:apellido, celular:celular}),                       
+                    success: function(data) {                       
+                        tablaReservas.ajax.reload(null, false);                        
+                    }
+                });	
+            }  
+            $('#modalCRUD').modal('hide');										     			
+        });
+
     });
-
-    //EDITAR        
-    $(document).on("click", ".btnGuardar", function(){		            
-        opcion='crear';
-        fila = $(this).closest("tr");	        
-        idMesa = parseInt(fila.find('td:eq(0)').text());          
-        $("#idMesa").val(idMesa);     
-        $(".modal-header").css("background-color", "#7303c0");
-        $(".modal-header").css("color", "white" );
-        $(".modal-title").text("Crear Reserva");		
-        $('#modalCRUD').modal('show');		   
-    });
-
-    //submit para el CREAR 
-    $('#formReserva').submit(function(e){    
-        //header.Add('Access-Control-Allow-Origin *');                      
-        e.preventDefault();             
-        fechaReserva = $.trim($('#fechaReserva').val());  
-        nombre = $.trim($('#nombre').val());  
-        apellido = $.trim($('#apellido').val());
-        celular = $.trim($('#celular').val()); 
-        
-        if(opcion=='crear'){
-
-            $.ajax({                    
-                url: urlCrear,
-                method: 'post',                                        
-                contentType: 'application/json',  
-                data:  JSON.stringify({ fechaReserva:fechaReserva, idMesa:idMesa, nombre:nombre, apellido:apellido, celular:celular}),                       
-                success: function(data) {                       
-                    tablaReservas.ajax.reload(null, false);                        
-                }
-            });	
-        }  
-        $('#modalCRUD').modal('hide');										     			
-    });
-
-});
 </script>
+
+{% endblock %}
 </body>
 </html>
