@@ -38,13 +38,16 @@ def ResumenAdmin(request):
 def DatosMesasAdmin(request):
     return render(request, 'plantillas/DatosMesasAdmin.html')
 
-def CalculoFinanciera(request):
-    return render(request, 'plantillas/CalculoMovimientosFinanciera.html') 
+def MostrarMovimientos(request):
+    return render(request, 'plantillas/MovimientosFinanciera.html') 
 
 def MostrarProveedores(request):
     return render(request, 'plantillas/Proveedores.html') 
 
- 
+def MostrarSolicitudesProveedores(request):
+    return render(request, 'plantillas/SolicitudesProveedoresFinanciera.html') 
+
+
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
     model = User
