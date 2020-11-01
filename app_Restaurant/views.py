@@ -44,7 +44,10 @@ def MostrarMovimientos(request):
 def MostrarProveedores(request):
     return render(request, 'plantillas/Proveedores.html') 
 
- 
+def MostrarSolicitudesProveedores(request):
+    return render(request, 'plantillas/SolicitudesProveedoresFinanciera.html') 
+
+
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
     model = User
