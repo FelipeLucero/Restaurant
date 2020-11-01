@@ -1,11 +1,13 @@
+{% extends 'plantillas/Restaurant.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="static/css/main.css">
-
+    <link rel="stylesheet" href="static/css/diseño2.css"> 
     <!--JQUERY-->
     <script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -25,7 +27,8 @@
       href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
@@ -74,11 +77,13 @@
           ]
       });
     });
-    </script>
+  </script>
 
     <title>INVENTARIO</title>
+  {% endblock %}
 </head>
-  <body>
+<body>
+  {% block contenido %}
 
 <!-- DATA TABLE -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -89,44 +94,44 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
-    let opcion = null;
-    let idMovimiento,fecha,cantidad,tipoMovimiento,codigoPro, fila;
-    //MOSTRAR
-    let tablaEstado = $('#tablaEstado').DataTable({
-      "ajax":{
-        "url":url,
-        "dataSrc":""
-      },
-      "columns":[
-          {"data":"idMovimiento"},
-          {"data":"fecha"},
-          {"data":"cantidad"},
-          {"data":"tipoMovimiento"},
-          {"data":"codigoPro"},
-      ],
-      //Para cambiar idioma a español del datatable
-      "language":{
-          "lengthMenu": "Mostrar _MENU_ registros",
-          "zeroRecords": "No se encontraron resultados",
-          "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-          "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-          "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-          "sSearch": "Buscar Solicitud:",
-          "oPaginate":{
-            "sFirst": "Primero",
-            "sLast":"Último",
-            "sNext":"Siguiente",
-            "sPrevious": "Anterior"
-          },
-          "sProcessing":"Procesando...",
-      },
-      dom: 'Bfrtip',
-          buttons: [
-              'pdfHtml5'
-          ]
+      let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
+      let opcion = null;
+      let idMovimiento,fecha,cantidad,tipoMovimiento,codigoPro, fila;
+      //MOSTRAR
+      let tablaEstado = $('#tablaEstado').DataTable({
+        "ajax":{
+          "url":url,
+          "dataSrc":""
+        },
+        "columns":[
+            {"data":"idMovimiento"},
+            {"data":"fecha"},
+            {"data":"cantidad"},
+            {"data":"tipoMovimiento"},
+            {"data":"codigoPro"},
+        ],
+        //Para cambiar idioma a español del datatable
+        "language":{
+            "lengthMenu": "Mostrar _MENU_ registros",
+            "zeroRecords": "No se encontraron resultados",
+            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sSearch": "Buscar Solicitud:",
+            "oPaginate":{
+              "sFirst": "Primero",
+              "sLast":"Último",
+              "sNext":"Siguiente",
+              "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+        },
+        dom: 'Bfrtip',
+            buttons: [
+                'pdfHtml5'
+            ]
+      });
     });
-  });
 </script>
 
 </head>
@@ -291,7 +296,10 @@
         ]
   });
 });
-</script>
 
-  </body>
+</script>
+{% endblock %}
+</body>
+
+
 </html>
