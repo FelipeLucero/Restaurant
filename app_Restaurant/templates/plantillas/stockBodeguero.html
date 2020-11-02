@@ -134,7 +134,7 @@
                                                       
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='http://127.0.0.1:8000/stockBodeguero'" >Cancelar</button>
                         <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
                     </div>
                 </form>    
@@ -157,7 +157,7 @@
                                                     
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='http://127.0.0.1:8000/stockBodeguero'">Cancelar </button>
                         <button type="submit" id="btnGuardar2" class="btn btn-dark">Guardar</button>
                     </div>
                 </form>    
@@ -343,8 +343,7 @@
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
                             tablaArticulos.ajax.reload(null, false);
-                            tablaMovimientos.ajax.reload(null, false); 
-                                                    
+                            tablaMovimientos.ajax.reload(null, false);                     
                         }
                     });	
                 }  
@@ -358,8 +357,7 @@
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
                             tablaArticulos.ajax.reload(null, false);
-                            tablaMovimientos.ajax.reload(null, false); 
-                                 
+                            tablaMovimientos.ajax.reload(null, false);  
                         }
                     });	
                 }         		        
