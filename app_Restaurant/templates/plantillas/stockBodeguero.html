@@ -20,15 +20,23 @@
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
     <style>
-     table.dataTable thead {
+        table.dataTable thead {
            background-color:#262325;
            color:aliceblue;
         }     
         
         a{
-        text-decoration: none;
-        color: #fff;
-    }
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+        
+        .btn:hover{
+            color: green ;
+            background: black;
+        }
+        
     </style>
 
     {% endblock %}
@@ -40,12 +48,12 @@
     {% block contenido %}
     <div class="mx-auto  main-section" id="myTab" role="tablist"></div>
         <ul class="nav nav-tabs nav-pills justify-content-lg-center">
-            <li class="nav-item">
-                <a class="nav-link active" id="stock-tab" data-toggle="tab" href="#stock" role="tab" aria-controls="stock" aria-selected="false">STOCK</a>
+            <li class="nav-item"  style="background-color: #262325;">
+                <a  style="color: #D35400; font-size: 20px;  text-decoration: none; " class="nav-link active" id="stock-tab" data-toggle="tab" href="#stock" role="tab" aria-controls="stock" aria-selected="false">STOCK</a>
             </li>
         
-            <li class="nav-item">
-                <a class="nav-link" id="movi-tab" data-toggle="tab" href="#movi" role="tab" aria-controls="movi" aria-selected="true">MOVIMIENTOS</a>	
+            <li class="nav-item"  style="background-color: #262325">
+                <a   style="color:#D35400; font-size: 20px; text-decoration: none;  " class="nav-link" id="movi-tab" data-toggle="tab" href="#movi" role="tab" aria-controls="movi" aria-selected="true">MOVIMIENTOS</a>	
                 
                 
    			   	
@@ -67,7 +75,7 @@
                                     <th>STOCK</th>
                                     <th>PRECIO UNIDAD</th> 
                                     <th>NOMBRE DE PROVEEDOR</th>                                                      
-                                    <th class="text-center">ACCIONES</th>                      
+                                    <th class="text-center">MOVIMIENTOS STOCK</th>                      
                                 </tr>
                             </thead>
                             <tbody>
@@ -149,7 +157,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>                
                 </div>
-                <form id="formProductos2">    
+                <form id="formMovimientos">    
                     <div class="modal-body">                
 
                         <label for="" class="col-form-label">Ingrese la cantidad</label>
@@ -157,7 +165,7 @@
                                                     
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='http://127.0.0.1:8000/stockBodeguero'">Cancelar </button>
+                        <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='http://127.0.0.1:8000/stockBodeguero'">Cancelar </button>
                         <button type="submit" id="btnGuardar2" class="btn btn-dark">Guardar</button>
                     </div>
                 </form>    
@@ -192,7 +200,7 @@
                     {"data":"stock"},
                     {"data":"precioUnidad"},
                     {"data":"nombreProveedor"},
-                    {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnEditar'>Agregar Stock</button><button class='btn btn-danger btn-sm btnBorrar'>Retirar Stock</button></div></div>"}
+                    {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnAgregar'>Agregar </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRetirar'>Retirar </button></div></div>"}
                 ],
 
                 //Para cambiar idioma a español del datatable
@@ -253,30 +261,33 @@
                 opcion='crear';            
                 //codigoPro=null;
                 $("#formProductos").trigger("reset");
-                $(".modal-header").css( "background-color", "#23272b");
+                $(".modal-header").css( "background-color", "#262325");
                 $(".modal-header").css( "color", "white" );
                 $(".modal-title").text("Crear Producto");
                 $('#modalCRUD').modal('show');	    
-            });    
+            });
+
             //AGREGAR      
-            $(document).on("click", ".btnEditar", function(){		            
+            $(document).on("click", ".btnAgregar", function(){		            
                 opcion='agregar';
                 fila = $(this).closest("tr");	        
                 codigoPro = parseInt(fila.find('td:eq(0)').text());
+                $("#formMovimientos").trigger("reset");
                 $("#codigoPro").val(codigoPro);              
-                $(".modal-header").css("background-color", "#7303c0");
+                $(".modal-header").css("background-color", "#262325");
                 $(".modal-header").css("color", "white" );
                 $(".modal-title").text("Agregar Producto");		
                 $('#modalU').modal('show');		   
             });
 
             //RETIRAR      
-            $(document).on("click", ".btnBorrar", function(){		            
+            $(document).on("click", ".btnRetirar", function(){		            
                 opcion='retirar';
                 fila = $(this).closest("tr");	        
                 codigoPro = parseInt(fila.find('td:eq(0)').text());
+                $("#formMovimientos").trigger("reset");
                 $("#codigoPro").val(codigoPro);              
-                $(".modal-header").css("background-color", "#7303c0");
+                $(".modal-header").css("background-color", "#262325");
                 $(".modal-header").css("color", "white" );
                 $(".modal-title").text("Retirar Producto");		
                 $('#modalU').modal('show');		   
@@ -313,7 +324,7 @@
                 codigoPro = $.trim($('#codigoPro').val());  
                 descripcion = $.trim($('#descripcion').val());
                 stock = $.trim($('#stock').val());    
-                precioUnidad = $.trim($('#precioUnidad').val());              
+                precioUnidad = $.trim($('#precioUnidad').val());             
                 if(opcion=='crear'){                
                     $.ajax({                    
                         url: url,
@@ -321,7 +332,9 @@
                         contentType: 'application/json',  
                         data:  JSON.stringify({codigoPro:codigoPro, descripcion:descripcion, stock:stock, precioUnidad:precioUnidad}),                       
                         success: function(data) {                       
-                            tablaArticulos.ajax.reload(null, false);                        
+                            tablaArticulos.ajax.reload(null, false); 
+                            location.href='http://127.0.0.1:8000/stockBodeguero'
+
                         }
                     });	
                 }
@@ -329,7 +342,7 @@
                 $('#modalCRUD').modal('hide');										     			
             });
 
-            $('#formProductos2').submit(function(e){    
+            $('#formMovimientos').submit(function(e){    
                 //header.Add('Access-Control-Allow-Origin *');                      
                 e.preventDefault();  
                 stock = $.trim($('#stock2').val());    
@@ -343,7 +356,8 @@
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
                             tablaArticulos.ajax.reload(null, false);
-                            tablaMovimientos.ajax.reload(null, false);                     
+                            tablaMovimientos.ajax.reload(null, false); 
+                            location.href='http://127.0.0.1:8000/stockBodeguero'
                         }
                     });	
                 }  
@@ -357,7 +371,8 @@
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
                             tablaArticulos.ajax.reload(null, false);
-                            tablaMovimientos.ajax.reload(null, false);  
+                            tablaMovimientos.ajax.reload(null, false); 
+                            location.href='http://127.0.0.1:8000/stockBodeguero'
                         }
                     });	
                 }         		        
