@@ -19,23 +19,15 @@
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
     <style>
-        table.dataTable thead {
+     table.dataTable thead {
            background-color:#262325;
            color:aliceblue;
         }     
         
         a{
-            text-decoration: none;
-            color: #fff;
-        }
-        
-        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
-        
-        .btn:hover{
-            color: green ;
-            background: black;
-        }
-        
+        text-decoration: none;
+        color: #fff;
+    }
     </style>
     
     {% endblock %}
@@ -72,38 +64,22 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
 <script>
     $(document).ready(function() {   
-        let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/item';
+        let url = 'http://52.3.46.105/api/pedido/detallepedido/1';
         let opcion = null;
-        let idItem, nombreItem, descripcion, precio;
         //MOSTRAR
         let tablaArticulos = $('#tablaPlatillos').DataTable({            
             "ajax":{
-                "url": url,
+                "url": url+idPedido,
                 "dataSrc":""
             },
             "columns":[
-                {"data":"idItem"},
+                {"data":"idDetallePed"},
+                {"data":"idPedido"},
+                {"data":"cantidad"},
                 {"data":"nombreItem"},
-                {"data":"descripcion"},
-                {"data":"precio"}
-            
+                {"data":"estadoDetalle"},
             ],
-
-            "language":{
-                "lengthMenu": "Mostrar _MENU_ registros",
-                "zeroRecords": "No se encontraron resultados",
-                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sSearch": "Buscar Producto:",
-                "oPaginate":{
-                "sFirst": "Primero",
-                "sLast":"Último",
-                "sNext":"Siguiente",
-                "sPrevious": "Anterior"
-                },
-                "sProcessing":"Procesando...",
-            },        
+                    
         });
     
     });

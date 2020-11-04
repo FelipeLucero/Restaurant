@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,ListarEgresos,DatosClientesAdmin,InventarioAdministrador,ResumenAdmin,DatosMesasAdmin,platillos,reserva,MostrarMovimientos,MostrarProveedores,stock,MostrarSolicitudesProveedores
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, ListarEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -34,6 +34,9 @@ urlpatterns = [
 
     path('platillosCliente',platillos, name='platillosCliente'),
     path('reservaCliente',reserva, name='reservaCliente'),
+
+    path('recetasCocinero',recetas, name='recetasCocinero'),
+    path('pedidosCocinero',pedidos, name='pedidosCocineros'),
 
     path('stockBodeguero',stock, name='stockBodeguero'),
 

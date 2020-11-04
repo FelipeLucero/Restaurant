@@ -102,3 +102,9 @@ def stock(request):
 # para Usuario Financiera.
 
 # para Usuario Cocinero.
+
+def recetas(request):
+   return render(request, 'plantillas/recetasCocinero.html')   # plantilla de cliente para mostrar platillos.
+
+def pedidos(request):
+   return render(request, 'plantillas/pedidosCocinero.html')   # plantilla de cliente para mostrar platillos.

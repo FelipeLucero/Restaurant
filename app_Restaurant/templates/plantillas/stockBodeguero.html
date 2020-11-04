@@ -54,10 +54,9 @@
         
             <li class="nav-item"  style="background-color: #262325">
                 <a   style="color:#D35400; font-size: 20px; text-decoration: none;  " class="nav-link" id="movi-tab" data-toggle="tab" href="#movi" role="tab" aria-controls="movi" aria-selected="true">MOVIMIENTOS</a>	
-                
-                
-   			   	
             </li>
+
+            
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -86,6 +85,7 @@
                 </div>
             </div>
         
+            
 
             <div class="tab-pane fade" id="movi" role="tabpanel" aria-labelledby="list-tab">
                 <div class="container-fluid">
@@ -99,7 +99,7 @@
                                     <th>FECHA</th>
                                     <th>CANTIDAD</th>
                                     <th>TIPO DE MOVIMIENTO</th> 
-                                    <th>CODIGO PRODUCTOS</th>                                                                          
+                                    <th>DESCRIPCIÓN DEL PRODUCTO</th>                                                                          
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,16 +128,16 @@
                     <div class="modal-body">                
                          
                         <label for="" class="col-form-label">Codigo del Producto</label>
-                        <input type="number" class="form-control" id="codigoPro"> 
+                        <input type="text" class="form-control" id="codigoPro"> 
 
                         <label for="" class="col-form-label">Descripcion del Producto</label>
                         <input type="text" class="form-control" id="descripcion">
                     
                         <label for="" class="col-form-label">Stock Disponible</label>
-                        <input id="stock" type="text"  class="form-control">
+                        <input id="stock" type="number"  class="form-control">
 
                         <label for="" class="col-form-label">Precio de la Unidad</label>
-                        <input id="precioUnidad" type="number"  class="form-control">
+                        <input id="precioUnidad" type="text"  class="form-control">
 
                                                       
                     </div>
@@ -181,15 +181,12 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>  
 
     <script>
-        $(document).ready(function() {   
+
+        $(document).ready(function() { 
             let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto';
-            let urlAgregar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/agregarStock/';
-            let urlRetirar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/retirarDelStock/';
-            let urlMovi = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
-            let opcion = null;
-            let codigoPro, descripcion, stock, precioUnidad, fila;
-            //MOSTRAR
-            let tablaArticulos = $('#tablaProductos').DataTable({            
+            let urlCrear = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto';
+            
+            let tablaProductos = $('#tablaProductos').DataTable({            
                 "ajax":{
                     "url": url,
                     "dataSrc":""
@@ -221,6 +218,60 @@
                 },
 
             });
+
+
+            //CREAR
+            $("#btnCrear").click(function(){
+                opcion='crear';            
+                //codigoPro=null;
+                $("#formProductos").trigger("reset");
+                $(".modal-header").css( "background-color", "#262325");
+                $(".modal-header").css( "color", "white" );
+                $(".modal-title").text("Crear Producto");
+                $('#modalCRUD').modal('show');	    
+            });
+
+            
+            //submit para el CREAR 
+            $('#formProductos').submit(function(e){    
+                //header.Add('Access-Control-Allow-Origin *');                      
+                e.preventDefault();  
+                codigoPro = $.trim($('#codigoPro').val());  
+                descripcion = $.trim($('#descripcion').val());
+                stock = $.trim($('#stock').val());    
+                precioUnidad = $.trim($('#precioUnidad').val());             
+                if(opcion=='crear'){                
+                    $.ajax({                    
+                        url: url,
+                        method: 'post',                                                         
+                        contentType: 'application/json',  
+                        data:  JSON.stringify({codigoPro:codigoPro, descripcion:descripcion, stock:stock, precioUnidad:precioUnidad}),                       
+                        success: function(data) {                       
+                            tablaProductos.ajax.reload(null, false); 
+                            location.href='http://127.0.0.1:8000/stockBodeguero'
+
+                        }
+                    });	
+                }
+                                
+                $('#modalCRUD').modal('hide');										     			
+            });
+
+
+
+        });
+
+
+        
+        $(document).ready(function() {   
+            let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto';
+            let urlAgregar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/agregarStock/';
+            let urlRetirar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/retirarDelStock/';
+            let urlMovi = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
+            let opcion = null;
+            let codigoPro, descripcion, stock, precioUnidad, fila;
+            //MOSTRAR
+          
             
             let tablaMovimientos = $('#tablaMovimientos').DataTable({            
                 "ajax":{
@@ -232,7 +283,7 @@
                     {"data":"fecha"},
                     {"data":"cantidad"},
                     {"data":"tipoMovimiento"},
-                    {"data":"codigoPro"},
+                    {"data":"descripcionProducto"},
                 ],
 
                 //Para cambiar idioma a español del datatable
@@ -255,17 +306,6 @@
             });
 
 
-
-            //CREAR
-            $("#btnCrear").click(function(){
-                opcion='crear';            
-                //codigoPro=null;
-                $("#formProductos").trigger("reset");
-                $(".modal-header").css( "background-color", "#262325");
-                $(".modal-header").css( "color", "white" );
-                $(".modal-title").text("Crear Producto");
-                $('#modalCRUD').modal('show');	    
-            });
 
             //AGREGAR      
             $(document).on("click", ".btnAgregar", function(){		            
@@ -293,54 +333,6 @@
                 $('#modalU').modal('show');		   
             });
         
-            //BORRAR
-            /*$(document).on("click", ".btnBorrar", function(){
-                fila = $(this);           
-                id = parseInt($(this).closest('tr').find('td:eq(0)').text());            
-                Swal.fire({
-                    title: '¿Confirma eliminar el registro?',                
-                    showCancelButton: true,
-                    confirmButtonText: `Confirmar`,                
-                    }).then((result) => {               
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: url+id,
-                            method: 'delete',                        
-                            data:  {id:id},    
-                            success: function() {
-                                tablaArticulos.row(fila.parents('tr')).remove().draw();                  
-                            }
-                        });
-                        Swal.fire('¡Registro Eliminado!', '', 'success')
-                    } 
-                    })
-            }); 
-            */
-
-            //submit para el CREAR y EDITAR
-            $('#formProductos').submit(function(e){    
-                //header.Add('Access-Control-Allow-Origin *');                      
-                e.preventDefault();  
-                codigoPro = $.trim($('#codigoPro').val());  
-                descripcion = $.trim($('#descripcion').val());
-                stock = $.trim($('#stock').val());    
-                precioUnidad = $.trim($('#precioUnidad').val());             
-                if(opcion=='crear'){                
-                    $.ajax({                    
-                        url: url,
-                        method: 'post',                                                         
-                        contentType: 'application/json',  
-                        data:  JSON.stringify({codigoPro:codigoPro, descripcion:descripcion, stock:stock, precioUnidad:precioUnidad}),                       
-                        success: function(data) {                       
-                            tablaArticulos.ajax.reload(null, false); 
-                            location.href='http://127.0.0.1:8000/stockBodeguero'
-
-                        }
-                    });	
-                }
-                                
-                $('#modalCRUD').modal('hide');										     			
-            });
 
             $('#formMovimientos').submit(function(e){    
                 //header.Add('Access-Control-Allow-Origin *');                      
@@ -355,7 +347,7 @@
                         contentType: 'application/json',  
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
-                            tablaArticulos.ajax.reload(null, false);
+                            tablaProductos.ajax.reload(null, false);
                             tablaMovimientos.ajax.reload(null, false); 
                             location.href='http://127.0.0.1:8000/stockBodeguero'
                         }
@@ -370,7 +362,7 @@
                         contentType: 'application/json',  
                         data:  JSON.stringify({ stock:stock}),                       
                         success: function(data) {                       
-                            tablaArticulos.ajax.reload(null, false);
+                            tablaProductos.ajax.reload(null, false);
                             tablaMovimientos.ajax.reload(null, false); 
                             location.href='http://127.0.0.1:8000/stockBodeguero'
                         }
@@ -379,10 +371,6 @@
                 $('#modalU').modal('hide');	
 
             }); 
-
-
-
-
         });
         
     </script>

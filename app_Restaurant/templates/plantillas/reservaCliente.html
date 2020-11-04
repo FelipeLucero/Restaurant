@@ -20,15 +20,23 @@
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
     <style>
-     table.dataTable thead {
+        table.dataTable thead {
            background-color:#262325;
            color:aliceblue;
         }     
         
         a{
-        text-decoration: none;
-        color: #fff;
-    }
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+        
+        .btn:hover{
+            color: green ;
+            background: black;
+        }
+        
     </style>
     
     {% endblock %}
@@ -117,9 +125,26 @@
                 {"data":"precioReserva"},
                 {"data":"capacidad"},
                 {"data":"estadoMesa"},
-                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnGuardar'>Reservar</button>"}
+                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default btn-sm botonesFuncionalidades btnGuardar'>Reservar</button>"}
             ],
-                    
+
+              //Para cambiar idioma a español del datatable
+              "language":{
+                    "lengthMenu": "Mostrar _MENU_ registros",
+                    "zeroRecords": "No se encontraron resultados",
+                    "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sSearch": "Buscar Producto:",
+                    "oPaginate":{
+                    "sFirst": "Primero",
+                    "sLast":"Último",
+                    "sNext":"Siguiente",
+                    "sPrevious": "Anterior"
+                    },
+                    "sProcessing":"Procesando...",
+                },
+
         });
 
         //EDITAR        
@@ -128,7 +153,7 @@
             fila = $(this).closest("tr");	        
             idMesa = parseInt(fila.find('td:eq(0)').text());          
             $("#idMesa").val(idMesa);     
-            $(".modal-header").css("background-color", "#7303c0");
+            $(".modal-header").css("background-color", "#262325");
             $(".modal-header").css("color", "white" );
             $(".modal-title").text("Crear Reserva");		
             $('#modalCRUD').modal('show');		   
