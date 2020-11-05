@@ -101,6 +101,10 @@ def reserva(request):
 def stock(request):
    return render(request, 'plantillas/stockBodeguero.html')   # plantilla de cliente para mostrar platillos.
 
+def movimientos(request):
+   return render(request, 'plantillas/movimientosBodega.html')   # plantilla de cliente para mostrar platillos.
+
+
 # para Usuario Financiera.
 
 # para Usuario Cocinero.
