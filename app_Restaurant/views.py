@@ -23,8 +23,6 @@ def IngresoEgresos(request):
     return render(request, 'plantillas/FinancieraIngresoEgresos.html')  # plantilla ingreso egresos
 
 
-def ListarEgresos(request):
-    return render(request, 'plantillas/FinancieraListarEgresos.html')  # plantilla listado egresos
 
 def DatosClientesAdmin(request):
     return render(request, 'plantillas/DatosClientesAdmin.html')
@@ -106,6 +104,20 @@ def movimientos(request):
 
 
 # para Usuario Financiera.
+
+def pagaFinanciera(request):
+   return render(request, 'plantillas/pagadosFinanciera.html')   # plantilla de cliente para mostrar platillos.
+
+def listarGanancias(request):
+    return render(request, 'plantillas/financieraListarIngresosDias.html')  # plantilla listado egresos
+
+
+def listarGananciasMes(request):
+    return render(request, 'plantillas/financieraListarIngresosMes.html')  # plantilla listado egresos
+
+
+
+
 
 # para Usuario Cocinero.
 

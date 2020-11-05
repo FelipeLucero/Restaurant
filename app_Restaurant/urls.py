@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, ListarEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -20,8 +20,10 @@ urlpatterns = [
     path('MenuAdministrador',login_required(login_exito) , name='MenuAdministrador'),
     path('MenuCliente',login_required(login_exito) , name='MenuCLiente'),
     path('testapi',testapi , name='testapi'),
+
     path('IngresoEgresos',IngresoEgresos , name='IngresoEgresos'),
-    path('ListarEgresos',ListarEgresos , name='ListarEgresos'),
+    path('financieraListarIngresosDias',listarGanancias , name='financieraListarIngresosDias'),
+    path('financieraListarIngresosMes',listarGananciasMes , name='financieraListarIngresosMes'),
 
     path('Inventario',InventarioAdministrador, name='InventarioAdministrador'),
     path('DatosClientes',DatosClientesAdmin, name='DatosClientesAdmin'),
@@ -32,6 +34,7 @@ urlpatterns = [
     path('MostrarProveedores',MostrarProveedores, name='MostrarProveedores'),
     path('MostrarSolicitudesProveedores',MostrarSolicitudesProveedores, name='MostrarSolicitudesProveedores'),
     path('MostrarMovimientosFinancieros',MostrarMovimientosFinancieros, name='MostrarMovimientosFinancieros'),
+    path('pagadosFinanciera',pagaFinanciera, name='pagadosFinanciera'),
 
     path('platillosCliente',platillos, name='platillosCliente'),
     path('reservaCliente',reserva, name='reservaCliente'),

@@ -50,19 +50,21 @@
         <div class="container-fluid">
 
             <div class="container">
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">VOLVER MENU</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MostrarMovimientosFinancieros'">VOLVER ATRAS</button>
+
             </div>
 
             <div class="container">
                 <div class="row shadow-lg p-3 mb-5">
                     <div class="col">
-                        <table id="tablaPlatillos" class="table table-striped table-bordered" style="width:90%">
+                        <table id="tablaPagadas" class="table table-striped table-bordered" style="width:90%">
                             <thead>
                                 <tr>
-                                    <th>NUMERO DE ITEM</th>
-                                    <th>NOMBRE</th>
-                                    <th>DESCRIPCIÓN</th>
-                                    <th>PRECIO</th>                                                                           
+                                    <th>Id del Pedido</th>
+                                    <th>Fecha Pedido</th>
+                                    <th>ID de la Mesa</th> 
+                                    <th>Estado Pedido</th>     
+                                    <th>Metodo de Pago</th>                                                                          
                                 </tr>
                             </thead>
                             <tbody>
@@ -83,20 +85,20 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/item';
+                let urlPaga = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Pedido/pagados';
                 let opcion = null;
                 //MOSTRAR
-                let tablaArticulos = $('#tablaPlatillos').DataTable({            
+                let tablaArticulos = $('#tablaPagadas').DataTable({            
                     "ajax":{
-                        "url": url,
+                        "url": urlPaga,
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"idItem"},
-                        {"data":"nombreItem"},
-                        {"data":"descripcion"},
-                        {"data":"precio"}
-                    
+                    {"data":"idPedido"},
+                    {"data":"fecha"},
+                    {"data":"idMesa"},
+                    {"data":"estadoPed"},
+                    {"data":"metodoPago"}
                     ],
 
                     "language":{

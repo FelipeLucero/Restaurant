@@ -50,19 +50,20 @@
         <div class="container-fluid">
 
             <div class="container">
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">VOLVER MENU</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/financieraListarIngresosDias'">VOLVER ATRAS</button>
             </div>
 
             <div class="container">
                 <div class="row shadow-lg p-3 mb-5">
                     <div class="col">
-                        <table id="tablaPlatillos" class="table table-striped table-bordered" style="width:90%">
+                        <table id="tablaGananciasDias" class="table table-striped table-bordered" style="width:90%">
                             <thead>
                                 <tr>
-                                    <th>NUMERO DE ITEM</th>
-                                    <th>NOMBRE</th>
-                                    <th>DESCRIPCIÓN</th>
-                                    <th>PRECIO</th>                                                                           
+                                    <th>Total Ingresos Pedidos</th>
+                                    <th>Total Ingresos Reservas</th>
+                                    <th>Total Egresos</th> 
+                                    <th>Ganancias</th>     
+                                    <th>Mes</th>                                                                              
                                 </tr>
                             </thead>
                             <tbody>
@@ -83,19 +84,20 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/item';
+                let urlMes = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Ganancia/Mensuales';
                 let opcion = null;
                 //MOSTRAR
-                let tablaArticulos = $('#tablaPlatillos').DataTable({            
+                let tablaArticulos = $('#tablaGananciasDias').DataTable({            
                     "ajax":{
-                        "url": url,
+                        "url": urlMes,
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"idItem"},
-                        {"data":"nombreItem"},
-                        {"data":"descripcion"},
-                        {"data":"precio"}
+                        {"data":"totalIngresosPedidos"},
+                        {"data":"totalIngresosReservas"},
+                        {"data":"totalEgresos"},
+                        {"data":"ganancias"},
+                        {"data":"dia"}
                     
                     ],
 

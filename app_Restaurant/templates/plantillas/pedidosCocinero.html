@@ -28,6 +28,14 @@
             text-decoration: none;
             color: #fff;
         }
+        
+        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+
+         
+        .btn:hover{
+            color: green ;
+            background: black;
+        }
 
         .container{
             background-color: #EEEEEE;
@@ -42,7 +50,7 @@
     <div class="container-fluid">
 
         <div class="container">
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">Volver Menu</button>
+            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">VOLVER MENU</button>
         </div>
 
         <div class="container">
@@ -51,10 +59,12 @@
                     <table id="tablaPlatillos" class="table table-striped table-bordered" style="width:90%">
                     <thead>
                         <tr>
-                            <th>NUMERO DE ITEM</th>
-                            <th>NOMBRE</th>
-                            <th>DESCRIPCIÓN</th>
-                            <th>PRECIO</th>                                                                           
+                            <th>NUMERO DE DETALLE</th>
+                            <th>MESA</th>
+                            <th>CANTIDAD</th>
+                            <th>PLATILLO</th>  
+                            <th>ESTADO</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -77,17 +87,17 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
 <script>
     $(document).ready(function() {   
-        let url = 'http://52.3.46.105/api/pedido/detallepedido/1';
+        let url = 'https://cors-anywhere.herokuapp.com/http://52.3.46.105/api/pedido/detallespreparacion';
         let opcion = null;
         //MOSTRAR
         let tablaArticulos = $('#tablaPlatillos').DataTable({            
             "ajax":{
-                "url": url+idPedido,
+                "url": url,
                 "dataSrc":""
             },
             "columns":[
                 {"data":"idDetallePed"},
-                {"data":"idPedido"},
+                {"data":"numeroMesa"},
                 {"data":"cantidad"},
                 {"data":"nombreItem"},
                 {"data":"estadoDetalle"},
