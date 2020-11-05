@@ -46,7 +46,7 @@
                         <th>Fecha</th>
                         <th>Cantidad</th>
                         <th>Tipo Movimiento</th> 
-                        <th>Codigo Producto</th>                                                                          
+                                                                                                  
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +68,7 @@
 $(document).ready(function() {   
     let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
     let opcion = null;
-    let fecha, cantidad, tipoMovimiento,codigoPro;
+    let fecha, cantidad, tipoMovimiento;
     //MOSTRAR
     let tablaArticulos = $('#tablaMovimientos').DataTable({            
         "ajax":{
@@ -80,7 +80,7 @@ $(document).ready(function() {
             {"data":"fecha"},
             {"data":"cantidad"},
             {"data":"tipoMovimiento"},
-            {"data":"codigoPro"}
+            
            
         ],
                 
