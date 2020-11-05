@@ -102,6 +102,14 @@ def stock(request):
 def movimientos(request):
    return render(request, 'plantillas/movimientosBodega.html')   # plantilla de cliente para mostrar platillos.
 
+def detalleBodega(request):
+   return render(request, 'plantillas/detalleSolicitudesBodeguero.html')   # plantilla de cliente para mostrar platillos.
+
+def soliAprobadaBodega(request):
+   return render(request, 'plantillas/solicitudAprobadaBodeguero.html')   # plantilla de cliente para mostrar platillos.
+
+def soliRechazadaBodega(request):
+   return render(request, 'plantillas/solicitudRechazadaBodeguero.html')   # plantilla de cliente para mostrar platillos.
 
 # para Usuario Financiera.
 
