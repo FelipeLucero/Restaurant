@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,soliRechazadaBodega,soliAprobadaBodega
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -45,8 +45,7 @@ urlpatterns = [
     path('stockBodeguero',stock, name='stockBodeguero'),
     path('movimientosBodega',movimientos, name='movimientosBodega'),
     path('detalleSolicitudesBodeguero',detalleBodega, name='detalleSolicitudesBodeguero'),
-    path('solicitudRechazadaBodeguero',soliRechazadaBodega, name='solicitudRechazadaBodeguero'),
-    path('solicitudAprobadaBodeguero',soliAprobadaBodega, name='solicitudAprobadaBodeguero'),
+ 
 
     path('logged_out',login_salida , name='logged_out'),
     url(r'registro', RegistroUsuario.as_view(), name="registro")

@@ -61,7 +61,7 @@
                             <th>NUMERO DE MESA</th>
                             <th>PRECIO DE RESERVA</th>
                             <th>CAPACIDAD</th>
-                            <th>ESTADO DE RESERVA</th> 
+                            
                             <th class="text-center">RESERVAR</th>                                                                          
                         </tr>
                     </thead>
@@ -134,7 +134,6 @@
                 {"data":"idMesa"},
                 {"data":"precioReserva"},
                 {"data":"capacidad"},
-                {"data":"estadoMesa"},
                 {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default btn-sm botonesFuncionalidades btnGuardar'>Reservar</button>"}
             ],
 
@@ -188,6 +187,7 @@
                     success: function(data) {                       
                         tablaReservas.ajax.reload(null, false);                        
                     }
+                    
                 });	
             }  
             $('#modalCRUD').modal('hide');										     			

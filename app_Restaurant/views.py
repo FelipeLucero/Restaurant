@@ -105,12 +105,6 @@ def movimientos(request):
 def detalleBodega(request):
    return render(request, 'plantillas/detalleSolicitudesBodeguero.html')   # plantilla de cliente para mostrar platillos.
 
-def soliAprobadaBodega(request):
-   return render(request, 'plantillas/solicitudAprobadaBodeguero.html')   # plantilla de cliente para mostrar platillos.
-
-def soliRechazadaBodega(request):
-   return render(request, 'plantillas/solicitudRechazadaBodeguero.html')   # plantilla de cliente para mostrar platillos.
-
 # para Usuario Financiera.
 
 def pagaFinanciera(request):
