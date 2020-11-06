@@ -1,9 +1,7 @@
-{% extends 'plantillas/Restaurant.html' %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
+    
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
@@ -43,10 +41,29 @@
 
     </style>
     
-    {% endblock %}
+    
 </head>
-<body>
-    {% block contenido %}
+<body style="background:#EFECDD ;">
+    <header>
+        <div id="subheader">
+            <div id="divlogo">
+               <img class="logorest" src="/static/img/logo2.png" alt="logo de restaurant siglo XXI">
+            </div>
+             
+            <div style="height: 110px;">
+                {% if user.is_authenticated %}
+                <H4  style ='color: #262325; text-align: right; font-size: 20px; '  class="titulobodeguero">  Bienvenido Cliente: {{user.username}}</H4>
+                {% endif %}
+            </div>
+          
+
+        </div>
+    </header>
+
+    <h2 style=" text-align: center; padding-top: 25px; height: 110px; width: auto; font-size: 45px;  font-family: 'Handlee';" >
+        Sus Pedidos
+    </h2>
+
     <div class="container-fluid">
 
         <div class="container">
@@ -102,12 +119,112 @@
                 {"data":"nombreItem"},
                 {"data":"estadoDetalle"},
             ],
-                    
+            
+            "language":{
+                        "lengthMenu": "Mostrar _MENU_ registros",
+                        "zeroRecords": "No se encontraron resultados",
+                        "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sSearch": "Buscar:",
+                        "oPaginate":{
+                        "sFirst": "Primero",
+                        "sLast":"Último",
+                        "sNext":"Siguiente",
+                        "sPrevious": "Anterior"
+                        },
+                        "sProcessing":"Procesando...",
+                    },         
         });
     
     });
 </script>
 
 </body>
-{% endblock %}
+<footer>
+       
+    <div class="container-footer-all">
+    
+        <div class="container-body">
+
+            <div class="colum1">
+                <h1>Mas información del Restaurante</h1>
+
+                <p> Esta empresa se dedica a la venta de comida casera para 
+                    todos los gustos y todos los clientes. Tiene una trayectoria de más 40 años de servicio 
+                    destacándose por su calidad y delicadeza en la preparación. "RestaurantSigloXXI" 
+                </p>
+
+            </div>
+
+            <div class="colum2">
+
+                <h1>Redes Sociales</h1>
+
+                <div class="row2">
+                    <img src="/static/img/icon/Facebook.png">
+                    <label>Siguenos en Facebook</label>
+                </div>
+                <div class="row2">
+                    <img src="/static/img/icon/twitter.png">
+                    <label>Siguenos en Twitter</label>
+                </div>
+                <div class="row2">
+                    <img src="/static/img/icon/instagram.png">
+                    <label>Siguenos en Instagram</label>
+                </div>
+                <div class="row2">
+                    <img src="/static/img/icon/google-plus.png">
+                    <label>Siguenos en Google Plus</label>
+                </div>
+                <div class="row2">
+                    <img src="/static/img/icon/pinterest.png">
+                    <label>Siguenos en Pinteres</label>
+                </div>
+
+
+            </div>
+
+            <div class="colum3">
+
+                <h1>Informacion Contactos</h1>
+
+                <div class="row2">
+                    <img src="/static/img/icon/house.png">
+                    <label>El Roble, 
+                    Calle Vicente Bustillos
+                    Enrique Campino
+                    Casa # 155</label>
+                </div>
+
+                <div class="row2">
+                    <img src="/static/img/icon/smartphone.png">
+                    <label>+569-97681778</label>
+                </div>
+
+                <div class="row2">
+                    <img src="/static/img/icon/contact.png">
+                    <label>RestaurantSiglo21@gmail.com</label>
+                </div>
+
+            </div>
+
+        </div>
+    
+    </div>
+    
+    <div class="container-footer">
+        <div class="footer">
+                <div class="copyright">
+                    © 2020 Todos los Derechos Reservados | <a href="">Lucero</a>
+                </div>
+
+                <div class="information">
+                    <a href="">Informacion Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a>
+                </div>
+            </div>
+
+    </div>
+     
+</footer>
 </html>
