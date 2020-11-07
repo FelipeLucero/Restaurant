@@ -18,6 +18,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
+    <link rel="stylesheet" href="static/fonts/style.css">
+
     <style>
         table.dataTable thead {
            background-color:#262325;
@@ -51,21 +53,25 @@
                <img class="logorest" src="/static/img/logo2.png" alt="logo de restaurant siglo XXI">
             </div>
              
-            <div style="height: 110px;">
-                {% if user.is_authenticated %}
-                <H4  style ='color: #262325; text-align: right; font-size: 20px; '  class="titulobodeguero">  Bienvenido Cocinero: {{user.username}}</H4>
-                {% endif %}
-            </div>
+            <nav style="padding-left: 850px;">
+                <ul>
+                  <li> <a href="http://127.0.0.1:8000/accounts/logout/"> <span class="icon-exit"></span>   Cerrar Sesión</a>  </li>
+                </ul> 
+            </nav>
         </div>
     </header>
 
-    <h2 style=" text-align: center; padding-top: 25px; height: 110px; width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        Recetas 
+    
+    {% if user.is_authenticated %}
+        <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  > <span class="icon-users1"></span> Bienvenido Cocinero: {{user.username}}</H4>
+    {% endif %}
+    <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
+        Recetas
     </h2>
     <div class="container-fluid">
         <div class="container">
             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'">VOLVER MENU</button>
-            <button id="btnCrear" class="btn btn-dark mt-2">CREAR PLATILLO</button>
+            <button id="btnCrear" class="btn btn-dark mt-2"> <span class="icon-spoon-knife"> </span> CREAR PLATILLO</button>
         </div>
         
         <div class="container">
