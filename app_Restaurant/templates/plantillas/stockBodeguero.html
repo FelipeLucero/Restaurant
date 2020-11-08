@@ -65,17 +65,17 @@
         {% if user.is_authenticated %}
         <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="titulobodeguero"> <span class="icon-users1"></span> Bienvenido Bodeguero: {{user.username}}</H4>
         {% endif %}
-        <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
+        <h2 style=" text-align: center; padding-bottom: 15px;  width: auto; font-size: 45px;  font-family: 'Handlee';" >
             Revise Su Stock
         </h2>
 
         <div class="container-fluid">
             <div class="container">
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuBodeguero'">VOLVER MENU</button>
-                <button id="btnCrear" class="btn btn-dark mt-2">CREAR PRODUCTO</button>
-                <button class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/movimientosBodega'">VER MOVIMIENTOS</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuBodeguero'"> <span class="icon-reply"></span>  VOLVER MENU</button>
+                <button id="btnCrear" class="btn btn-dark mt-2"> <span class="icon-plus"></span> CREAR PRODUCTO</button>
+                <button class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/movimientosBodega'"> <span class="icon-loop"></span> VER MOVIMIENTOS</button> 
             </div>
-           
+          
             <div class="container">
                 <div class="row shadow-lg p-3 mb-5">
                     <div class="col">
@@ -181,7 +181,7 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"codigoPro"},
+                        {"data":"codigoPro" ,"visible":false},
                         {"data":"descripcion"},
                         {"data":"stock"},
                         {"data":"precioUnidad"},

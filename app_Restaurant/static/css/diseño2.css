@@ -530,7 +530,7 @@ select{
 
 .titulobodeguero{
    text-align: center;
-   color:  #EFECDD;
+   color:  #262325;;
    padding: 30px;
    font-size: 40px;
 }
@@ -542,7 +542,7 @@ select{
 }
 
 .fondobodega{
-    background-image :url(/static/img/fondosmenus/menucocina.png);
+    background-image :url(/static/img/fondosmenus/menubodega.png);
     height: 900px;
 }
 
@@ -572,7 +572,7 @@ select{
 
 .titulococinero{
     text-align: center;
-    color:  #EFECDD;
+    color:#262325; 
     font-size: 40px;
     padding: 40px;
 }
