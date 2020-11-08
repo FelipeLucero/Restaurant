@@ -64,13 +64,13 @@
         {% if user.is_authenticated %}
         <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="titulobodeguero"> <span class="icon-users1"></span> Bienvenido Bodeguero: {{user.username}}</H4>
         {% endif %}
-        <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
+        <h2 style=" text-align: center;  padding-bottom: 15px; width: auto; font-size: 45px;  font-family: 'Handlee';" >
             Sus Movimientos
         </h2>
         
         <div class="container-fluid">
             <div class="container">
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/stockBodeguero'">VOLVER</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/stockBodeguero'">  <span class="icon-reply"></span> VOLVER</button>
             </div>
             <div class="container">
                 <div class="row shadow-lg p-3 mb-5">
@@ -114,7 +114,7 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"idMovimiento"},
+                        {"data":"idMovimiento", "visible":false},
                         {"data":"fecha"},
                         {"data":"cantidad"},
                         {"data":"tipoMovimiento"},
