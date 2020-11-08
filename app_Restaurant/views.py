@@ -24,17 +24,7 @@ def IngresoEgresos(request):
 
 
 
-def DatosClientesAdmin(request):
-    return render(request, 'plantillas/DatosClientesAdmin.html')
 
-def InventarioAdministrador(request):
-    return render(request, 'plantillas/InventarioAdministrador.html') 
-
-def ResumenAdmin(request):
-    return render(request, 'plantillas/ResumenAdmin.html')
-
-def DatosMesasAdmin(request):
-    return render(request, 'plantillas/DatosMesasAdmin.html')
 
 def MostrarMovimientos(request):
     return render(request, 'plantillas/MovimientosFinanciera.html') 
@@ -94,6 +84,23 @@ def reserva(request):
 
 
 # para Usuario Administrador.
+def DatosClientesAdmin(request):
+    return render(request, 'plantillas/DatosClientesAdmin.html')
+
+def InventarioAdministrador(request):
+    return render(request, 'plantillas/InventarioAdministrador.html') 
+
+def ResumenAdmin(request):
+    return render(request, 'plantillas/ResumenAdmin.html')
+
+def DatosMesasAdmin(request):
+    return render(request, 'plantillas/DatosMesasAdmin.html')
+
+def estadoBodegaAdmin(request):
+    return render(request, 'plantillas/estadoBodegaAdmin.html')
+
+def SolicitudProveedorAdmin(request):
+    return render(request, 'plantillas/SolicitudProveedorAdmin.html')
 
 # para Usuario Bodeguero.
 def stock(request):
