@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin, InventarioAdministrador, ResumenAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -29,6 +29,8 @@ urlpatterns = [
     path('DatosClientes',login_required(DatosClientesAdmin), name='DatosClientesAdmin'),
     path('Resumen',login_required(ResumenAdmin), name='ResumenAdmin'),
     path('DatosMesas',login_required(DatosMesasAdmin), name='DatosMesasAdmin'),
+    path('EstadoBodega',login_required(estadoBodegaAdmin), name='estadoBodegaAdmin'),
+    path('SolicitudProv',login_required(SolicitudProveedorAdmin), name='SolicitudProveedorAdmin'),
 
     path('MostrarMovimientos',login_required(MostrarMovimientos), name='MostrarMovimientos'),
     path('MostrarProveedores',login_required(MostrarProveedores), name='MostrarProveedores'),

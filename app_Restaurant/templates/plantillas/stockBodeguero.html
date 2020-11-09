@@ -181,7 +181,7 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"codigoPro" ,"visible":false},
+                        {"data":"codigoPro"},
                         {"data":"descripcion"},
                         {"data":"stock"},
                         {"data":"precioUnidad"},
@@ -304,7 +304,11 @@
                             data:  JSON.stringify({ stock:stock}),                       
                             success: function(data) {                       
                                 tablaArticulos.ajax.reload(null, false);                        
-                            }
+                            },
+                            error: function(data) {                       
+                                tablaArticulos.ajax.reload(null, false);                        
+                            },
+
                         });	
                     }  
 
@@ -317,7 +321,11 @@
                             data:  JSON.stringify({ stock:stock}),                       
                             success: function(data) {                       
                                 tablaArticulos.ajax.reload(null, false);                        
-                            }
+                            },
+                            error: function(data) {                       
+                                tablaArticulos.ajax.reload(null, false);                        
+                            },
+
                         });	
                     }         		        
                     $('#modalU').modal('hide');										     			
