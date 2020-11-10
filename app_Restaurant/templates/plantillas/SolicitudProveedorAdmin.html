@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>SOLICITUD PROVEEDORES</title>
+    <title>SOLICITUD DE INSUMOS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -31,10 +31,10 @@
             color: #fff;
         }
               
-        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+        .botonesFuncionalidades {background-color:#262325 ; color:white; border-color: #D35400; }
               
         .btn:hover{
-            color: green ;
+            color: #D35400 ;
             background: black;
         }
 
@@ -63,37 +63,41 @@
     <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
     {% endif %}
     <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        SOLICITUD A PROVEEDORES
+        SOLICITUD A PROVEEDORES PENDIENTES
     </h2>
     <P></P>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">     
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Inventario'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER A INVENTARIO</button>
-            </div>    
-        </div>    
-    </div> 
-    <p></p>
-    <div class="container">
-        <div class="row shadow-lg p-3 mb-5">
-            <div class="col-lg-12">
-                <div class="tables-responsive">
-                    <table id="tablaSolicitud" class="table table-striped table-bordered table-condensed" style="width:100%">
-                        <thead class="text-center">
-                            <tr>
-                                <th>ID</th>
-                                <th>FECHA SOLICITUD</th>
-                                <th>TOTAL</th>
-                                <th>ESTADO SOLICITUD</th>              
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table> 
+
+    <div class="container-fluir">
+        <div class="container">
+            <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/Solicitud'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
+ 
+        </div>
+
+        <div class="container">
+            <div class="row shadow-lg p-3 mb-5">
+                <div class="col-lg-12">
+                    <div class="tables-responsive">
+                        <table id="tablaSolicitud" class="table table-striped table-bordered table-condensed" style="width:100%">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FECHA SOLICITUD</th>
+                                    <th>TOTAL</th>
+                                    <th>ESTADO SOLICITUD</th>
+                                    <th>DETALLE DE PRODUCTO</th>
+                                    <th>CANTIDAD SOLICITADA</th>
+                                    <th>ACCIONES</th>              
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table> 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+         
 
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -104,9 +108,9 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            let url = 'https://cors-anywhere.herokuapp.com/http://52.3.46.105/api/solprov';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/pendientes';
             let opcion = null;
-            let idSolicitud,fechaSolicitud,total,estadoSol, fila;
+            let idSolicitud,fechaSolicitud,total,estadoSol,descripcionProducto,cantidadSolicitada, fila;
             //MOSTRAR
             let tablaSolicitud = $('#tablaSolicitud').DataTable({
               "ajax":{
@@ -118,6 +122,9 @@
                   {"data":"fechaSolicitud"},
                   {"data":"total"},
                   {"data":"estadoSol"},
+                  {"data":"descripcionProducto"},
+                  {"data":"cantidadSolicitada"},
+                  {"defaultContent": "<div class='text-center'><div class='btn-group'><button class=' btn btn-default botonesFuncionalidades btn-sm btnAprobar'>APROBAR </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRechazar'>RECHAZAR </button></div></div>"}
             ],
             //Para cambiar idioma a español del datatable
             "language":{
@@ -127,6 +134,7 @@
                 "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "sSearch": "Buscar :",
+                "searchPlaceholder": "Dato a buscar",
                 "oPaginate":{
                   "sFirst": "Primero",
                   "sLast":"Último",

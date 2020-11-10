@@ -102,6 +102,33 @@ def estadoBodegaAdmin(request):
 def SolicitudProveedorAdmin(request):
     return render(request, 'plantillas/SolicitudProveedorAdmin.html')
 
+def ReservasClienteAdmin(request):
+    return render(request, 'plantillas/ReservasClienteAdmin.html')
+
+def SolicitudListaAdmin(reques):
+    return render(reques, 'plantillas/SolicitudListaAdmin.html')
+
+def PedidosPendienteAdmin(reques):
+    return render(reques, 'plantillas/PedidosPendienteAdmin.html')
+
+def PedidosAnuladosAdmin(reques):
+    return render(reques, 'plantillas/PedidosAnuladosAdmin.html')
+
+def EstadoFacturaAdmin(reques):
+    return render(reques, 'plantillas/EstadoFacturaAdmin.html')
+
+def ProveedorActivoAdmin(reques):
+    return render(reques, 'plantillas/ProveedorActivoAdmin.html')
+
+def ProveedorInactivoAdmin(reques):
+    return render(reques, 'plantillas/ProveedorInactivoAdmin.html')
+
+def SolicitudAdmin(reques):
+    return render(reques, 'plantillas/SolicitudAdmin.html')
+
+def PedidoTerminadoAdmin(reques):
+    return render(reques, 'plantillas/PedidoTerminadoAdmin.html')
+
 # para Usuario Bodeguero.
 def stock(request):
    return render(request, 'plantillas/stockBodeguero.html')   # plantilla de cliente para mostrar platillos.

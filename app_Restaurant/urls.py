@@ -1,7 +1,11 @@
 
 from django.urls import path
 from . import views 
+<<<<<<< HEAD
 from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillosListos
+=======
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
+>>>>>>> 7799e3fee63d33a076becd6abfc9975ba9f9622c
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -31,6 +35,15 @@ urlpatterns = [
     path('DatosMesas',login_required(DatosMesasAdmin), name='DatosMesasAdmin'),
     path('EstadoBodega',login_required(estadoBodegaAdmin), name='estadoBodegaAdmin'),
     path('SolicitudProv',login_required(SolicitudProveedorAdmin), name='SolicitudProveedorAdmin'),
+    path('ReservaCliente',login_required(ReservasClienteAdmin), name='ReservasClienteAdmin'),
+    path('SolicitudLista',login_required(SolicitudListaAdmin), name='SolicitudListaAdmin'),
+    path('PedidosPendientes',login_required(PedidosPendienteAdmin), name='PedidosPendienteAdmin.html'),
+    path('PedidoTerminado',login_required(PedidoTerminadoAdmin), name='PedidoTerminadoAdmin'),
+    path('PedidosAnulados',login_required(PedidosAnuladosAdmin), name='PedidosAnuladosAdmin'),
+    path('EstadoFactura',login_required(EstadoFacturaAdmin), name='EstadoFacturaAdmin'),
+    path('ProveedorActivo',login_required(ProveedorActivoAdmin), name='ProveedorActivoAdmin'),
+    path('ProveedorInactivo',login_required(ProveedorInactivoAdmin), name='ProveedorInactivoAdmin'),
+    path('Solicitud',login_required(SolicitudAdmin), name='SolicitudAdmin'),
 
     path('MostrarMovimientos',login_required(MostrarMovimientos), name='MostrarMovimientos'),
     path('MostrarProveedores',login_required(MostrarProveedores), name='MostrarProveedores'),
