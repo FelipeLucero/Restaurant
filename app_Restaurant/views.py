@@ -129,6 +129,9 @@ def SolicitudAdmin(reques):
 def PedidoTerminadoAdmin(reques):
     return render(reques, 'plantillas/PedidoTerminadoAdmin.html')
 
+def PedidosAdmin(reques):
+    return render(reques, 'plantillas/PedidosAdmin.html')
+
 # para Usuario Bodeguero.
 def stock(request):
    return render(request, 'plantillas/stockBodeguero.html')   # plantilla de cliente para mostrar platillos.

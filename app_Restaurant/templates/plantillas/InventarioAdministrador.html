@@ -70,7 +70,7 @@
         <div class="container">
             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuAdministrador'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER AL MENÚ</button>
             <button id="btnCrear" class="btn btn-dark mt-2"><i class="fa fa-user" aria-hidden="true"></i> AGREGAR PROVEEDOR</button>
-            <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/ProveedorActivo'"><i class="fa fa-check" aria-hidden="true"></i> PROVEEDORES ACTIVOS</button>
+            <button class='btn btn-dark mt-2'  onclick="location.href='http://127.0.0.1:8000/ProveedorActivo'"><i class="fa fa-check" aria-hidden="true"></i> PROVEEDORES ACTIVOS</button>
             <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/ProveedorInactivo'"><i class="fa fa-times" aria-hidden="true"></i> PROVEEDORES INACTIVOS</button>
             <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/Solicitud'"><i class="fa fa-list" aria-hidden="true"></i> SOLICITUD A PROVEEDORES</button>
             <button class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/EstadoBodega'"><i class="fa fa-truck" aria-hidden="true"></i> BODEGA</button>            
@@ -159,12 +159,12 @@
             "dataSrc":""
           },
           "columns":[
-              {"data":"idProveedor"},
-              {"data":"rut"},
+              {"data":"idProveedor","className": "text-center","width": "10%"},
+              {"data":"rut","className": "text-center","width": "10%"},
               {"data":"nombre"},
               {"data":"direccion"},
               {"data":"email"},
-              {"data":"telefono"},
+              {"data":"telefono","className": "text-center","width": "10%"},
               {"defaultContent": "<div class='text-center'><div class='btn-group'> <button class=' btn btn-default botonesFuncionalidades btn-sm btnEditar'> Editar </button>"},
           ], 
           //Para cambiar idioma a español del datatable

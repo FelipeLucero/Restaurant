@@ -69,7 +69,7 @@
     <div class="container-fluid">
         <div class="container">
             <div class="coontainer">     
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/PedidosPendientes'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Pedidos'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
             </div>    
         </div> 
         <div class="container">
@@ -117,12 +117,17 @@
               "dataSrc":""
             },
             "columns":[
-                {"data":"idPedido"},
-                {"data":"total"},
-                {"data":"fecha"},
-                {"data":"idMesa"},
-                {"data":"estadoPed"},
-                {"data":"metodoPago"},
+                {"data":"idPedido","className": "text-center","width": "20    %"},
+                {"data":"total",
+                render: function (data, type, row) {
+                  return '$ ' + parseFloat(data).toFixed(0);
+                },
+                className: "text-center",
+                "width": "15%"},
+                {"data":"fecha","className": "text-center","width": "20    %"},
+                {"data":"idMesa","className": "text-center","width": "20    %"},
+                {"data":"estadoPed","className": "text-center","width": "20    %"},
+                {"data":"metodoPago","className": "text-center","width": "20    %"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{

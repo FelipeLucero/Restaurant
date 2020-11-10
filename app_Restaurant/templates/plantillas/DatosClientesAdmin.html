@@ -147,10 +147,10 @@
                     "dataSrc":""
                 },
                 "columns":[
-                    {"data":"idCliente"},
+                    {"data":"idCliente","className": "text-center","width": "20    %"},
                     {"data":"nombre"},
                     {"data":"apellido"},
-                    {"data":"celular"},
+                    {"data":"celular","className": "text-center","width": "20    %"},
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default botonesFuncionalidades btn-sm btnEditar'>EDITAR</button></div></div>"}
                 ],
                     //Para cambiar idioma a español del datatable
@@ -201,28 +201,6 @@
                 $('#modalCRUD').modal('show');		   
             });
         
-            /*//BORRAR
-            $(document).on("click", ".btnBorrar", function(){
-                fila = $(this);           
-                id = parseInt($(this).closest('tr').find('td:eq(0)').text());            
-                Swal.fire({
-                    title: '¿Confirma eliminar el registro?',                
-                    showCancelButton: true,
-                    confirmButtonText: `Confirmar`,                
-                    }).then((result) => {               
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: url+id,
-                            method: 'delete',                        
-                            data:  {id:id},    
-                            success: function() {
-                                tablaArticulos.row(fila.parents('tr')).remove().draw();                  
-                            }
-                        });
-                        Swal.fire('¡Registro Eliminado!', '', 'success')
-                    } 
-                    })
-            });*/ 
         
             //submit para el CREAR y EDITAR
             $('#formArticulos').submit(function(e){    

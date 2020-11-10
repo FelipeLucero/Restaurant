@@ -71,7 +71,7 @@
             <div class="coontainer">     
                 <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuAdministrador'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER AL MENÚ</button>
                 <button id="btnCrear" class="btn btn-dark mt-2"><i class="fa fa-th" aria-hidden="true"></i> AGREGAR MESA</button>
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/PedidosPendientes'"><i class="fa fa-shopping-cart" aria-hidden="true"></i> REGISTRO PEDIDOS</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Pedidos'"><i class="fa fa-shopping-cart" aria-hidden="true"></i> REGISTRO PEDIDOS</button>
             </div>    
         </div> 
         <div class="container">
@@ -81,7 +81,7 @@
                         <table id="tablaMesa" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                  <th >NÚMERO DE MESA</th>
+                                  <th >N° DE MESA</th>
                                   <th >PRECIO</th>                                           
                                   <th >CAPACIDAD</th>
                                   <th>DISPONIBILIDAD</th>                 
@@ -146,10 +146,15 @@
               "dataSrc":""
             },
             "columns":[
-                {"data":"idMesa"},
-                {"data":"precioReserva"},
-                {"data":"capacidad"},
-                {"data":"estadoMesa"}
+                {"data":"idMesa","className": "text-center","width": "20    %"},
+                {"data":"precioReserva",
+                render: function (data, type, row) {
+                  return '$ ' + parseFloat(data).toFixed(0);
+                },
+                className: "text-center",
+                "width": "15%"},
+                {"data":"capacidad","className": "text-center","width": "20    %"},
+                {"data":"estadoMesa","className": "text-center","width": "20    %"}
             ],
             //Para cambiar idioma a español del datatable
             "language":{

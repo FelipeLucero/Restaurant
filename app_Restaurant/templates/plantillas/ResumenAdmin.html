@@ -135,13 +135,18 @@
               "dataSrc":""
             },
             "columns":[
-                {"data":"folio"},
-                {"data":"total"},
-                {"data":"fechaEmision"},
-                {"data":"fechaVencimiento"},
-                {"data":"mesCobrado"},
+                {"data":"folio","className": "text-center","width": "10%"},
+                {"data":"total",
+                render: function (data, type, row) {
+                  return '$ ' + parseFloat(data).toFixed(0);
+                },
+                className: "text-center",
+                "width": "10%"},
+                {"data":"fechaEmision","className": "text-center","width": "15%"},
+                {"data":"fechaVencimiento","className": "text-center","width": "15%"},
+                {"data":"mesCobrado","className": "text-center","width": "15%"},
                 {"data":"motivo"},
-                {"data":"estadoFactura"},
+                {"data":"estadoFactura","className": "text-center","width": "10%"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{

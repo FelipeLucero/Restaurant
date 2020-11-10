@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -33,6 +33,7 @@ urlpatterns = [
     path('SolicitudProv',login_required(SolicitudProveedorAdmin), name='SolicitudProveedorAdmin'),
     path('ReservaCliente',login_required(ReservasClienteAdmin), name='ReservasClienteAdmin'),
     path('SolicitudLista',login_required(SolicitudListaAdmin), name='SolicitudListaAdmin'),
+    path('Pedidos',login_required(PedidosAdmin), name='PedidosAdmin'),
     path('PedidosPendientes',login_required(PedidosPendienteAdmin), name='PedidosPendienteAdmin.html'),
     path('PedidoTerminado',login_required(PedidoTerminadoAdmin), name='PedidoTerminadoAdmin'),
     path('PedidosAnulados',login_required(PedidosAnuladosAdmin), name='PedidosAnuladosAdmin'),

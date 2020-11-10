@@ -79,8 +79,8 @@
                         <table id="tablaFacturaEstado" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                    <th>CÓDIGO DE ESTADO</th>
-									<th>DESCRIPCIÓN</th>            
+                                    <th>CÓDIGO</th>
+									<th>ESTADO FACTURA</th>            
                                 </tr>
                             </thead>
                             <tbody>
@@ -113,8 +113,8 @@
               "dataSrc":""
             },
             "columns":[
-                {"data":"idEstadoFact"},
-                {"data":"descripcion"},
+                {"data":"idEstadoFact","className": "text-center","width": "15%"},
+                {"data":"descripcion","className": "text-center","width": "15%"},
                 
             ],
             //Para cambiar idioma a español del datatable
