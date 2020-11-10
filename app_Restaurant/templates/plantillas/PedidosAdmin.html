@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>REGISTRO MESAS</title>
+    <title>REGISTRO DE PEDIDOS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -63,28 +63,28 @@
     <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
     {% endif %}
     <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        REGISTRO MESAS
+        REGISTRO DE PEDIDOS
     </h2>
     <P></P>
     <div class="container-fluid">
         <div class="container">
             <div class="coontainer">     
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuAdministrador'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER AL MENÚ</button>
-                <button id="btnCrear" class="btn btn-dark mt-2"><i class="fa fa-th" aria-hidden="true"></i> AGREGAR MESA</button>
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Pedidos'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> REGISTRO PEDIDOS</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/DatosMesas'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
             </div>    
         </div> 
         <div class="container">
             <div class="row shadow-lg p-3 mb-5">
                 <div class="col-lg-12">
                     <div class="tables-responsive">
-                        <table id="tablaMesa" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tablaPedido" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                  <th >NÚMERO DE MESA</th>
-                                  <th >PRECIO</th>                                           
-                                  <th >CAPACIDAD</th>
-                                  <th>DISPONIBILIDAD</th>                 
+                                  <th >NÚMERO PEDIDO</th>
+                                  <th >MONTO TOTAL PEDIDO</th>                                           
+                                  <th >FECHA</th>
+                                  <th>NÚMERO MESA</th> 
+                                  <th>ESTADO DEL PEDIDO</th>
+                                  <th>MÉTODO DE PAGO</th>               
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,20 +107,22 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-          let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/mesa';
+          let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/pedido';
           let opcion = null;
-          let idMesa,precioReserva,capacidad,estadoMesa, fila;
+          let idPedido,total,fecha,idMesa,estadoPed,metodoPago, fila;
           //MOSTRAR
-          let tablaMesa = $('#tablaMesa').DataTable({
+          let tablaPedido = $('#tablaPedido').DataTable({
             "ajax":{
               "url":url,
               "dataSrc":""
             },
             "columns":[
+                {"data":"idPedido"},
+                {"data":"total"},
+                {"data":"fecha"},
                 {"data":"idMesa"},
-                {"data":"precioReserva"},
-                {"data":"capacidad"},
-                {"data":"estadoMesa"}
+                {"data":"estadoPed"},
+                {"data":"metodoPago"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{
@@ -129,7 +131,7 @@
                 "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
                 "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sSearch": "Buscar :",
+                "sSearch": "Buscar Pedido:",
                 "oPaginate":{
                   "sFirst": "Primero",
                   "sLast":"Último",

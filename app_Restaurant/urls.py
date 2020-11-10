@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,SolicitudListaAdmin,PedidosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -31,6 +31,10 @@ urlpatterns = [
     path('DatosMesas',login_required(DatosMesasAdmin), name='DatosMesasAdmin'),
     path('EstadoBodega',login_required(estadoBodegaAdmin), name='estadoBodegaAdmin'),
     path('SolicitudProv',login_required(SolicitudProveedorAdmin), name='SolicitudProveedorAdmin'),
+    path('ReservaCliente',login_required(ReservasClienteAdmin), name='ReservasClienteAdmin'),
+    path('SolicitudLista',login_required(SolicitudListaAdmin), name='SolicitudListaAdmin'),
+    path('Pedidos',login_required(PedidosAdmin), name='PedidosAdmin.html'),
+    path('EstadoFactura',login_required(EstadoFacturaAdmin), name='EstadoFacturaAdmin'),
 
     path('MostrarMovimientos',login_required(MostrarMovimientos), name='MostrarMovimientos'),
     path('MostrarProveedores',login_required(MostrarProveedores), name='MostrarProveedores'),
