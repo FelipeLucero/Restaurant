@@ -123,6 +123,12 @@ def ProveedorActivoAdmin(reques):
 def ProveedorInactivoAdmin(reques):
     return render(reques, 'plantillas/ProveedorInactivoAdmin.html')
 
+def SolicitudAdmin(reques):
+    return render(reques, 'plantillas/SolicitudAdmin.html')
+
+def PedidoTerminadoAdmin(reques):
+    return render(reques, 'plantillas/PedidoTerminadoAdmin.html')
+
 # para Usuario Bodeguero.
 def stock(request):
    return render(request, 'plantillas/stockBodeguero.html')   # plantilla de cliente para mostrar platillos.
