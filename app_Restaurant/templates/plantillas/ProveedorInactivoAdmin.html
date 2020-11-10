@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>REGISTRO DE INVENTARIO</title>
+    <title>PROVEEDORES INACTIVOS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -63,17 +63,12 @@
   <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
   {% endif %}
   <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-    PROVEEDORES
+    PROVEEDORES INACTIVOS
   </h2>
   <P></P>
   <div class="container-fluid">
         <div class="container">
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuAdministrador'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER AL MENÚ</button>
-            <button id="btnCrear" class="btn btn-dark mt-2"><i class="fa fa-user" aria-hidden="true"></i> AGREGAR PROVEEDOR</button>
-            <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/ProveedorActivo'"><i class="fa fa-check" aria-hidden="true"></i> PROVEEDORES ACTIVOS</button>
-            <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/ProveedorInactivo'"><i class="fa fa-times" aria-hidden="true"></i> PROVEEDORES INACTIVOS</button>
-            <button class='btn btn-dark mt-2' onclick="location.href='http://127.0.0.1:8000/SolicitudProv'"><i class="fa fa-clock" aria-hidden="true"></i> SOLICITUD A PROVEEDOR</button>
-            <button class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/EstadoBodega'"><i class="fa fa-truck" aria-hidden="true"></i> BODEGA</button>            
+            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Inventario'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
         </div> 
         <div class="container">
             <div class="row shadow-lg p-3 mb-5">
@@ -100,43 +95,6 @@
         </div>
   </div>
     
-    
-    <!--Modal para Crear-->
-    <div id="modalCRUD" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>                
-                </div>
-                <form id="formArticulos">    
-                    <div class="modal-body">                
-                        
-                        <input id="idProveedor" hidden>
-
-                        <label for="" class="col-form-label">RUT PROVEEDOR:</label>
-                        <input type="number" class="form-control" id="rut"> 
-
-                        <label for="" class="col-form-label">NOMBRE PROVEEDOR:</label>
-                        <input type="text" class="form-control" id="nombre">
-                    
-                        <label for="" class="col-form-label">DIRECCIÓN:</label>
-                        <input id="direccion" type="text"  class="form-control">
-
-                        <label for="" class="col-form-label">EMAIL:</label>
-                        <input id="email" type="text"  class="form-control">
-
-                        <label for="" class="col-form-label">TELÉFONO:</label>
-                        <input id="telefono" type="number"  class="form-control">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
-                    </div>
-                </form>    
-            </div>
-        </div>
-    </div>  
 
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -148,8 +106,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-        let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Proveedor';
-        let urlProv = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/proveedor/modificarproveedor/';
+        let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Proveedor/inactivos';
         let opcion = null;
         let idProveedor, rut, nombre, dirección, email, telefono, fila;
         //MOSTRAR
@@ -165,7 +122,7 @@
               {"data":"direccion"},
               {"data":"email"},
               {"data":"telefono"},
-              {"defaultContent": "<div class='text-center'><div class='btn-group'> <button class=' btn btn-default botonesFuncionalidades btn-sm btnEditar'> Editar </button>"},
+              {"defaultContent": "<div class='text-center'><div class='btn-group'> <button class=' btn btn-default botonesFuncionalidades btn-sm btnActivo'> Activar </button>"},
           ], 
           //Para cambiar idioma a español del datatable
           "language":{
@@ -187,96 +144,13 @@
           dom: 'Bfrtip',
             
         });
-        //CREAR
-        $("#btnCrear").click(function(){
-            opcion='crear';            
-            idProveedor=null;
-            $("#formArticulos").trigger("reset");
-            $(".modal-header").css( "background-color", "#23272b");
-            $(".modal-header").css( "color", "white" );
-            $(".modal-title").text("Crear Cliente");
-            $('#modalCRUD').modal('show');	    
-        });    
-        //EDITAR        
-        $(document).on("click", ".btnEditar", function(){		            
-            opcion='editar';
-            fila = $(this).closest("tr");	        
-            idProveedor = parseInt(fila.find('td:eq(0)').text());
-            rut = fila.find('td:eq(1)').text();
-            nombre = fila.find('td:eq(2)').text();
-            direccion = fila.find('td:eq(3)').text();
-            email = fila.find('td:eq(4)').text();            
-            telefono = fila.find('td:eq(5)').text();   
-            $("#idProveedor").val(idProveedor);
-            $("#rut").val(rut);
-            $("#nombre").val(nombre);
-            $("#direccion").val(direccion);
-            $("#email").val(email);              
-            $("#telefono").val(telefono);
-            $(".modal-header").css("background-color", "#7303c0");
-            $(".modal-header").css("color", "white" );
-            $(".modal-title").text("Editar Proveedor:");		
-            $('#modalCRUD').modal('show');		   
-        });
-
-        /*//BORRAR
-        $(document).on("click", ".btnBorrar", function(){
-            fila = $(this);           
-            id = parseInt($(this).closest('tr').find('td:eq(0)').text());            
-            Swal.fire({
-                title: '¿Confirma eliminar el registro?',                
-                showCancelButton: true,
-                confirmButtonText: `Confirmar`,                
-                }).then((result) => {               
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: url+id,
-                        method: 'delete',                        
-                        data:  {id:id},    
-                        success: function() {
-                            tablaArticulos.row(fila.parents('tr')).remove().draw();                  
-                        }
-                    });
-                    Swal.fire('¡Registro Eliminado!', '', 'success')
-                } 
-                })
-        });*/ 
-
-        //submit para el CREAR y EDITAR
-        $('#formArticulos').submit(function(e){    
-            //header.Add('Access-Control-Allow-Origin *');                      
-            e.preventDefault();  
-            idProveedor = $.trim($('#idProveedor').val());  
-            rut = $.trim($('#rut').val());
-            nombre = $.trim($('#nombre').val());
-            direccion = $.trim($('#direccion').val());    
-            email = $.trim($('#email').val());      
-            telefono = $.trim($('#telefono').val());          
-            if(opcion=='crear'){                
-                $.ajax({                    
-                    url: url,
-                    method: 'post',                                                         
-                    contentType: 'application/json',  
-                    data:  JSON.stringify({rut:rut,nombre:nombre, direccion:direccion, email:email, telefono:telefono}),                       
-                    success: function(data) {                       
-                        tablaProveedor.ajax.reload(null, false);                        
-                    }
-                });	
-            }
-            if(opcion=='editar'){
-                console.log("EDITAR");
-                $.ajax({                    
-                    url: urlProv+idProveedor,
-                    method: 'put',                                        
-                    contentType: 'application/json',  
-                    data:  JSON.stringify({ rut:rut, nombre:nombre, direccion:direccion, email:email, telefono:telefono}),                       
-                    success: function(data) {                       
-                        tablaProveedor.ajax.reload(null, false);                        
-                    }
-                });	
-            }        		        
-            $('#modalCRUD').modal('hide');										     			
-        });
+        
+        //Actualizar estado
+        $(document).on("click", ".btnInactivo", function(){
+                
+        })
+        
+        
       });
     </script>
     

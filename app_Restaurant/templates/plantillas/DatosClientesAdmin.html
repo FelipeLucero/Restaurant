@@ -83,7 +83,7 @@
                                     <th>NÚMERO CLIENTE</th>
                                     <th>NOMBRE CLIENTE</th>
                                     <th>APELLIDO CLIENTE</th>
-                                    <th>CELULAR CLIENTE</th> 
+                                    <th>CELULAR CLIENTE</th>
                                     <th class="text-center">ACCIONES</th>                    
                                 </tr>
                             </thead>
@@ -103,8 +103,10 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"></h5>                
                 </div>
-                <form id="formClientes">    
+                <form id="formArticulos">    
                     <div class="modal-body">                
+
+                        <input id="idCliente" hidden>
 
                         <label for="" class="col-form-label">NOMBRE:</label>
                         <input type="text" class="form-control" id="nombre">
@@ -134,22 +136,22 @@
     
     <script type="text/javascript">
         $(document).ready(function(){
-            let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Cliente';
-            let urlModificar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Cliente/modificarCliente/';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Cliente';
+            let urlModificar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Cliente/modificarCliente/';
             let opcion = null;
             let idCliente, nombre, apellido, celular, fila;
-
-            let tablaCliente = $('#tablaCliente').DataTable({
+            //MOSTRAR
+            let tablaCliente = $('#tablaCliente').DataTable({            
                 "ajax":{
                     "url": url,
                     "dataSrc":""
                 },
                 "columns":[
-                {"data":"idCliente"},
-                {"data":"nombre"},
-                {"data":"apellido"},
-                {"data":"celular"},
-                {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default botonesFuncionalidades btn-sm btnEditar'>EDITAR</button></div></div>"}
+                    {"data":"idCliente"},
+                    {"data":"nombre"},
+                    {"data":"apellido"},
+                    {"data":"celular"},
+                    {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default botonesFuncionalidades btn-sm btnEditar'>EDITAR</button></div></div>"}
                 ],
                     //Para cambiar idioma a español del datatable
                 "language":{
@@ -159,7 +161,7 @@
                     "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                     "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                     "sSearch": "Buscar Cliente:",
-                    "searchPlaceholder": "Dato para buscar",
+                    "searchPlaceholder": "Dato a buscar",
                     "oPaginate":{
                     "sFirst": "Primero",
                     "sLast":"Último",
@@ -169,8 +171,18 @@
                     "sProcessing":"Procesando...",
                 },
                 dom: 'Bfrtip',
-               
+                        
             });
+            //CREAR
+            $("#btnCrear").click(function(){
+                opcion='crear';            
+                idCliente=null;
+                $("#formArticulos").trigger("reset");
+                $(".modal-header").css( "background-color", "#7303c0");
+                $(".modal-header").css( "color", "white" );
+                $(".modal-title").text("Crear Cliente");
+                $('#modalCRUD').modal('show');	    
+            });    
             //EDITAR        
             $(document).on("click", ".btnEditar", function(){		            
                 opcion='editar';
@@ -183,10 +195,67 @@
                 $("#nombre").val(nombre);
                 $("#apellido").val(apellido);
                 $("#celular").val(celular);
-                $(".modal-header").css("background-color", "#ff802c");
+                $(".modal-header").css("background-color", "#7303c0");
                 $(".modal-header").css("color", "white" );
-                $(".modal-title").text("Editar Cliente:");		
+                $(".modal-title").text("Editar Cliente");		
                 $('#modalCRUD').modal('show');		   
+            });
+        
+            /*//BORRAR
+            $(document).on("click", ".btnBorrar", function(){
+                fila = $(this);           
+                id = parseInt($(this).closest('tr').find('td:eq(0)').text());            
+                Swal.fire({
+                    title: '¿Confirma eliminar el registro?',                
+                    showCancelButton: true,
+                    confirmButtonText: `Confirmar`,                
+                    }).then((result) => {               
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: url+id,
+                            method: 'delete',                        
+                            data:  {id:id},    
+                            success: function() {
+                                tablaArticulos.row(fila.parents('tr')).remove().draw();                  
+                            }
+                        });
+                        Swal.fire('¡Registro Eliminado!', '', 'success')
+                    } 
+                    })
+            });*/ 
+        
+            //submit para el CREAR y EDITAR
+            $('#formArticulos').submit(function(e){    
+                //header.Add('Access-Control-Allow-Origin *');                      
+                e.preventDefault();  
+                idCliente = $.trim($('#idCliente').val());  
+                nombre = $.trim($('#nombre').val());
+                apellido = $.trim($('#apellido').val());    
+                celular = $.trim($('#celular').val());
+                if(opcion=='crear'){                
+                    $.ajax({                    
+                        url: url,
+                        method: 'post',                                                         
+                        contentType: 'application/json',  
+                        data:  JSON.stringify({nombre:nombre, apellido:apellido, celular:celular}),                       
+                        success: function(data) {                       
+                            tablaCliente.ajax.reload(null, false);                        
+                        }
+                    });	
+                }
+                if(opcion=='editar'){
+                    console.log("EDITAR");
+                    $.ajax({                    
+                        url: urlModificar+idCliente,
+                        method: 'put',                                        
+                        contentType: 'application/json',  
+                        data:  JSON.stringify({ nombre:nombre, apellido:apellido, celular:celular}),                       
+                        success: function(data) {                       
+                            tablaCliente.ajax.reload(null, false);                        
+                        }
+                    });	
+                }        		        
+                $('#modalCRUD').modal('hide');										     			
             });
         });
     </script>

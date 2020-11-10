@@ -80,8 +80,7 @@
                             <thead class="text-center">
                                 <tr>
                                     <th>CÓDIGO DE ESTADO</th>
-									<th>DESCRIPCIÓN</th>
-									                
+									<th>DESCRIPCIÓN</th>            
                                 </tr>
                             </thead>
                             <tbody>
@@ -104,7 +103,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-          let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/EstadosFactura';
+          let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura/EstadosFactura';
           let opcion = null;
           let idEstadoFact,descripcion, fila;
           //MOSTRAR
@@ -126,6 +125,7 @@
                 "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "sSearch": "Buscar Factura:",
+                "searchPlaceholder": "Dato a buscar",
                 "oPaginate":{
                   "sFirst": "Primero",
                   "sLast":"Último",

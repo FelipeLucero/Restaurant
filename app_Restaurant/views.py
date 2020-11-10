@@ -108,11 +108,20 @@ def ReservasClienteAdmin(request):
 def SolicitudListaAdmin(reques):
     return render(reques, 'plantillas/SolicitudListaAdmin.html')
 
-def PedidosAdmin(reques):
-    return render(reques, 'plantillas/PedidosAdmin.html')
+def PedidosPendienteAdmin(reques):
+    return render(reques, 'plantillas/PedidosPendienteAdmin.html')
+
+def PedidosAnuladosAdmin(reques):
+    return render(reques, 'plantillas/PedidosAnuladosAdmin.html')
 
 def EstadoFacturaAdmin(reques):
     return render(reques, 'plantillas/EstadoFacturaAdmin.html')
+
+def ProveedorActivoAdmin(reques):
+    return render(reques, 'plantillas/ProveedorActivoAdmin.html')
+
+def ProveedorInactivoAdmin(reques):
+    return render(reques, 'plantillas/ProveedorInactivoAdmin.html')
 
 # para Usuario Bodeguero.
 def stock(request):

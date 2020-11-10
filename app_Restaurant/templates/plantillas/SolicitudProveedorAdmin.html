@@ -31,10 +31,10 @@
             color: #fff;
         }
               
-        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+        .botonesFuncionalidades {background-color:#262325 ; color:white; border-color: #D35400; }
               
         .btn:hover{
-            color: green ;
+            color: #D35400 ;
             background: black;
         }
 
@@ -85,6 +85,8 @@
                                     <th>FECHA SOLICITUD</th>
                                     <th>TOTAL</th>
                                     <th>ESTADO SOLICITUD</th>
+                                    <th>DETALLE DE PRODUCTO</th>
+                                    <th>CANTIDAD SOLICITADA</th>
                                     <th>ACCIONES</th>              
                                 </tr>
                             </thead>
@@ -107,9 +109,9 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            let url = 'https://cors-anywhere.herokuapp.com/http://52.3.46.105/api/solprov';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/pendientes';
             let opcion = null;
-            let idSolicitud,fechaSolicitud,total,estadoSol, fila;
+            let idSolicitud,fechaSolicitud,total,estadoSol,descripcionProducto,cantidadSolicitada, fila;
             //MOSTRAR
             let tablaSolicitud = $('#tablaSolicitud').DataTable({
               "ajax":{
@@ -121,8 +123,9 @@
                   {"data":"fechaSolicitud"},
                   {"data":"total"},
                   {"data":"estadoSol"},
+                  {"data":"descripcionProducto"},
+                  {"data":"cantidadSolicitada"},
                   {"defaultContent": "<div class='text-center'><div class='btn-group'><button class=' btn btn-default botonesFuncionalidades btn-sm btnAprobar'>APROBAR </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRechazar'>RECHAZAR </button></div></div>"}
-
             ],
             //Para cambiar idioma a español del datatable
             "language":{
@@ -132,6 +135,7 @@
                 "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "sSearch": "Buscar :",
+                "searchPlaceholder": "Dato a buscar",
                 "oPaginate":{
                   "sFirst": "Primero",
                   "sLast":"Último",

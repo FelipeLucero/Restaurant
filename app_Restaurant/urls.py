@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,SolicitudListaAdmin,PedidosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,SolicitudListaAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -33,8 +33,11 @@ urlpatterns = [
     path('SolicitudProv',login_required(SolicitudProveedorAdmin), name='SolicitudProveedorAdmin'),
     path('ReservaCliente',login_required(ReservasClienteAdmin), name='ReservasClienteAdmin'),
     path('SolicitudLista',login_required(SolicitudListaAdmin), name='SolicitudListaAdmin'),
-    path('Pedidos',login_required(PedidosAdmin), name='PedidosAdmin.html'),
+    path('PedidosPendientes',login_required(PedidosPendienteAdmin), name='PedidosPendienteAdmin.html'),
+    path('PedidosAnulados',login_required(PedidosAnuladosAdmin), name='PedidosAnuladosAdmin'),
     path('EstadoFactura',login_required(EstadoFacturaAdmin), name='EstadoFacturaAdmin'),
+    path('ProveedorActivo',login_required(ProveedorActivoAdmin), name='ProveedorActivoAdmin'),
+    path('ProveedorInactivo',login_required(ProveedorInactivoAdmin), name='ProveedorInactivoAdmin'),
 
     path('MostrarMovimientos',login_required(MostrarMovimientos), name='MostrarMovimientos'),
     path('MostrarProveedores',login_required(MostrarProveedores), name='MostrarProveedores'),

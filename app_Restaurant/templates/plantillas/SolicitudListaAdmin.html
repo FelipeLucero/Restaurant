@@ -31,10 +31,10 @@
             color: #fff;
         }
               
-        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+        .botonesFuncionalidades {background-color:#262325 ; color:white; border-color: #D35400; }
               
         .btn:hover{
-            color: green ;
+            color: #D35400 ;
             background: black;
         }
 
@@ -63,7 +63,7 @@
     <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
     {% endif %}
     <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        SOLICITUD DE INSUMOS REVISADAS
+        SOLICITUD DE INSUMOS APROBADAS
     </h2>
     <P></P>
 
@@ -84,6 +84,8 @@
                                     <th>FECHA SOLICITUD</th>
                                     <th>TOTAL</th>
                                     <th>ESTADO SOLICITUD</th>
+                                    <th>DETALLE DE PRODUCTO</th>
+                                    <th>CANTIDAD SOLICITADA</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,9 +107,9 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            let url = 'https://cors-anywhere.herokuapp.com/http://52.3.46.105/api/solprov';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/aprobadas';
             let opcion = null;
-            let idSolicitud,fechaSolicitud,total,estadoSol, fila;
+            let idSolicitud,fechaSolicitud,total,estadoSol,descripcionProducto,cantidadSolicitada, fila;
             //MOSTRAR
             let tablaSolicitud = $('#tablaSolicitud').DataTable({
               "ajax":{
@@ -119,7 +121,8 @@
                   {"data":"fechaSolicitud"},
                   {"data":"total"},
                   {"data":"estadoSol"},
-
+                  {"data":"descripcionProducto"},
+                  {"data":"cantidadSolicitada"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{
@@ -129,6 +132,7 @@
                 "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
                 "sSearch": "Buscar :",
+                "searchPlaceholder": "Dato a buscar",
                 "oPaginate":{
                   "sFirst": "Primero",
                   "sLast":"Último",
