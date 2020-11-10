@@ -64,14 +64,13 @@
         <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="titulobodeguero"> <span class="icon-users1"></span> Bienvenido Cocinero: {{user.username}}</H4>
     {% endif %}
     <h2 style=" text-align: center; padding-bottom: 15px;  width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        Sus Pedidos
+        Sus Pedidos Listos 
     </h2>
 
     <div class="container-fluid">
 
         <div class="container">
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'"> <span class="icon-reply"></span> VOLVER MENU</button>
-            <button  class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/platillosListosCocinero'"> <span class="icon-spoon-knife"></span> PLATILLOS LISTOS</button>
+            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/pedidosCocinero'"> <span class="icon-reply"></span> VOLVER ATRAS</button>
         </div>
 
         <div class="container">
@@ -86,7 +85,6 @@
                             <th>CANTIDAD</th>
                             <th>PLATILLO</th>  
                             <th>ESTADO</th>
-                            <th>CAMBIO DE ESTADO</th>
 
                         </tr>
                     </thead>
@@ -132,25 +130,20 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Pedido/detallespreparacion';
-            let urlCambiar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Pedido/cambiarEstadoDetListo/';
-           
-            let idDetallePed, fila;
-            let opcion = null;
+            let urlListos = 'https://cors-anywhere.herokuapp.com/http://54.159.6.118/api/Pedido/detalleslistos';
             //MOSTRAR
             let tablaPlatillos = $('#tablaPlatillos').DataTable({            
                 "ajax":{
-                    "url": url,
+                    "url": urlListos,
                     "dataSrc":""
                 },
                 "columns":[
-                    {"data":"idDetallePed"},
+                    {"data":"idDetallePed", "visible":false},
                     {"data":"idPedido"},
                     {"data":"numeroMesa"},
                     {"data":"cantidad"},
                     {"data":"nombreItem"},
-                    {"data":"estadoDetalle"},
-                    {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'>Completado </button>"}
+                    {"data":"estadoDetalle"}
                 ],
                 
                 "language":{
@@ -170,36 +163,6 @@
                 },         
             });
         
-            //CAMBIAR    
-            $(document).on("click", ".btnCambiar", function(){
-                opcion='cambiar';		            
-                fila = $(this).closest("tr");	
-                idDetallePed = parseInt(fila.find('td:eq(0)').text());    
-                $("#formConfirmacion").trigger("reset");         
-                $(".modal-header").css("background-color", "#262325");
-                $(".modal-header").css("color", "white" );
-                $(".modal-title").text("¿Esta Seguro que el pedido esta terminado?");	
-                $('#modalCambiar').modal('show');		   
-            });
-
-            $('#formConfirmacion').submit(function(e){    
-                //header.Add('Access-Control-Allow-Origin *');                      
-                e.preventDefault();  
-                    
-                if(opcion=='cambiar'){
-                    
-                    $.ajax({                    
-                        url: urlCambiar+idDetallePed,
-                        method: 'put',                                        
-                        contentType: 'application/json',  
-                        data:  JSON.stringify({ }),                       
-                        success: function(data) {                       
-                            tablaPlatillos.ajax.reload(null, false);                        
-                        }
-                    });	
-                }  
-                $('#modalCambiar').modal('hide');			 				     			
-            }); 
 
         });
     </script>

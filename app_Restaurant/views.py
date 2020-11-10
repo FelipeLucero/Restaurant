@@ -136,3 +136,7 @@ def recetas(request):
 
 def pedidos(request):
    return render(request, 'plantillas/pedidosCocinero.html')   # plantilla de cliente para mostrar platillos.
+
+
+def platillosListos(request):
+   return render(request, 'plantillas/PlatillosListosCocinero.html')   # plantilla de cliente para mostrar platillos.

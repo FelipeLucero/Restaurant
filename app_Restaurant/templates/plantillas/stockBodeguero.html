@@ -169,9 +169,9 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto';
-                let urlAgregar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/agregarStock/';
-                let urlRetirar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Producto/retirarDelStock/';
+                let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto';
+                let urlAgregar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto/agregarStock/';
+                let urlRetirar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto/retirarDelStock/';
                 let opcion = null;
                 let codigoPro, descripcion, stock, precioUnidad, fila;
                 //MOSTRAR
@@ -304,10 +304,8 @@
                             data:  JSON.stringify({ stock:stock}),                       
                             success: function(data) {                       
                                 tablaArticulos.ajax.reload(null, false);                        
-                            },
-                            error: function(data) {                       
-                                tablaArticulos.ajax.reload(null, false);                        
-                            },
+                            }
+                           
 
                         });	
                     }  
@@ -321,10 +319,8 @@
                             data:  JSON.stringify({ stock:stock}),                       
                             success: function(data) {                       
                                 tablaArticulos.ajax.reload(null, false);                        
-                            },
-                            error: function(data) {                       
-                                tablaArticulos.ajax.reload(null, false);                        
-                            },
+                            }
+                            
 
                         });	
                     }         		        

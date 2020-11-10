@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillosListos
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -43,6 +43,7 @@ urlpatterns = [
 
     path('recetasCocinero',login_required(recetas), name='recetasCocinero'),
     path('pedidosCocinero',login_required(pedidos), name='pedidosCocineros'),
+    path('platillosListosCocinero',login_required(platillosListos), name='platillosListosCocinero'),
 
     path('stockBodeguero',login_required(stock), name='stockBodeguero'),
     path('movimientosBodega',login_required(movimientos), name='movimientosBodega'),
