@@ -31,7 +31,7 @@
                         <th>NOMBRE</th>
                         <th>APELLIDO</th>
                         <th>CELULAR</th> 
-                        <th>EMAIL</th>                                                      
+                                                                             
                         <th class="text-center">ACCIONES</th>                      
                     </tr>
                 </thead>
@@ -63,8 +63,6 @@
                         <label for="" class="col-form-label">Celular</label>
                         <input id="celular" type="text"  class="form-control">
 
-                        <label for="" class="col-form-label">Email</label>
-                        <input id="email" type="text"  class="form-control">
                                                       
                     </div>
                     <div class="modal-footer">
@@ -84,10 +82,10 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
 <script>
 $(document).ready(function() {   
-    let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Cliente';
-    let urlModificar = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Cliente/modificarCliente/';
+    let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Cliente';
+    let urlModificar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Cliente/modificarCliente/';
     let opcion = null;
-    let idCliente, nombre, apellido, celular, email, fila;
+    let idCliente, nombre, apellido, celular;
     //MOSTRAR
     let tablaArticulos = $('#tablaArticulos').DataTable({            
         "ajax":{
@@ -99,7 +97,6 @@ $(document).ready(function() {
             {"data":"nombre"},
             {"data":"apellido"},
             {"data":"celular"},
-            {"data":"email"},
             {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnEditar'>Editar</button><button class='btn btn-danger btn-sm btnBorrar'>Borrar</button></div></div>"}
         ],
                 
@@ -121,13 +118,11 @@ $(document).ready(function() {
         idCliente = parseInt(fila.find('td:eq(0)').text());
         nombre = fila.find('td:eq(1)').text();
         apellido = fila.find('td:eq(2)').text();
-        celular = fila.find('td:eq(3)').text();   
-        email = fila.find('td:eq(4)').text();            
+        celular = fila.find('td:eq(3)').text();              
         $("#idCliente").val(idCliente);
         $("#nombre").val(nombre);
         $("#apellido").val(apellido);
-        $("#celular").val(celular);
-        $("#email").val(email);              
+        $("#celular").val(celular);             
         $(".modal-header").css("background-color", "#7303c0");
         $(".modal-header").css("color", "white" );
         $(".modal-title").text("Editar Cliente");		
@@ -164,14 +159,13 @@ $(document).ready(function() {
         idCliente = $.trim($('#idCliente').val());  
         nombre = $.trim($('#nombre').val());
         apellido = $.trim($('#apellido').val());    
-        celular = $.trim($('#celular').val());
-        email = $.trim($('#email').val());                
+        celular = $.trim($('#celular').val());               
         if(opcion=='crear'){                
             $.ajax({                    
                 url: url,
                 method: 'post',                                                         
                 contentType: 'application/json',  
-                data:  JSON.stringify({nombre:nombre, apellido:apellido, celular:celular, email:email}),                       
+                data:  JSON.stringify({nombre:nombre, apellido:apellido, celular:celular}),                       
                 success: function(data) {                       
                     tablaArticulos.ajax.reload(null, false);                        
                 }
@@ -183,7 +177,7 @@ $(document).ready(function() {
                 url: urlModificar+idCliente,
                 method: 'put',                                        
                 contentType: 'application/json',  
-                data:  JSON.stringify({ nombre:nombre, apellido:apellido, celular:celular, email:email}),                       
+                data:  JSON.stringify({nombre:nombre, apellido:apellido, celular:celular}),                       
                 success: function(data) {                       
                     tablaArticulos.ajax.reload(null, false);                        
                 }
