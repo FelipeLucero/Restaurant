@@ -113,9 +113,9 @@
                         <div class="modal-body">                
                             
                             
-                            <input id="folio" hidden>
-                            {% comment %} <label for="" class="col-form-label">Folio</label>
-                            <input type="number" class="form-control" id="folio"> {% endcomment %}
+                            {% comment %} <input id="folio" hidden> {% endcomment %}
+                            <label for="" class="col-form-label">Folio</label>
+                            <input type="number" class="form-control" id="folio">
 
                             <label for="" class="col-form-label">Total</label>
                             <input id="total" type="number"  class="form-control">
@@ -130,7 +130,7 @@
                             <input type="text" class="form-control" id="motivo">
                         
                             <label for="" class="col-form-label">Mes cobrado </label>
-                            <input id="mesCobrado" type="text"  class="form-control">
+                            <input id="mesCobrado" type="date"  class="form-control">
 
                             
 
@@ -156,7 +156,7 @@
     let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura';
     let urlModificar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura';
     let opcion = null;
-    let folio, total, fechaEmision, fechaVencimiento, motivo, mesCobrado;
+    let folio, total, fechaEmision, fechaVencimiento, motivo, mesCobrado,fila;
     //MOSTRAR
     let tablaEgresos = $('#tablaEgresos').DataTable({            
         "ajax":{
@@ -239,21 +239,22 @@
                 url: url,
                 method: 'post',                                                         
                 contentType: 'application/json',  
-                data:  JSON.stringify({total:total,fechaEmision:fechaEmision,fechaVencimiento:fechaVencimiento,motivo:motivo,mesCobrado:mesCobrado}),                       
+                data:  JSON.stringify({folio:folio,total:total,fechaEmision:fechaEmision,fechaVencimiento:fechaVencimiento,motivo:motivo,mesCobrado:mesCobrado}),                       
                 success: function(data) {                       
-                    tablaArticulos.ajax.reload(null, false);                        
+                    tablaEgresos.ajax.reload(null, false);                        
                 }
             });	
         }
         if(opcion=='editar'){
             console.log("EDITAR");
             $.ajax({                    
-                url: urlModificar+folio,
+                url: urlModificar,
                 method: 'put',                                        
                 contentType: 'application/json',  
-                data:  JSON.stringify({total:total,fechaEmision:fechaEmision,fechaVencimiento:fechaVencimiento,motivo:motivo,mesCobrado:mesCobrado}),                       
+                data:  JSON.stringify({folio:folio,total:total,fechaEmision:fechaEmision,fechaVencimiento:fechaVencimiento,motivo:motivo,mesCobrado:mesCobrado}),                       
                 success: function(data) {                       
-                    tablaArticulos.ajax.reload(null, false);                        
+                    tablaEgresos.ajax.reload(null, false);
+                    console.log(data);                       
                 }
             });	
         }        		        

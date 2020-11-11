@@ -38,6 +38,9 @@ def MostrarSolicitudesProveedores(request):
 def MostrarMovimientosFinancieros(request):
     return render(request, 'plantillas/MovimientosFinancierosFinanciera.html') 
 
+def CambiarEstadoFactura(request):
+    return render(request, 'plantillas/financieraCambiarEstadoFactura.html') 
+
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
     model = User
