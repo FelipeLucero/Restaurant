@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos,CambiarEstadoFactura
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos,CambiarEstadoFactura,MostarFacturasPagadas
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -48,6 +48,7 @@ urlpatterns = [
     path('MostrarSolicitudesProveedores',login_required(MostrarSolicitudesProveedores), name='MostrarSolicitudesProveedores'),
     path('MostrarMovimientosFinancieros',login_required(MostrarMovimientosFinancieros), name='MostrarMovimientosFinancieros'),
     path('pagadosFinanciera',login_required(pagaFinanciera), name='pagadosFinanciera'),
+    path('MostarFacturasPagadas',login_required(MostarFacturasPagadas), name='MostarFacturasPagadas'),
 
     path('platillosCliente',login_required(platillos), name='platillosCliente'),
     path('reservaCliente',login_required(reserva), name='reservaCliente'),

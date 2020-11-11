@@ -71,6 +71,7 @@
 
         <div class="container">
             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'"> <span class="icon-reply"></span> VOLVER MENU</button>
+             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MostarFacturasPagadas'"> <span class="icon-coin-dollar"></span>  FACTURAS PAGADAS</button>
         </div>
 
         <div class="container">
@@ -133,9 +134,9 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/factura/emitidas';
             let urlCambiar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura/Pagado/';
-            let folio,total,fechaEmision,fechaVencimiento,periodoFacturacion,descripcion,estadoFactura,nombreProveedor;
+            let folio,total,fechaEmision,fechaVencimiento,mesCobrado,motivo,estadoFactura;
             let opcion = null;
             //MOSTRAR
             let tablaPlatillos = $('#tablaPlatillos').DataTable({            

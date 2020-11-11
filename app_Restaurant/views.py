@@ -41,6 +41,9 @@ def MostrarMovimientosFinancieros(request):
 def CambiarEstadoFactura(request):
     return render(request, 'plantillas/financieraCambiarEstadoFactura.html') 
 
+def MostarFacturasPagadas(request):
+    return render(request, 'plantillas/finacieraFacturasPagadas.html') 
+
  # para registrar usuario.
 class RegistroUsuario(CreateView): 
     model = User
