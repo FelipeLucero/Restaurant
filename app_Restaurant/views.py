@@ -111,6 +111,9 @@ def SolicitudProveedorAdmin(request):
 def ReservasClienteAdmin(request):
     return render(request, 'plantillas/ReservasClienteAdmin.html')
 
+def ReservaFinalizadaAdmin(request):
+    return render(request, 'plantillas/ReservaFinalizadaAdmin.html')
+
 def SolicitudListaAdmin(reques):
     return render(reques, 'plantillas/SolicitudListaAdmin.html')
 
@@ -120,14 +123,17 @@ def PedidosPendienteAdmin(reques):
 def PedidosAnuladosAdmin(reques):
     return render(reques, 'plantillas/PedidosAnuladosAdmin.html')
 
-def EstadoFacturaAdmin(reques):
-    return render(reques, 'plantillas/EstadoFacturaAdmin.html')
+def GananciaDiaAdmin(reques):
+    return render(reques, 'plantillas/GananciaDiaAdmin.html')
 
 def ProveedorActivoAdmin(reques):
     return render(reques, 'plantillas/ProveedorActivoAdmin.html')
 
 def ProveedorInactivoAdmin(reques):
     return render(reques, 'plantillas/ProveedorInactivoAdmin.html')
+
+def ProductosAdmin(reques):
+    return render(reques, 'plantillas/ProductosAdmin.html')
 
 def SolicitudAdmin(reques):
     return render(reques, 'plantillas/SolicitudAdmin.html')
@@ -137,6 +143,15 @@ def PedidoTerminadoAdmin(reques):
 
 def PedidosAdmin(reques):
     return render(reques, 'plantillas/PedidosAdmin.html')
+
+def PedidosPagadosAdmin(reques):
+    return render(reques, 'plantillas/PedidosPagadosAdmin.html')
+
+def PlatosAdmin(reques):
+    return render(reques, 'plantillas/PlatosAdmin.html')
+
+def GananciaMensualAdmin(reques):
+    return render(reques, 'plantillas/GananciaMensualAdmin.html')
 
 # para Usuario Bodeguero.
 def stock(request):
