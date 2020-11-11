@@ -84,6 +84,7 @@
                             <thead>
                                 <tr>
                                     <th>Id del Pedido</th>
+                                    <th>Total</th>
                                     <th>Fecha Pedido</th>
                                     <th>ID de la Mesa</th> 
                                     <th>Estado Pedido</th>     
@@ -108,7 +109,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let urlPaga = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Pedido/pagados';
+                let urlPaga = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Pedido/Pagados';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaPagadas').DataTable({            
@@ -118,6 +119,7 @@
                     },
                     "columns":[
                     {"data":"idPedido"},
+                    {"data":"total"},
                     {"data":"fecha"},
                     {"data":"idMesa"},
                     {"data":"estadoPed"},
