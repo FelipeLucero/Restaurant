@@ -83,12 +83,10 @@
                             <th>Total</th>
                             <th>Fecha emision </th>
                             <th>Fecha vencimiento</th>
-                            <th>Periodo Facturacion</th>
-                            <th>Descripcion</th>
-                            <th>EstadoFactura</th>
-                            <th>NombreProveedor</th>
+                            <th>Mes Cobrado</th>
+                            <th>Motivo</th>
+                            <th>Estado Factura</th>
                                         
-                                                                              
                             <th class="text-center">ACCIONES</th>  
 
                         </tr>
@@ -150,10 +148,9 @@
                     {"data":"total"},
                     {"data":"fechaEmision"},
                     {"data":"fechaVencimiento"},
-                    {"data":"periodoFacturacion"},
-                    {"data":"descripcion"},
+                    {"data":"mesCobrado"},
+                    {"data":"motivo"},
                     {"data":"estadoFactura"},
-                    {"data":"nombreProveedor"},
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'>CAMBIAR</button>"}
                 ],
                 
@@ -179,9 +176,6 @@
                 opcion='cambiar';		            
                 fila = $(this).closest("tr");	
                 folio = parseInt(fila.find('td:eq(0)').text());
-                estadoFactura = fila.find('td:eq(1)').text();
-                $("#folio").val(folio);
-                ("#estadoFactura").val(estadoFactura); 
                 $("#formConfirmacion").trigger("reset");         
                 $(".modal-header").css("background-color", "#262325");
                 $(".modal-header").css("color", "white" );
@@ -199,7 +193,7 @@
                         url: urlCambiar+folio,
                         method: 'put',                                        
                         contentType: 'application/json',  
-                        data:  JSON.stringify({ estadoFactura:estadoFactura}),                       
+                        data:  JSON.stringify({ }),                       
                         success: function(data) {                       
                             tablaPlatillos.ajax.reload(null, false);                        
                         }
