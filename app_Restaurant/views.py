@@ -149,6 +149,10 @@ def movimientos(request):
 def detalleBodega(request):
    return render(request, 'plantillas/detalleSolicitudesBodeguero.html')   # plantilla de cliente para mostrar platillos.
 
+
+def SolicitarInsumosBodega(request):
+   return render(request, 'plantillas/solicitarInsumosBodeguero.html')   # plantilla de cliente para mostrar platillos.
+
 # para Usuario Financiera.
 
 def pagaFinanciera(request):
