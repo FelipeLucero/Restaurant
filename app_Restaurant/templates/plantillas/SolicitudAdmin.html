@@ -120,11 +120,16 @@
               },
               "columns":[
                   {"data":"idSolicitud","visible":false},
-                  {"data":"fechaSolicitud"},
-                  {"data":"total"},
-                  {"data":"estadoSol"},
-                  {"data":"descripcionProducto"},
-                  {"data":"cantidadSolicitada"},
+                  {"data":"fechaSolicitud","className": "text-center","width": "10%"},
+                  {"data":"total",
+                  render: function (data, type, row) {
+                    return '$ ' + parseFloat(data).toFixed(0);
+                  },
+                  className: "text-center",
+                  "width": "10%"},
+                  {"data":"estadoSol","className": "text-center","width": "10%"},
+                  {"data":"descripcionProducto","className": "text-center","width": "10%"},
+                  {"data":"cantidadSolicitada","className": "text-center","width": "10%"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{

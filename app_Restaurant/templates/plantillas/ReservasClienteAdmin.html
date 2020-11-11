@@ -80,12 +80,12 @@
                         <table id="tablaReserva" class="table table-striped table-bordered table-condensed" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                    <th>NÚMERO RESERVA</th>
+                                    <th>N° RESERVA</th>
                                     <th>FECHA RESERVA</th>
                                     <th>FECHA INGRESO</th>
                                     <th>CLIENTE</th> 
-                                    <th>NÚMERO DE MESA</th>
-                                    <th>ESTADO DE RESERVA</th>
+                                    <th>MESA</th>
+                                    <th>ESTADO RESERVA</th>
                                     <th>TIPO DE RESERVA</th>
                                     <th>COSTO</th>
                                 </tr>
@@ -118,14 +118,19 @@
             "dataSrc":""
           },
           "columns":[
-              {"data":"idReserva"},
-              {"data":"fechaReserva"},
-              {"data":"fechaIngresoRe"},
-              {"data":"cliente"},
-              {"data":"idMesa"},
-              {"data":"estadoReserva"},
-              {"data":"tipoReserva"},
-              {"data":"costoReserva"},
+              {"data":"idReserva","className": "text-center","width": "10%"},
+              {"data":"fechaReserva","className": "text-center","width": "15%"},
+              {"data":"fechaIngresoRe","className": "text-center","width": "15%"},
+              {"data":"cliente","className": "text-center","width": "15%"},
+              {"data":"idMesa","className": "text-center","width": "5%"},
+              {"data":"estadoReserva","className": "text-center","width": "15%"},
+              {"data":"tipoReserva","className": "text-center","width": "20%"},
+              {"data":"costoReserva",
+              render: function (data, type, row) {
+                return '$ ' + parseFloat(data).toFixed(0);
+              },
+              className: "text-center",
+              "width": "10%"},
 
           ],
           //Para cambiar idioma a español del datatable

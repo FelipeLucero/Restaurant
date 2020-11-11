@@ -30,11 +30,11 @@
             text-decoration: none;
             color: #fff;
         }
-              
-        .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
+                            
+        .botonesFuncionalidades {background-color:#262325 ; color:white; border-color: #D35400; }
               
         .btn:hover{
-            color: green ;
+            color: #D35400 ;
             background: black;
         }
 
@@ -120,7 +120,7 @@
               "dataSrc":""
             },
             "columns":[
-                {"data":"idPedido","className": "text-center","width": "15%"},
+                {"data":"idPedido","className": "text-center","width": "15%","visible":false},
                 {"data":"total",
                 render: function (data, type, row) {
                   return '$ ' + parseFloat(data).toFixed(0);

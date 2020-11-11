@@ -78,12 +78,12 @@
                             <thead class="text-center">
                                 <tr>
                                     <th>CÓDIGO PROVEEDOR</th>
-                                    <th>RUT PROVEEDOR</th>
-                                    <th>NOMBRE PROVEEDOR</th>
+                                    <th>RUT</th>
+                                    <th>NOMBRE</th>
                                     <th>DIRECCIÓN</th>
                                     <th>EMAIL</th>
                                     <th>TELÉFONO</th>
-                                    <th>ACCIONES</th>
+                                    <th>CAMBIAR ESTADO</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,6 +94,30 @@
             </div>
         </div>
   </div>
+
+    <!--Modal confirmacion de pedido completado-->
+    <div id="modalCambiar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>                
+                </div>
+                <form id="formConfirmacion">    
+                    <div class="modal-body">      
+                
+                        <p class="text-center">¿ESTÁ SEGURO DE CAMBIAR ESTADO DEL PROVEEDOR?</p>
+
+                                
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="btnConfirmar" class="btn btn-dark">Confirmar</button>
+                    </div>
+                </form>    
+            </div>
+        </div>
+    </div> 
     
 
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -107,6 +131,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
         let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Proveedor/inactivos';
+        let urlCambiar1 = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/proveedor/dejaractivo/';
         let opcion = null;
         let idProveedor, rut, nombre, dirección, email, telefono, fila;
         //MOSTRAR
@@ -116,13 +141,13 @@
             "dataSrc":""
           },
           "columns":[
-              {"data":"idProveedor"},
-              {"data":"rut"},
+              {"data":"idProveedor","className": "text-center","width": "10%"},
+              {"data":"rut","className": "text-center","width": "10%"},
               {"data":"nombre"},
               {"data":"direccion"},
               {"data":"email"},
-              {"data":"telefono"},
-              {"defaultContent": "<div class='text-center'><div class='btn-group'> <button class=' btn btn-default botonesFuncionalidades btn-sm btnActivo'> Activar </button>"},
+              {"data":"telefono","className": "text-center","width": "10%"},
+              {"defaultContent": "<div class='text-center'><div class='btn-group'> <button class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'> ACTIVO </button>"},
           ], 
           //Para cambiar idioma a español del datatable
           "language":{
@@ -146,10 +171,35 @@
         });
         
         //Actualizar estado
-        $(document).on("click", ".btnInactivo", function(){
-                
-        })
+        $(document).on("click", ".btnCambiar", function(){
+            opcion='cambiar';		            
+            fila = $(this).closest("tr");	
+            idProveedor = parseInt(fila.find('td:eq(0)').text());    
+            $("#formConfirmacion").trigger("reset");         
+            $(".modal-header").css("background-color", "#c75407");
+            $(".modal-header").css("color", "white" );
+            $(".modal-title").text("PROCESO DE ACTIVACIÓN");	
+            $('#modalCambiar').modal('show');		   
+        });
         
+        $('#formConfirmacion').submit(function(e){    
+            //header.Add('Access-Control-Allow-Origin *');                      
+            e.preventDefault();  
+                
+            if(opcion=='cambiar'){
+                
+                $.ajax({                    
+                    url: urlCambiar1+idProveedor,
+                    method: 'put',                                        
+                    contentType: 'application/json',  
+                    data:  JSON.stringify({ }),                       
+                    success: function(data) {                       
+                        tablaProveedor.ajax.reload(null, false);                        
+                    }
+                });	
+            }  
+            $('#modalCambiar').modal('hide');			 				     			
+        }); 
         
       });
     </script>

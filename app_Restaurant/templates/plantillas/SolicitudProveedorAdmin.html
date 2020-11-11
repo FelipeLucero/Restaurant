@@ -132,7 +132,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/pendientes';
-            let urlCambiar1 = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/SolProv/aprobar';
+            let urlCambiar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/SolProv/aprobar/';
             let urlCambiar2 = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/SolProv/rechazar/';
             let opcion = null;
             let idSolicitud,fechaSolicitud,total,estadoSol,descripcionProducto,cantidadSolicitada, fila;
@@ -145,11 +145,16 @@
               "columns":[
                   {"data":"idSolicitud","className": "text-center","width": "10%"},
                   {"data":"fechaSolicitud","className": "text-center","width": "10%"},
-                  {"data":"total"},
+                  {"data":"total",
+                  render: function (data, type, row) {
+                    return '$ ' + parseFloat(data).toFixed(0);
+                  },
+                  className: "text-center",
+                  "width": "10%"},
                   {"data":"estadoSol","className": "text-center","width": "20%"},
-                  {"data":"descripcionProducto"},
+                  {"data":"descripcionProducto","className": "text-center","width": "20%"},
                   {"data":"cantidadSolicitada","className": "text-center","width": "20%"},
-                  {"defaultContent": "<div class='text-center'><div class='btn-group'><button class=' btn btn-default botonesFuncionalidades btn-sm btnAprobar'>APROBAR </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRechazar'>RECHAZAR </button></div></div>"}
+                  {"defaultContent": "<div class='text-center'><div class='btn-group'><button class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'>APROBAR </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRechazar'>RECHAZAR </button></div></div>"}
             ],
             //Para cambiar idioma a español del datatable
             "language":{
@@ -173,60 +178,61 @@
           });
 
           //CAMBIAR    
-          $(document).on("click", ".btnAprobar", function(){
-            opcion='cambiar1';		            
-            fila = $(this).closest("tr");	
-            idSolicitud = parseInt(fila.find('td:eq(0)').text());    
-            $("#formConfirmacion").trigger("reset");         
-            $(".modal-header").css("background-color", "#262325");
-            $(".modal-header").css("color", "white" );
-            $(".modal-title").text("Aprobar solicitud");	
-            $('#modalCambiar').modal('show');		   
-        });
+            $(document).on("click", ".btnCambiar", function(){
+                opcion='cambiar1';		            
+                fila = $(this).closest("tr");	
+                idSolicitud = parseInt(fila.find('td:eq(0)').text());    
+                $("#formConfirmacion").trigger("reset");         
+                $(".modal-header").css("background-color", "#c75407");
+                $(".modal-header").css("color", "white" );
+                $(".modal-title").text("APROBAR SOLICITUD ");	
+                $('#modalCambiar').modal('show');		   
+            });
 
-        //CAMBIAR    
-        $(document).on("click", ".btnRechazar", function(){
-            opcion='cambiar2';		            
-            fila = $(this).closest("tr");	
-            idSolicitud = parseInt(fila.find('td:eq(0)').text());    
-            $("#formConfirmacion").trigger("reset");         
-            $(".modal-header").css("background-color", "#262325");
-            $(".modal-header").css("color", "white" );
-            $(".modal-title").text("Rechazar Solicitud");	
-            $('#modalCambiar').modal('show');		   
-        });
+            //CAMBIAR    
+            $(document).on("click", ".btnRechazar", function(){
+                opcion='cambiar2';		            
+                fila = $(this).closest("tr");	
+                idSolicitud = parseInt(fila.find('td:eq(0)').text());    
+                $("#formConfirmacion").trigger("reset");         
+                $(".modal-header").css("background-color", "#c75407");
+                $(".modal-header").css("color", "white" );
+                $(".modal-title").text("RECHAZAR SOLICITUD");	
+                $('#modalCambiar').modal('show');		   
+            });
 
-        $('#formConfirmacion').submit(function(e){    
-            //header.Add('Access-Control-Allow-Origin *');                      
-            e.preventDefault();  
+            $('#formConfirmacion').submit(function(e){    
+                //header.Add('Access-Control-Allow-Origin *');                      
+                e.preventDefault();  
+                    
+                if(opcion=='cambiar1'){
+                    
+                    $.ajax({                    
+                        url: urlCambiar+idSolicitud,
+                        method: 'put',                                        
+                        contentType: 'application/json',  
+                        data:  JSON.stringify({ }),                       
+                        success: function(data) {                       
+                            tablaSolicitud.ajax.reload(null, false);                        
+                        }
+                    });	
+                } 
                 
-            if(opcion=='cambiar1'){
-                
-                $.ajax({                    
-                    url: urlCambiar1+idSolicitud,
-                    method: 'put',                                        
-                    contentType: 'application/json',  
-                    data:  JSON.stringify({ }),                       
-                    success: function(data) {                       
-                        tablaSolicitud.ajax.reload(null, false);                        
-                    }
-                });	
-            } 
-            
-            if(opcion=='cambiar2'){
+                if(opcion=='cambiar2'){
 
-                $.ajax({                    
-                    url: urlCambiar2+idSolicitud,
-                    method: 'put',                                        
-                    contentType: 'application/json',  
-                    data:  JSON.stringify({ }),                       
-                    success: function(data) {                       
-                        tablaSolicitud.ajax.reload(null, false);                        
-                    }
-                });	
-            } 
-            $('#modalCambiar').modal('hide');			 				     			
-        }); 
+                    $.ajax({                    
+                        url: urlCambiar2+idSolicitud,
+                        method: 'put',                                        
+                        contentType: 'application/json',  
+                        data:  JSON.stringify({ }),                       
+                        success: function(data) {                       
+                            tablaSolicitud.ajax.reload(null, false);                        
+                        }
+                    });	
+                } 
+
+                $('#modalCambiar').modal('hide');			 				     			
+            }); 
         });
     </script>
 

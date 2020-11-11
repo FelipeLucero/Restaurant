@@ -119,7 +119,12 @@
               "columns":[
                   {"data":"idSolicitud","visible":false},
                   {"data":"fechaSolicitud","className": "text-center","width": "20    %"},
-                  {"data":"total","className": "text-center","width": "20    %"},
+                  {"data":"total",
+                  render: function (data, type, row) {
+                    return '$ ' + parseFloat(data).toFixed(0);
+                  },
+                  className: "text-center",
+                  "width": "10%"},
                   {"data":"estadoSol","className": "text-center","width": "20    %"},
                   {"data":"descripcionProducto","className": "text-center","width": "20    %"},
                   {"data":"cantidadSolicitada","className": "text-center","width": "20    %"},
