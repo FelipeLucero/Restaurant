@@ -82,6 +82,7 @@
                             <th>NUMERO DE MESA</th>
                             <th>PRECIO DE RESERVA</th>
                             <th>CAPACIDAD</th>
+                            <th>Estado de Mesa</th>
                             
                             <th class="text-center">RESERVAR</th>                                                                          
                         </tr>
@@ -155,6 +156,8 @@
                 {"data":"idMesa"},
                 {"data":"precioReserva"},
                 {"data":"capacidad"},
+                {"data":"estadoMesa"},
+
                 {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-default btn-sm botonesFuncionalidades btnGuardar'>Reservar</button>"}
             ],
 
@@ -181,7 +184,8 @@
         $(document).on("click", ".btnGuardar", function(){		            
             opcion='crear';
             fila = $(this).closest("tr");	        
-            idMesa = parseInt(fila.find('td:eq(0)').text());          
+            idMesa = parseInt(fila.find('td:eq(0)').text());     
+            $("#formReserva").trigger("reset");      
             $("#idMesa").val(idMesa);     
             $(".modal-header").css("background-color", "#262325");
             $(".modal-header").css("color", "white" );
@@ -204,7 +208,7 @@
                     url: urlCrear,
                     method: 'post',                                        
                     contentType: 'application/json',  
-                    data:  JSON.stringify({idMesa:idMesa, fechaReserva:fechaReserva, nombre:nombre, apellido:apellido, celular:celular}),                       
+                    data:  JSON.stringify({fechaReserva:fechaReserva,idMesa:idMesa, nombre:nombre, apellido:apellido, celular:celular}),                       
                     success: function(data) {                       
                         tablaReservas.ajax.reload(null, false);                        
                     }
