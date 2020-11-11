@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,EstadoFacturaAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos,CambiarEstadoFactura
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -24,6 +24,7 @@ urlpatterns = [
     path('IngresoEgresos',login_required(IngresoEgresos) , name='IngresoEgresos'),
     path('financieraListarIngresosDias',login_required(listarGanancias) , name='financieraListarIngresosDias'),
     path('financieraListarIngresosMes',login_required(listarGananciasMes) , name='financieraListarIngresosMes'),
+    path('CambiarEstadoFactura',login_required(CambiarEstadoFactura) , name='CambiarEstadoFactura'),
 
     path('Inventario',login_required(InventarioAdministrador), name='InventarioAdministrador'),
     path('DatosClientes',login_required(DatosClientesAdmin), name='DatosClientesAdmin'),
