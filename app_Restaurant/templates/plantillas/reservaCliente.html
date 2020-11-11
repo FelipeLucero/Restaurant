@@ -177,7 +177,7 @@
 
         });
 
-        //EDITAR        
+        //CREAR RESERVA       
         $(document).on("click", ".btnGuardar", function(){		            
             opcion='crear';
             fila = $(this).closest("tr");	        
@@ -204,7 +204,7 @@
                     url: urlCrear,
                     method: 'post',                                        
                     contentType: 'application/json',  
-                    data:  JSON.stringify({ fechaReserva:fechaReserva, idMesa:idMesa, nombre:nombre, apellido:apellido, celular:celular}),                       
+                    data:  JSON.stringify({idMesa:idMesa, fechaReserva:fechaReserva, nombre:nombre, apellido:apellido, celular:celular}),                       
                     success: function(data) {                       
                         tablaReservas.ajax.reload(null, false);                        
                     }
