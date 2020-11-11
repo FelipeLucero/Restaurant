@@ -5,7 +5,7 @@
         <link rel="shortcut icon" href="#">
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-        <title>DataTables estilo Bootstrap 5 - NodeJS y Express</title>
+        <title>Facturas pagadas</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/diseño2.css"> 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -66,13 +66,13 @@
         <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="titulobodeguero"> <span class="icon-users1"></span> Bienvenida Financiera: {{user.username}}</H4>
         {% endif %}
         <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-            Los Pagos Generados
+            Facturas pagadas
         </h2>
 
         <div class="container-fluid">
 
             <div class="container">
-                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MostrarMovimientosFinancieros'"><span class="icon-arrow-left"></span> VOLVER ATRAS</button>
+                <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/CambiarEstadoFactura'"><span class="icon-arrow-left"></span> VOLVER ATRAS</button>
 
             </div>
 
