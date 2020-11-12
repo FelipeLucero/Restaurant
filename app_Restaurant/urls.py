@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views 
-from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos,CambiarEstadoFactura,SolicitarInsumosBodega,MostarFacturasPagadas,ReservaFinalizadaAdmin,GananciaDiaAdmin,ProductosAdmin,PlatosAdmin,PedidosPagadosAdmin,GananciaMensualAdmin
+from .views import inicio, registro, RegistroUsuario, exito, login_exito, login_salida,testapi,IngresoEgresos,SolicitudRechazadaAdmin, DatosClientesAdmin,ReservasClienteAdmin,PedidosAdmin,PedidoTerminadoAdmin,SolicitudListaAdmin,SolicitudAdmin,ProveedorActivoAdmin,ProveedorInactivoAdmin,PedidosPendienteAdmin,PedidosAnuladosAdmin,SolicitudProveedorAdmin, InventarioAdministrador, ResumenAdmin,estadoBodegaAdmin, DatosMesasAdmin, platillos, reserva, MostrarMovimientos, MostrarProveedores, stock, MostrarSolicitudesProveedores, recetas, pedidos,MostrarMovimientosFinancieros,movimientos,pagaFinanciera,listarGanancias,listarGananciasMes, detalleBodega,platillos,platillosListos,CambiarEstadoFactura,SolicitarInsumosBodega,MostarFacturasPagadas,ReservaFinalizadaAdmin,GananciaDiaAdmin,ProductosAdmin,PlatosAdmin,PedidosPagadosAdmin,GananciaMensualAdmin
 
 from django.conf.urls import url, include
 from django.contrib import admin
@@ -48,6 +48,8 @@ urlpatterns = [
     path('Productos',login_required(ProductosAdmin), name='ProductosAdmin'),
     path('Platos',login_required(PlatosAdmin), name='PlatosAdmin'),
     path('GananciaMensual',login_required(GananciaMensualAdmin), name='GananciaMensualAdmin'),
+    path('SolicitudRechazada',login_required(SolicitudRechazadaAdmin), name='SolicitudRechazadaAdmin'),
+
 
     path('MostrarMovimientos',login_required(MostrarMovimientos), name='MostrarMovimientos'),
     path('MostrarProveedores',login_required(MostrarProveedores), name='MostrarProveedores'),

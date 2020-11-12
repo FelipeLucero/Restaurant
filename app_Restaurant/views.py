@@ -22,7 +22,8 @@ def testapi(request):
 def IngresoEgresos(request):
     return render(request, 'plantillas/FinancieraIngresoEgresos.html')  # plantilla ingreso egresos
 
-
+def SolicitudRechazadaAdmin(reques):
+    return render(reques, 'plantillas/SolicitudRechazadaAdmin.html')
 
 
 

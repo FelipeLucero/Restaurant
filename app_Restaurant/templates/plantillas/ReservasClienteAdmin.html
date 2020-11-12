@@ -63,12 +63,12 @@
   <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
   {% endif %}
   <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-    RESERVAS DE CLIENTES
+    RESERVAS DE CLIENTES EN CURSO
   </h2>
   <P></P>
   <div class="container-fluid">
         <div class="container">
-            <button id="btnCrear" class="btn btn-dark mt-2" onclick="location.href='http://127.0.0.1:8000/DatosClientes'"><i class="fa fa-users" aria-hidden="true"></i> VOLVER</button>
+            <button id="btnCrear" class="btn btn-dark mt-2" onclick="location.href='http://127.0.0.1:8000/DatosClientes'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>
         </div>
 
         <div class="container">
@@ -116,7 +116,7 @@
             "dataSrc":""
           },
           "columns":[
-              {"data":"idReserva","className": "text-center","width": "10%"},
+              {"data":"idReserva","visible":false},
               {"data":"fechaReserva","className": "text-center","width": "15%"},
               {"data":"fechaIngresoRe","className": "text-center","width": "15%"},
               {"data":"cliente","className": "text-center","width": "15%"},

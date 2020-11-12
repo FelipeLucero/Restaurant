@@ -4,7 +4,7 @@
     <link rel="shortcut icon" href="#">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>SOLICITUD A PROVEEDORES</title>
+    <title>SOLICITUD DE INSUMOS RECHAZADOS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -63,16 +63,14 @@
     <H4  style ='color: #262325; text-align: right; font-size: 20px; margin: 0%; padding: 10px;'  class="tituloadministrador"> <span class="icon-users1"></span> Bienvenido Administrador: {{user.username}}</H4>
     {% endif %}
     <h2 style=" text-align: center;   width: auto; font-size: 45px;  font-family: 'Handlee';" >
-        REGISTRO DE SOLICITUD A PROVEEDORES
+        SOLICITUD A PROVEEDORES RECHAZADAS
     </h2>
     <P></P>
 
     <div class="container-fluir">
         <div class="container">
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Inventario'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>  
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/SolicitudProv'"><i class="fa fa-clock" aria-hidden="true"></i> SOLICITUD PENDIENTES </button>   
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/SolicitudLista'"><i class="fa fa-check" aria-hidden="true"></i> SOLICITUD APROBADAS</button>   
-            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/SolicitudRechazada'"><i class="fa fa-times" aria-hidden="true"></i> SOLICITUD RECHAZADAS</button>   
+            <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/Solicitud'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> VOLVER</button>  
+             
         </div>
 
         <div class="container">
@@ -109,7 +107,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov';
+            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/rechazadas';
             let opcion = null;
             let idSolicitud,fechaSolicitud,total,estadoSol,descripcionProducto,cantidadSolicitada, fila;
             //MOSTRAR
@@ -120,16 +118,16 @@
               },
               "columns":[
                   {"data":"idSolicitud","visible":false},
-                  {"data":"fechaSolicitud","className": "text-center","width": "10%"},
+                  {"data":"fechaSolicitud","className": "text-center","width": "20    %"},
                   {"data":"total",
                   render: function (data, type, row) {
                     return '$ ' + parseFloat(data).toFixed(0);
                   },
                   className: "text-center",
                   "width": "10%"},
-                  {"data":"estadoSol","className": "text-center","width": "10%"},
-                  {"data":"descripcionProducto","className": "text-center","width": "10%"},
-                  {"data":"cantidadSolicitada","className": "text-center","width": "10%"},
+                  {"data":"estadoSol","className": "text-center","width": "20    %"},
+                  {"data":"descripcionProducto","className": "text-center","width": "20    %"},
+                  {"data":"cantidadSolicitada","className": "text-center","width": "20    %"},
             ],
             //Para cambiar idioma a español del datatable
             "language":{
