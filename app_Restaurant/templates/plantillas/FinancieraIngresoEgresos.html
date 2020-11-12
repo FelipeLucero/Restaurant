@@ -30,16 +30,17 @@
                 color: #fff;
             }
             
-            .botonesFuncionalidades {background-color:#262325 ; color:#D35400; border-color: #D35400; }
-            
+            .botonesFuncionalidades {background-color:#262325 ; color:white; border-color: #D35400; }
+              
             .btn:hover{
-                color: green ;
+                color: #D35400 ;
                 background: black;
             }
-
+    
             .container{
-             background-color: #EEEEEE;
+                background-color: #EEEEEE;
             }
+            
         </style>
       
     </head>
@@ -170,7 +171,7 @@
             {"data":"fechaVencimiento"},
             {"data":"motivo"},
             {"data":"mesCobrado"},
-            {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info btn-sm btnEditar'>Editar</button></div></div>"}
+            {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info botonesFuncionalidades btn-sm btnEditar'>Editar</button></div></div>"}
         ],
         //Para cambiar idioma a español del datatable
                     "language":{
@@ -216,7 +217,7 @@
         $("#fechaVencimiento").val(fechaVencimiento);
         $("#motivo").val(motivo);    
         $("#mesCobrado").val(mesCobrado);           
-        $(".modal-header").css("background-color", "#7303c0");
+        $(".modal-header").css("background-color", "#23272b");
         $(".modal-header").css("color", "white" );
         $(".modal-title").text("Editar Egreso");		
         $('#modalCRUD').modal('show');		   
