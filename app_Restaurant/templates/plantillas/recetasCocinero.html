@@ -70,7 +70,7 @@
     <div class="container-fluid">
         <div class="container">
             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'"> <span class="icon-reply"></span> VOLVER MENU</button>
-            <button id="btnCrear" class="btn btn-dark mt-2"> <span class="icon-spoon-knife"> </span> CREAR PLATILLO</button>
+            <button id="btnCrear" class="btn btn-dark mt-2"> <span class="icon-spoon-knife"> </span> CREAR PLATO</button>
         </div>
         
         <div class="container">
@@ -80,7 +80,7 @@
                     <thead>
                         <tr>
                             <th>IDITEM</th>
-                            <th>NOMBRE</th>
+                            <th>PLATO</th>
                             <th>DESCRIPCIÓN</th>
                             <th>PRECIO</th>                                                                           
                         </tr>
@@ -106,7 +106,7 @@
                     <div class="modal-body">                
                          
 
-                        <label for="" class="col-form-label">Nombre del item</label>
+                        <label for="" class="col-form-label">Nombre del Plato</label>
                         <input type="text" class="form-control" id="nombreItem">
                     
                         <label for="" class="col-form-label">Descripción</label>
@@ -174,7 +174,7 @@
         $("#formItems").trigger("reset");
         $(".modal-header").css( "background-color", "#23272b");
         $(".modal-header").css( "color", "white" );
-        $(".modal-title").text("Crear Platillo");
+        $(".modal-title").text("Incorporar al menú");
         $('#modalCRUD').modal('show');	    
     });    
     
