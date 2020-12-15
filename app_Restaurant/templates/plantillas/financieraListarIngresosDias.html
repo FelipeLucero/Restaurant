@@ -109,7 +109,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let urlDias = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Ganancia';
+                let urlDias = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Ganancia';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaGananciasDias').DataTable({            
@@ -118,11 +118,36 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"totalIngresosPedidos"},
-                        {"data":"totalIngresosReservas"},
-                        {"data":"totalEgresos"},
-                        {"data":"ganancias"},
-                        {"data":"dia"}
+                        {"data":"totalIngresosPedidos",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"totalIngresosReservas",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"totalEgresos",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"ganancias",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"dia","className": "text-center","width": "15%"},
                     
                     ],
 

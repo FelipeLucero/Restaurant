@@ -133,8 +133,8 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/factura/emitidas';
-            let urlCambiar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura/Pagado/';
+            let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/factura/emitidas';
+            let urlCambiar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Factura/Pagado/';
             let folio,total,fechaEmision,fechaVencimiento,mesCobrado,motivo,estadoFactura;
             let opcion = null;
             //MOSTRAR
@@ -144,13 +144,18 @@
                     "dataSrc":""
                 },
                 "columns":[
-                    {"data":"folio"},// "visible":false},
-                    {"data":"total"},
-                    {"data":"fechaEmision"},
-                    {"data":"fechaVencimiento"},
-                    {"data":"mesCobrado"},
-                    {"data":"motivo"},
-                    {"data":"estadoFactura"},
+                    {"data":"folio","className": "text-center","width": "20%"},// "visible":false},
+                    {"data":"total",
+                    render: function (data, type, row) {
+                      return '$ ' + parseFloat(data).toFixed(0);
+                    },
+                    className: "text-center",
+                    "width": "15%"},
+                    {"data":"fechaEmision","className": "text-center","width": "20%"},
+                    {"data":"fechaVencimiento","className": "text-center","width": "20%"},
+                    {"data":"mesCobrado","className": "text-center","width": "20%"},
+                    {"data":"motivo","className": "text-center","width": "20%"},
+                    {"data":"estadoFactura","className": "text-center","width": "20%"},
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'>CAMBIAR</button>"}
                 ],
                 
@@ -177,7 +182,7 @@
                 fila = $(this).closest("tr");	
                 folio = parseInt(fila.find('td:eq(0)').text());
                 $("#formConfirmacion").trigger("reset");         
-                $(".modal-header").css("background-color", "#262325");
+                $(".modal-header").css("background-color", "#c75407");
                 $(".modal-header").css("color", "white" );
                 $(".modal-title").text("¿Esta Seguro que la factura esta pagada?");	
                 $('#modalCambiar').modal('show');		   

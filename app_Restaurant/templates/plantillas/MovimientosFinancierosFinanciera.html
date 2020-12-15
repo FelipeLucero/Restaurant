@@ -104,7 +104,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov/aprobadas';
+                let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/solprov/aprobadas';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaAprobadas').DataTable({            
@@ -113,9 +113,14 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"fechaSolicitud"},
-                        {"data":"total"},
-                        {"data":"estadoSol"}
+                        {"data":"fechaSolicitud","className": "text-center","width": "20%"},
+                        {"data":"total",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"estadoSol","className": "text-center","width": "20%"}
                     
                     ],
 
@@ -133,7 +138,9 @@
                         "sPrevious": "Anterior"
                         },
                         "sProcessing":"Procesando...",
-                    },        
+                    }, 
+                    dom: 'Bfrtip',
+                         
                 });
             
             });

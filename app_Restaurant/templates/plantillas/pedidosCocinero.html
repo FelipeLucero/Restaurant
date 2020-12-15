@@ -131,8 +131,8 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Pedido/detallespreparacion';
-            let urlCambiar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Pedido/cambiarEstadoDetListo/';
+            let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Pedido/detallespreparacion';
+            let urlCambiar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Pedido/cambiarEstadoDetListo/';
            
             let idDetallePed, fila;
             let opcion = null;
@@ -143,12 +143,12 @@
                     "dataSrc":""
                 },
                 "columns":[
-                    {"data":"idDetallePed"},
-                    {"data":"idPedido"},
-                    {"data":"numeroMesa"},
-                    {"data":"cantidad"},
-                    {"data":"nombreItem"},
-                    {"data":"estadoDetalle"},
+                    {"data":"idDetallePed","className": "text-center","width": "20%"},
+                    {"data":"idPedido","className": "text-center","width": "20%"},
+                    {"data":"numeroMesa","className": "text-center","width": "10%"},
+                    {"data":"cantidad","className": "text-center","width": "20%"},
+                    {"data":"nombreItem","className": "text-center","width": "20%"},
+                    {"data":"estadoDetalle","className": "text-center","width": "20%"},
                     {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnCambiar'>Completado </button>"}
                 ],
                 
@@ -175,7 +175,7 @@
                 fila = $(this).closest("tr");	
                 idDetallePed = parseInt(fila.find('td:eq(0)').text());    
                 $("#formConfirmacion").trigger("reset");         
-                $(".modal-header").css("background-color", "#262325");
+                $(".modal-header").css("background-color", "#c75407");
                 $(".modal-header").css("color", "white" );
                 $(".modal-title").text("¿Esta Seguro que el pedido esta terminado?");	
                 $('#modalCambiar').modal('show');		   

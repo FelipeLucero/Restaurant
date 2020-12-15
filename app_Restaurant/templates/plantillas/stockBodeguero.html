@@ -170,9 +170,9 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto';
-                let urlAgregar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto/agregarStock/';
-                let urlRetirar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto/retirarDelStock/';
+                let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Producto';
+                let urlAgregar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Producto/agregarStock/';
+                let urlRetirar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Producto/retirarDelStock/';
                 let opcion = null;
                 let codigoPro, descripcion, stock, precioUnidad, fila;
                 //MOSTRAR
@@ -182,11 +182,16 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"codigoPro"},
-                        {"data":"descripcion"},
-                        {"data":"stock"},
-                        {"data":"precioUnidad"},
-                        {"data":"nombreProveedor"},
+                        {"data":"codigoPro","className": "text-center","width": "20%"},
+                        {"data":"descripcion","className": "text-center","width": "20%"},
+                        {"data":"stock","className": "text-center","width": "10%"},
+                        {"data":"precioUnidad",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"nombreProveedor","className": "text-center","width": "20%"},
                         {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnAgregar'>Agregar </button><button class=' btn btn-default botonesFuncionalidades btn-sm btnRetirar'>Retirar </button></div></div>"}
                     ],
                     
@@ -214,7 +219,7 @@
                     //codigoPro=null;
                     
                     $("#formProductos").trigger("reset");
-                    $(".modal-header").css( "background-color", "#23272b");
+                    $(".modal-header").css( "background-color", "#c75407");
                     $(".modal-header").css( "color", "white" );
                     $(".modal-title").text("Crear Producto");
                     $('#modalCRUD').modal('show');	    
@@ -226,7 +231,7 @@
                     codigoPro = parseInt(fila.find('td:eq(0)').text());
                     $("#codigoPro").val(codigoPro);     
                     $("#formProductos2").trigger("reset");         
-                    $(".modal-header").css("background-color", "#262325");
+                    $(".modal-header").css("background-color", "#c75407");
                     $(".modal-header").css("color", "white" );
                     $(".modal-title").text("Agregar Producto");		
                     $('#modalU').modal('show');		   
@@ -239,7 +244,7 @@
                     codigoPro = parseInt(fila.find('td:eq(0)').text());
                     $("#codigoPro").val(codigoPro);  
                     $("#formProductos2").trigger("reset");            
-                    $(".modal-header").css("background-color", "#262325");
+                    $(".modal-header").css("background-color", "#c75407");
                     $(".modal-header").css("color", "white" );
                     $(".modal-title").text("Retirar Producto");		
                     $('#modalU').modal('show');		   

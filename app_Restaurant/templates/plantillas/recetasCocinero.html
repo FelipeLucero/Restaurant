@@ -133,8 +133,8 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
     $(document).ready(function() {   
-    let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Item';
-    let urlCrear = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/item';
+    let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Item';
+    let urlCrear = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/item';
     let opcion = null;
     let  nombreItem, descripcion, precio, fila;
     //MOSTRAR
@@ -145,9 +145,14 @@
         },
         "columns":[
             {"data":"idItem","visible":false},
-            {"data":"nombreItem"},
-            {"data":"descripcion"},
-            {"data":"precio"}
+            {"data":"nombreItem","className": "text-center","width": "20%"},
+            {"data":"descripcion","className": "text-center","width": "20%"},
+            {"data":"precio",
+            render: function (data, type, row) {
+              return '$ ' + parseFloat(data).toFixed(0);
+            },
+            className: "text-center",
+            "width": "15%"},
         ],
 
         //Para cambiar idioma a español del datatable
@@ -172,7 +177,7 @@
         opcion='crear';            
         idCliente=null;
         $("#formItems").trigger("reset");
-        $(".modal-header").css( "background-color", "#23272b");
+        $(".modal-header").css( "background-color", "#c75407");
         $(".modal-header").css( "color", "white" );
         $(".modal-title").text("Incorporar al menú");
         $('#modalCRUD').modal('show');	    

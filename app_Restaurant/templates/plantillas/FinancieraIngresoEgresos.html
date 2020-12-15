@@ -154,8 +154,8 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
     $(document).ready(function() {   
-    let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura';
-    let urlModificar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Factura';
+    let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Factura';
+    let urlModificar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Factura';
     let opcion = null;
     let folio, total, fechaEmision, fechaVencimiento, motivo, mesCobrado,fila;
     //MOSTRAR
@@ -165,12 +165,17 @@
             "dataSrc":""
         },
         "columns":[
-            {"data":"folio"},
-            {"data":"total"},
-            {"data":"fechaEmision"},
-            {"data":"fechaVencimiento"},
-            {"data":"motivo"},
-            {"data":"mesCobrado"},
+            {"data":"folio","className": "text-center","width": "20%"},
+            {"data":"total",
+            render: function (data, type, row) {
+              return '$ ' + parseFloat(data).toFixed(0);
+            },
+            className: "text-center",
+            "width": "15%"},
+            {"data":"fechaEmision","className": "text-center","width": "20%"},
+            {"data":"fechaVencimiento","className": "text-center","width": "20%"},
+            {"data":"motivo","className": "text-center","width": "20%"},
+            {"data":"mesCobrado","className": "text-center","width": "20%"},
             {"defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-info botonesFuncionalidades btn-sm btnEditar'>Editar</button></div></div>"}
         ],
         //Para cambiar idioma a español del datatable
@@ -188,15 +193,15 @@
                         "sPrevious": "Anterior"
                         },
                         "sProcessing":"Procesando...",
-                    },         
-                
+                    },  
+        dom: 'Bfrtip',       
     });
     //CREAR
     $("#btnCrear").click(function(){
         opcion='crear';            
         folio=null;
         $("#formegresos").trigger("reset");
-        $(".modal-header").css( "background-color", "#23272b");
+        $(".modal-header").css( "background-color", "#c75407");
         $(".modal-header").css( "color", "white" );
         $(".modal-title").text("Registro egreso");
         $('#modalCRUD').modal('show');	    

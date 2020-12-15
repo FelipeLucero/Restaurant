@@ -107,7 +107,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/52.3.46.105/api/Movimiento';
+                let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Movimiento';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaMovimientos').DataTable({            
@@ -116,11 +116,11 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"idMovimiento"},
-                        {"data":"fecha"},
-                        {"data":"cantidad"},
-                        {"data":"tipoMovimiento"},
-                        {"data":"descripcionProducto"}
+                        {"data":"idMovimiento","className": "text-center","width": "20%"},
+                        {"data":"fecha","className": "text-center","width": "20%"},
+                        {"data":"cantidad","className": "text-center","width": "20%"},
+                        {"data":"tipoMovimiento","className": "text-center","width": "20%"},
+                        {"data":"descripcionProducto","className": "text-center","width": "20%"},
                     
                     ],
 

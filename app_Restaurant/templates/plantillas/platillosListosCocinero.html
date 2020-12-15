@@ -129,7 +129,7 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let urlListos = 'https://cors-anywhere.herokuapp.com/http://54.159.6.118/api/Pedido/detalleslistos';
+            let urlListos = 'https://cors-anywhere.herokuapp.com/http://34.233.79.205/api/Pedido/detalleslistos';
             //MOSTRAR
             let tablaPlatillos = $('#tablaPlatillos').DataTable({            
                 "ajax":{
@@ -138,11 +138,11 @@
                 },
                 "columns":[
                     {"data":"idDetallePed", "visible":false},
-                    {"data":"idPedido"},
-                    {"data":"numeroMesa"},
-                    {"data":"cantidad"},
-                    {"data":"nombreItem"},
-                    {"data":"estadoDetalle"}
+                    {"data":"idPedido","className": "text-center","width": "20%"},
+                    {"data":"numeroMesa","className": "text-center","width": "20%"},
+                    {"data":"cantidad","className": "text-center","width": "20%"},
+                    {"data":"nombreItem","className": "text-center","width": "20%"},
+                    {"data":"estadoDetalle","className": "text-center","width": "20%"},
                 ],
                 
                 "language":{

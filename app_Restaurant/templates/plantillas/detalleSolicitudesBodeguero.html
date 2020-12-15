@@ -106,7 +106,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let urlSoli = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov';
+                let urlSoli = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/solprov';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaSolicitudes').DataTable({            
@@ -116,11 +116,16 @@
                     },
                     "columns":[
                         {"data":"idSolicitud","visible":false},
-                        {"data":"fechaSolicitud"},
-                        {"data":"total"},
-                        {"data":"estadoSol"},
-                        {"data":"descripcionProducto"},
-                        {"data":"cantidadSolicitada"}
+                        {"data":"fechaSolicitud","className": "text-center","width": "20%"},
+                        {"data":"total",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"estadoSol","className": "text-center","width": "20%"},
+                        {"data":"descripcionProducto","className": "text-center","width": "20%"},
+                        {"data":"cantidadSolicitada","className": "text-center","width": "20%"}
                         
 
                     

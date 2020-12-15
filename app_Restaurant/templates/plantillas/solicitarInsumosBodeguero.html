@@ -88,7 +88,7 @@
                                         <th>STOCK</th>
                                         <th>PRECIO UNIDAD</th> 
                                         <th>NOMBRE DE PROVEEDOR</th>                                                      
-                                        <th class="text-center">Generar Solicitud</th>                      
+                                        <th class="text-center, width= 25%">Generar Solicitud</th>                      
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,8 +141,8 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Producto';
-                let urlSolicitar = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/solprov';
+                let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Producto';
+                let urlSolicitar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/solprov';
                 
                 let opcion = null;
                 let codigoPro, total, cantidad, fila;
@@ -153,11 +153,16 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"codigoPro"},
-                        {"data":"descripcion"},
-                        {"data":"stock"},
-                        {"data":"precioUnidad"},
-                        {"data":"nombreProveedor"},
+                        {"data":"codigoPro","className": "text-center","width": "25%"},
+                        {"data":"descripcion","className": "text-center","width": "20%"},
+                        {"data":"stock","className": "text-center","width": "10%"},
+                        {"data":"precioUnidad",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
+                        {"data":"nombreProveedor","className": "text-center","width": "20%"},
                         {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnSolicitar'>Solicitar </button></div></div>"}
                     ],
                     
@@ -186,7 +191,7 @@
                     fila = $(this).closest("tr");	        
                     codigoproducto = parseInt(fila.find('td:eq(0)').text());   
                     $("#formSolicitar").trigger("reset");         
-                    $(".modal-header").css("background-color", "#262325");
+                    $(".modal-header").css("background-color", "#c75407");
                     $(".modal-header").css("color", "white" );
                     $(".modal-title").text("Solicitar Producto");		
                     $('#modaSolicitar').modal('show');		   

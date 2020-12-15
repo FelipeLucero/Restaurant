@@ -143,8 +143,8 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
 <script>
     $(document).ready(function() {   
-        let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/mesa';
-        let urlCrear= 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/Reserva';
+        let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/mesa';
+        let urlCrear= 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Reserva';
         let opcion = null;
         let fechaReserva, idMesa, nombre, apellido, celular, fila;
         //MOSTRAR
@@ -155,7 +155,12 @@
             },
             "columns":[
                 {"data":"idMesa"},
-                {"data":"precioReserva"},
+                {"data":"precioReserva",
+                render: function (data, type, row) {
+                  return '$ ' + parseFloat(data).toFixed(0);
+                },
+                className: "text-center",
+                "width": "15%"},
                 {"data":"capacidad"},
                 {"data":"estadoMesa"},
 
@@ -188,7 +193,7 @@
             idMesa = parseInt(fila.find('td:eq(0)').text());     
             $("#formReserva").trigger("reset");      
             $("#idMesa").val(idMesa);     
-            $(".modal-header").css("background-color", "#262325");
+            $(".modal-header").css("background-color", "#c75407");
             $(".modal-header").css("color", "white" );
             $(".modal-title").text("Crear Reserva");		
             $('#modalCRUD').modal('show');		   

@@ -108,7 +108,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let urlPaga = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/factura/pagadas';
+                let urlPaga = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/factura/pagadas';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaPagadas').DataTable({            
@@ -117,13 +117,18 @@
                         "dataSrc":""
                     },
                     "columns":[
-                    {"data":"folio"},// "visible":false},
-                    {"data":"total"},
-                    {"data":"fechaEmision"},
-                    {"data":"fechaVencimiento"},
-                    {"data":"mesCobrado"},
-                    {"data":"motivo"},
-                    {"data":"estadoFactura"},
+                    {"data":"folio","className": "text-center","width": "20%"},// "visible":false},
+                    {"data":"total",
+                    render: function (data, type, row) {
+                      return '$ ' + parseFloat(data).toFixed(0);
+                    },
+                    className: "text-center",
+                    "width": "15%"},
+                    {"data":"fechaEmision","className": "text-center","width": "20%"},
+                    {"data":"fechaVencimiento","className": "text-center","width": "20%"},
+                    {"data":"mesCobrado","className": "text-center","width": "20%"},
+                    {"data":"motivo","className": "text-center","width": "20%"},
+                    {"data":"estadoFactura","className": "text-center","width": "20%"},
                     ],
 
                     "language":{

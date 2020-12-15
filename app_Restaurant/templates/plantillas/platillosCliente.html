@@ -103,7 +103,7 @@
         <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
         <script>
             $(document).ready(function() {   
-                let url = 'https://cors-anywhere.herokuapp.com/54.159.6.118/api/item';
+                let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/item';
                 let opcion = null;
                 //MOSTRAR
                 let tablaArticulos = $('#tablaPlatillos').DataTable({            
@@ -115,7 +115,12 @@
                         
                         {"data":"nombreItem"},
                         {"data":"descripcion"},
-                        {"data":"precio"}
+                        {"data":"precio",
+                        render: function (data, type, row) {
+                          return '$ ' + parseFloat(data).toFixed(0);
+                        },
+                        className: "text-center",
+                        "width": "15%"},
                     
                     ],
 
