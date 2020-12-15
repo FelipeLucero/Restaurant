@@ -150,16 +150,16 @@
                         "dataSrc":""
                     },
                     "columns":[
-                        {"data":"codigoPro","className": "text-center","width": "25%"},
-                        {"data":"descripcion","className": "text-center","width": "20%"},
-                        {"data":"stock","className": "text-center","width": "10%"},
+                        {"data":"codigoPro"},
+                        {"data":"descripcion"},
+                        {"data":"stock"},
                         {"data":"precioUnidad",
                         render: function (data, type, row) {
                           return '$ ' + parseFloat(data).toFixed(0);
                         },
                         className: "text-center",
                         "width": "15%"},
-                        {"data":"nombreProveedor","className": "text-center","width": "20%"},
+                        {"data":"nombreProveedor"},
                         {"defaultContent": "<div class='text-center'><div class='btn-group'><button  class=' btn btn-default botonesFuncionalidades btn-sm btnSolicitar'>Solicitar </button></div></div>"}
                     ],
                     
