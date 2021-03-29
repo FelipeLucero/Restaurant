@@ -1,7 +1,7 @@
 *{
     margin: 0%;
     padding: 0%; 
-    font-family: 'Poppins','Handlee','Helvetica';
+    font-family: 'Poppins','Montserrat','Handlee','Open Sans','Work Sans','Raleway';
 }
 
 
@@ -23,14 +23,15 @@ a:hover{
 /*Prueba de pull*/
 
 .fondo{
-  background:  #EFECDD;
+  background:  #ffff;
  
 }
 
 header{
    /*para darle tamaño y centrarlo con margin auto*/
     max-width: 100%;
-    background:  #EFECDD;/*mismo color para el contenido del header*/ 
+    height: 70px;
+    background:  #ffff;/*mismo color para el contenido del header*/ 
     overflow: hidden;/*para poder ocupar el float y mober los contenedores*/
     box-shadow: 0px 0px 30px 0px  rgb(109, 96, 23);
     position: sticky; /*para dejar fijo el menu*/
@@ -53,29 +54,34 @@ header{
 /*para alinear el menu*/
 #subheader {
     width:100%;
-    margin: auto;
+    margin: right;
     box-sizing: border-box;/*El milagroso*/ 
 }
 
 /*LOGO ESTRUCTURA*/
 #divlogo{
     float: left;
-    width: 40%;/*espacio que ocupa en el contenedor subheader*/
-    height: 104px;
+    width: 50%;/*espacio que ocupa en el contenedor subheader*/
+    height: 70px;
     box-sizing: border-box;/*El milagroso*/ 
+    background: #fff;
 }
 
 
 @media screen and (max-width:697px){
     #divlogo {
        width:100%;/*para que el logo ocupe todo el contendor*/ 
-       height: 104px;
-       background:#EFECDD;
+       height: 70px;
+       background:#fff;
     }
 }
 
 .logorest{
-   border-radius:10px; 
+   border-radius:10px;
+   height: 100%; 
+   margin-right: 250px;
+   float:right; 
+
 }
 
 @media screen and (max-width:697px){
@@ -91,9 +97,11 @@ header{
 
 header #subheader nav {
     float: right;/*para que se flote a la derecha del logo*/
-    width: 60%;/*espacio que ocupa en el contenedor subheader*/
-    padding: 40px 0px;
-    text-align: left;        
+    width: 50%;/*espacio que ocupa en el contenedor subheader*/
+    padding: 20px 0px;
+    margin: center;
+    text-align: left; 
+    border-top:2px solid red;       
 }
 
 @media screen and (max-width:700px){
@@ -110,11 +118,16 @@ header #subheader nav ul li{
     display: inline;/*para eliminar las puntos de las lista tipo desordenada*/
 }
 
+
+header #subheader nav ul {
+    float:left;
+}
+
 header #subheader nav ul li a{
-    color: #EFECDD;
-    font-size: 20px;
+    color: black;
+    font-size: 16px;
     padding: 10px;
-    background: black;
+    background: #fff;
     border-radius: 5px;
 }
 
@@ -131,9 +144,9 @@ header #subheader nav ul li a{
 
 header #subheader nav ul li a:hover{
   color:#D35400;
-  background:  rgb(93, 92, 88);
   text-decoration: none;/*para quitarle las lineas*/
-  border-radius:5px; 
+  border-radius:5px;
+  border-bottom:2px solid red;  
 }   
 
 @media screen and (max-width:700px){
@@ -151,7 +164,7 @@ header #subheader nav ul li a:hover{
     clear: both;
     overflow: hidden; 
     border-radius: 5px; 
-    background: #EFECDD;
+    background: #fff;
 }
 
 @media screen and (max-width:700px){
@@ -169,14 +182,16 @@ header #subheader nav ul li a:hover{
 
 #contenido{
     width:100%;
+    margin-top: 30px;
     overflow: hidden;
-    background: #EFECDD;
+    background: #fff;
     border-radius: 5px;
     text-align: center;/*centrar el texto del contenido*/
 }
 
 .parrafos{
-    font-size: 20px;
+    font-size: 23px;
+    font-family: 'Open Sans';
 }
 
 @media screen and (max-width:700px){
@@ -236,6 +251,7 @@ header #subheader nav ul li a:hover{
 
 .subtitulos{
    opacity:0.4; 
+
 }
 
 #contenido article >button{
@@ -267,13 +283,18 @@ header #subheader nav ul li a:hover{
 #titulogaleria{
     width: 100%;
     font-size: 20px;
-    background: #EFECDD; 
     text-align: center;
     padding: 30px;
     border-radius: 5px;
     box-sizing: border-box;/*El milagroso*/  
     margin-top: 80px;
     margin-bottom: 20px;
+   
+}
+
+#titulogaleria h3{
+    font-size: 30px;
+    font-family:'Raleway';
 }
 
 @media screen and (max-width:700px){
@@ -289,23 +310,26 @@ header #subheader nav ul li a:hover{
 #galeria{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;/*la clave*/
-    background: #EFECDD;  
-    border-radius: 5px; 
+    flex-wrap: wrap;/*la clave*/ 
+     
 }
 
 .contgaleria{
     width: 300px;
-    padding: 20px;
     text-align: center;   
-    margin: auto;  
-    box-shadow: 0px 0px 30px 0px  rgb(109, 96, 23);  
+    margin:auto;  
+    box-shadow: 0px 0px 1px 0px  rgb(109, 96, 23);  
+    background: #ffff;
+    padding-bottom: 10px;
 }
 
 @media screen and (max-width:800px){
     .contgaleria {
-        width: 70%;
+        width: 95%;
         float: left;
+        padding-bottom: 10px;
+        margin-bottom:15px;
+        
     }
 }
 
@@ -316,20 +340,33 @@ header #subheader nav ul li a:hover{
 
 #galeria .contgaleria label{
  font-size: 26px;
+ font-family:'Montserrat' ;
 }
 
 #galeria .contgaleria .butimg{
     width: 150px;
     height: 20px;
     margin: auto;
-    padding: 10px;  
+    padding: 15px;  
     color: #fff;
     background: rgb(93, 92, 88);
     border-radius: 5px;
+    text-align:center;
 }
+
+.detalleparrafo{
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-family:'Montserrat';
+    font-size: 20px;
+}
+
 
 #galeria .contgaleria .butimg a {
     text-decoration: none;
+    font-family:'Montserrat' ;
+    font-size: 15px;
+    text-align: center;
 }
 
 #galeria .contgaleria .butimg:hover{
@@ -953,4 +990,15 @@ footer{
     text-align: center;
     font-size: 25px;
     margin: 22px;
+}
+
+.tituloprincipal{
+    font-family:'Raleway';
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.textsli{
+
+    font-family:"Ralewey";
 }

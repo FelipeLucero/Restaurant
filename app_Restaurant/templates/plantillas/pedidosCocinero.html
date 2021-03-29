@@ -41,10 +41,10 @@
         }
 
     </style>
-    
+
     
 </head>
-<body style="background:#EFECDD ;">
+<body style="background: linear-gradient(to right,#40352C,#ffff);">
     <header>
         <div id="subheader">
             <div id="divlogo">
@@ -66,7 +66,7 @@
         Sus Pedidos A Preparar
     </h2>
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
 
         <div class="container">
             <button id="btnVolver" class="btn btn-dark mt-2"  onclick="location.href='http://127.0.0.1:8000/MenuCliente'"> <span class="icon-reply"></span> VOLVER MENÚ</button>
@@ -131,7 +131,7 @@
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
     <script>
         $(document).ready(function() {   
-            let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Pedido/detallespreparacion';
+            let url = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Pedido/detallespreparacion/';
             let urlCambiar = 'https://cors-anywhere.herokuapp.com/34.233.79.205/api/Pedido/cambiarEstadoDetListo/';
            
             let idDetallePed, fila;
@@ -192,7 +192,8 @@
                         method: 'put',                                        
                         contentType: 'application/json',  
                         data:  JSON.stringify({ }),                       
-                        success: function(data) {                       
+                        success: function(data) {      
+
                             tablaPlatillos.ajax.reload(null, false);                        
                         }
                     });	
